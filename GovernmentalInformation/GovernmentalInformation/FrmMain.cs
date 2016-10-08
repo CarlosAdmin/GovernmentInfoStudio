@@ -305,6 +305,10 @@ namespace GovernmentalInformation
                     return;
                 }
 
+                BackgroundWorker bgDepartWork = new BackgroundWorker();
+                bgDepartWork.DoWork += BgDepartWork_DoWork;
+                bgDepartWork.ProgressChanged += BgDepartWork_ProgressChanged;
+                bgDepartWork.RunWorkerCompleted += BgDepartWork_RunWorkerCompleted;
                 var departList = ReadDepaet(sourceFolder);
 
                 List<AdministrativeCategory> categoryList = new List<AdministrativeCategory>();
@@ -341,6 +345,21 @@ namespace GovernmentalInformation
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        private void BgDepartWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BgDepartWork_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BgDepartWork_DoWork(object sender, DoWorkEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
