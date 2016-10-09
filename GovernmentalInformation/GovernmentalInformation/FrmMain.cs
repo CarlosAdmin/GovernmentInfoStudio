@@ -1,4 +1,5 @@
 ﻿using Aspose.Words;
+using GovernmentalInformation.Dll;
 using GovernmentalInformation.Model;
 using GovernmentalInformation.Utils;
 using LinqToExcel;
@@ -285,14 +286,15 @@ namespace GovernmentalInformation
                 }
                 else
                 {
-                    FolderBrowserDialog dialog = new FolderBrowserDialog();
-                    dialog.Description = "请选择文件路径";
-                    if (dialog.ShowDialog() != DialogResult.OK)
-                    {
-                        return;
-                    }
+                    //FolderBrowserDialog dialog = new FolderBrowserDialog();
+                    //dialog.Description = "请选择文件路径";
+                    //if (dialog.ShowDialog() != DialogResult.OK)
+                    //{
+                    //    return;
+                    //}
 
-                    sourceFolder = dialog.SelectedPath;
+                    // sourceFolder = dialog.SelectedPath;
+                    sourceFolder = @"D:\松滋市";
                 }
 
                 if (authorityList == null)
@@ -305,11 +307,17 @@ namespace GovernmentalInformation
                     return;
                 }
 
-                BackgroundWorker bgDepartWork = new BackgroundWorker();
-                bgDepartWork.DoWork += BgDepartWork_DoWork;
-                bgDepartWork.ProgressChanged += BgDepartWork_ProgressChanged;
-                bgDepartWork.RunWorkerCompleted += BgDepartWork_RunWorkerCompleted;
+                //BackgroundWorker bgDepartWork = new BackgroundWorker();
+                //bgDepartWork.DoWork += BgDepartWork_DoWork;
+                //bgDepartWork.ProgressChanged += BgDepartWork_ProgressChanged;
+                //bgDepartWork.RunWorkerCompleted += BgDepartWork_RunWorkerCompleted;
                 var departList = ReadDepaet(sourceFolder);
+
+                string sql = "";
+                //foreach (var item in departList)
+                //{
+                //    sql += GovernmentInfoDLL.GetInsertSql(item) + ";";
+                //}
 
                 List<AdministrativeCategory> categoryList = new List<AdministrativeCategory>();
 
@@ -333,10 +341,23 @@ namespace GovernmentalInformation
 
                         cateItem.Department = item;
 
-                        var value = ReadAuthorityMattery(cateItem);
-                        richTextBox3.Text += value.ToString() + "\r\n";
-                        authorityList.Add(value);
+     //                   sql += string.Format(@"INSERT INTO [Department_AdministrativeCategory]
+     //      ([DepartmentID]
+     //      ,[AdministrativeCategoryID])
+     //VALUES
+     //      (''
+     //      ,'')" , item.DepartmentSortID, cateItem.AdministrativeCategorySortID) + ";";
+                        //var value = ReadAuthorityMattery(cateItem);
+                        //richTextBox3.Text += value.ToString() + "\r\n";
+                        //authorityList.Add(value);
                     }
+                }
+
+                sql = "";
+
+                foreach (var item in categoryList)
+                {
+                    sql += GovernmentInfoDLL.GetInsertSql(item) + ";";
                 }
 
                 SerializeHelper.SaveToDisk(authorityList, dataFile);

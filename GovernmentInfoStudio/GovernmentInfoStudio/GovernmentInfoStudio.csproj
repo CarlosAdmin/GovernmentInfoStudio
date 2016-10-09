@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C42077ED-FC77-4271-ADB7-DB08A6468769}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GovernmentInfoStudio</RootNamespace>
+    <AssemblyName>GovernmentInfoStudio</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Words, Version=14.9.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=9fdf78c33174000e, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=9fdf78c33174000e, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=9fdf78c33174000e, processorArchitecture=MSIL" />
+    <Reference Include="LinqToExcel, Version=1.7.1.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=x86" />
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL" />
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL" />
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL" />
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionManager\DepartmentMng.cs" />
+    <Compile Include="AppInfo.cs" />
+    <Compile Include="AppTypeEnum.cs" />
+    <Compile Include="ComFn.cs" />
+    <Compile Include="DateTimeFormat.cs" />
+    <Compile Include="DBCtrl\Table\TblAdministrativeCategoryCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblAdministrativeCategoryCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityDetailCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityDetailCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryDetailCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryDetailCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryFlowCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblAuthorityMatteryFlowCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblDepartmentCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblDepartmentCtrlSql.cs" />
+    <Compile Include="DBCtrl\Table\TblDepartment_AdministrativeCategoryCtrl.cs" />
+    <Compile Include="DBCtrl\Table\TblDepartment_AdministrativeCategoryCtrlSql.cs" />
+    <Compile Include="DBModule\Table\TblAdministrativeCategory.cs" />
+    <Compile Include="DBModule\Table\TblAuthorityDetail.cs" />
+    <Compile Include="DBModule\Table\TblAuthorityMattery.cs" />
+    <Compile Include="DBModule\Table\TblAuthorityMatteryDetail.cs" />
+    <Compile Include="DBModule\Table\TblAuthorityMatteryFlow.cs" />
+    <Compile Include="DBModule\Table\TblDepartment.cs" />
+    <Compile Include="DBModule\Table\TblDepartment_AdministrativeCategory.cs" />
+    <Compile Include="DBSql\FieldInfo.cs" />
+    <Compile Include="DBSql\SqlGroupByList.cs" />
+    <Compile Include="DBSql\SqlOrderByList.cs" />
+    <Compile Include="DBSql\SqlOrderByType.cs" />
+    <Compile Include="DBSql\SqlQueryCondition.cs" />
+    <Compile Include="DBSql\SqlQueryFieldList.cs" />
+    <Compile Include="DBSql\SqlQuerySqlMng.cs" />
+    <Compile Include="DBSql\SqlUpdateField.cs" />
+    <Compile Include="DBSql\SqlUpdateFieldList.cs" />
+    <Compile Include="DBSql\SqlUpdateValueType.cs" />
+    <Compile Include="DBSql\SqlWhereCondition.cs" />
+    <Compile Include="DBSql\SqlWhereLinkType.cs" />
+    <Compile Include="DBSql\SqlWhereList.cs" />
+    <Compile Include="DBUpdate\ColumnData.cs" />
+    <Compile Include="DBUpdate\DatabaseData.cs" />
+    <Compile Include="DBUpdate\PKData.cs" />
+    <Compile Include="DBUpdate\SqlServer\CmdHelper.cs" />
+    <Compile Include="DBUpdate\SqlServer\UpdateHelper.cs" />
+    <Compile Include="DBUpdate\SqlServer\VersionTypeEnum.cs" />
+    <Compile Include="DBUpdate\TableData.cs" />
+    <Compile Include="DBUpdate\TriggerData.cs" />
+    <Compile Include="DBUpdate\UpdateTypeEnum.cs" />
+    <Compile Include="DBUpdate\ViewData.cs" />
+    <Compile Include="DB\DBMng.cs" />
+    <Compile Include="DB\DBSession.cs" />
+    <Compile Include="ExeTypeEnum.cs" />
+    <Compile Include="FrmMain.cs" />
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBox.cs" />
+    <Compile Include="MsgBoxConfirmDefaultButton.cs" />
+    <Compile Include="MsgBoxConfirmResult.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\Session.cs" />
+    <Compile Include="Session\SessionMng.cs" />
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\Excel\LinqToExcel.dll" />
+    <Content Include="Lib\Excel\log4net.dll" />
+    <Content Include="Lib\Excel\Remotion.Data.Linq.dll" />
+    <Content Include="Lib\Excel\Remotion.dll" />
+    <Content Include="Lib\Excel\Remotion.Interfaces.dll" />
+    <Content Include="Lib\Word\Aspose.Words.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

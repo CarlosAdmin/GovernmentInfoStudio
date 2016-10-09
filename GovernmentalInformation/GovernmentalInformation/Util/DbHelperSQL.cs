@@ -18,8 +18,7 @@ namespace Maticsoft.DBUtility
         //数据库连接字符串(web.config来配置)，多数据库可使用DbHelperSQLP来实现.
         //public static string connectionString = PubConstant.ConnectionString;  
 
-        public static readonly string connectionString = "Data Source=192.168.66.105;Initial Catalog=KaMenWang;User ID=sakamenwang;Password=kamenwang;Connect Timeout=60;";
-
+        public static readonly string connectionString = "Data Source=218.200.71.227,1414;Initial Catalog=GovernmentInfo;User ID=GovernmentInfo;Password=GovernmentInfo;Connect Timeout=60;";
 
         public DbHelperSQL()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GovernmentalInformation.Dll;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace GovernmentalInformation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            GovernmentInfoDLL.GetList();
+
             Application.Run(new FrmMain());
         }
     }
