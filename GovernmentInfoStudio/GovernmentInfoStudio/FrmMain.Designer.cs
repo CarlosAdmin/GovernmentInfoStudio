@@ -30,6 +30,7 @@
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.c_grcMain = new DevExpress.XtraGrid.GridControl();
@@ -54,7 +55,9 @@
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblMaxValue = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue = new DevExpress.XtraEditors.LabelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
@@ -76,6 +79,7 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -98,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
@@ -438,7 +443,7 @@
             // 
             // groupControl3
             // 
-            this.groupControl3.Controls.Add(this.progressBar1);
+            this.groupControl3.Controls.Add(this.progressBarControl1);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupControl3.Location = new System.Drawing.Point(5, 493);
             this.groupControl3.Name = "groupControl3";
@@ -447,14 +452,29 @@
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "groupControl1";
             // 
-            // progressBar1
+            // lblMaxValue
             // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar1.Location = new System.Drawing.Point(2, 2);
-            this.progressBar1.MarqueeAnimationSpeed = 500;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1213, 28);
-            this.progressBar1.TabIndex = 0;
+            this.lblMaxValue.Location = new System.Drawing.Point(1102, 26);
+            this.lblMaxValue.Name = "lblMaxValue";
+            this.lblMaxValue.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue.TabIndex = 1;
+            this.lblMaxValue.Text = "100";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(1076, 26);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(5, 14);
+            this.labelControl17.TabIndex = 1;
+            this.labelControl17.Text = "/";
+            // 
+            // lblValue
+            // 
+            this.lblValue.Location = new System.Drawing.Point(1046, 26);
+            this.lblValue.Name = "lblValue";
+            this.lblValue.Size = new System.Drawing.Size(7, 14);
+            this.lblValue.TabIndex = 1;
+            this.lblValue.Text = "0";
             // 
             // groupControl4
             // 
@@ -518,7 +538,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.lblMaxValue);
+            this.groupControl1.Controls.Add(this.labelControl17);
             this.groupControl1.Controls.Add(this.labelControl14);
+            this.groupControl1.Controls.Add(this.lblValue);
             this.groupControl1.Controls.Add(this.labelControl12);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl5);
@@ -669,6 +692,16 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
             // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBarControl1.Location = new System.Drawing.Point(2, 2);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Properties.DisplayFormat.FormatString = "{0}/{1}";
+            this.progressBarControl1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.progressBarControl1.Size = new System.Drawing.Size(1213, 28);
+            this.progressBarControl1.TabIndex = 0;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -678,6 +711,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "行政责任清单和权利清单管理系统";
@@ -706,6 +740,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -757,7 +792,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private DevExpress.XtraEditors.LabelControl lblMaxValue;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl lblValue;
+        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
     }
 }
 

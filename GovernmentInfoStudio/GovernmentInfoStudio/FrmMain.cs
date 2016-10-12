@@ -21,6 +21,11 @@ namespace GovernmentInfoStudio
         public FrmMain()
         {
             InitializeComponent();
+
+            bgWork.DoWork += new DoWorkEventHandler(bgWork_DoWork);
+            bgWork.ProgressChanged += new ProgressChangedEventHandler(bgWork_ProgressChanged);
+            bgWork.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgWork_RunWorkerCompleted);
+            bgWork.WorkerReportsProgress = true;
         }
 
         List<TblDepartment> departList = new List<TblDepartment>();
@@ -122,6 +127,10 @@ namespace GovernmentInfoStudio
             return DepartmentList;
         }
 
+        int processValue = 1;
+
+        BackgroundWorker bgWork = new BackgroundWorker();
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(buttonEdit2.Text))
@@ -129,46 +138,65 @@ namespace GovernmentInfoStudio
                 return;
             }
 
+            if (bgWork.IsBusy)
+            {
+                return;
+            }
+
+           
+
+            simpleButton6.Enabled = false;
+            bgWork.RunWorkerAsync();
+        }
+
+        void bgWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            simpleButton6.Enabled = true;
+        }
+
+        void bgWork_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            try
+            {
+                Value(e.ProgressPercentage);
+                c_grcMain.DataSource = departList;
+                c_grcMain.Refresh();
+                c_grcMain.RefreshDataSource();
+            }
+            catch (Exception)
+            {
+            }          
+        }
+
+        void bgWork_DoWork(object sender, DoWorkEventArgs e)
+        {
             //读取部门
             var dataList = ReadDepaet(buttonEdit2.Text);
 
-            progressBar1.Maximum = dataList.Count;
+            MaxValue(dataList.Count);
 
-            foreach (var item in dataList)
+            for (int i = 0; i < dataList.Count; i++)
             {
-                ThreadPool.QueueUserWorkItem(new WaitCallback((obj) =>
+                var departItme = dataList[i];
+
+                if (departItme == null)
                 {
-                    var departItme = obj as TblDepartment;
+                    return;
+                }
 
-                    if (departItme == null)
-                    {
-                        return;
-                    }
+                var depart = departList.Find(c => c.DepartmentName == departItme.DepartmentName);
 
-                    var depart = departList.Find(c => c.DepartmentName == departItme.DepartmentName);
+                if (depart == null)
+                {
+                    DepartmentMng.Insert(departItme);
+                    departList.Add(departItme);
+                }
+                else
+                {
+                    depart.DepartFullName = departItme.DepartFullName;
+                }
 
-                    if (depart == null)
-                    {
-                        DepartmentMng.Insert(departItme);
-                        departList.Add(departItme);
-                    }
-                    else
-                    {
-                        depart.DepartFullName = departItme.DepartFullName;
-                    }
-
-                    this.Invoke(new Action(() =>
-                    {
-                        c_grcMain.RefreshDataSource();
-
-                        progressBar1.Value++;
-
-                        //if (progressBar1.Value >= progressBar1.Maximum)
-                        //{
-                        //    progressBar1.Value = 0;
-                        //}
-                    }));
-                }), item);
+                bgWork.ReportProgress(i + 1);
             }
         }
 
@@ -176,13 +204,17 @@ namespace GovernmentInfoStudio
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+
             treeDataList = new List<TreeMainData>();
             c_trlMain.DataSource = treeDataList;
+            c_trlMain.RefreshDataSource();
 
             focusedRowDepartment = (TblDepartment)c_grcMain_View.GetFocusedRow();
 
             //读取部门分类
             var category = ReadAdministrativeCategory(focusedRowDepartment);
+
+            MaxValue(category.Count);
 
             var departCategory = new List<TblDepartment_AdministrativeCategory>();
 
@@ -190,52 +222,70 @@ namespace GovernmentInfoStudio
 
             DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg);
 
-            int treeID = 0;
 
-            var departCateBach = new List<TblDepartment_AdministrativeCategory>();
-
-            foreach (var item in category)
+            foreach (var cateItem in category)
             {
-                var depart = categoryList.Find(c => c.AdministrativeCategoryName == item.AdministrativeCategoryName);
-
-                if (depart == null)
+                ThreadPool.QueueUserWorkItem(new WaitCallback((obj) =>
                 {
-                    DepartmentMng.Insert(item);
-                    categoryList.Add(item);
-                }
+                    #region 是否存在分类
 
-                var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
+                    var item = obj as TblAdministrativeCategory;
 
-                if (departCateTemp == null)
-                {
-                    departCateBach.Add(new TblDepartment_AdministrativeCategory()
+                    var depart = categoryList.Find(c => c.AdministrativeCategoryName == item.AdministrativeCategoryName);
+
+                    if (depart == null)
                     {
-                        DepartmentID = focusedRowDepartment.DepartmentID,
-                        AdministrativeCategoryID = depart.AdministrativeCategoryID
-                    });
-                }
+                        DepartmentMng.Insert(item);
+                        categoryList.Add(item);
+                    }
 
-                var treeData = new TreeMainData();
+                    #endregion
 
-                treeData.TreeDataID = treeID;
-                treeData.TreeDataCode = treeID;
-                treeData.Department = focusedRowDepartment;
-                treeData.DepartmentName = focusedRowDepartment.DepartmentName;
-                treeData.Category = depart;
-                treeData.CategoryName = depart.AdministrativeCategoryName;
-                treeData.CategoryFileName = item.CategoryFileName;
-                treeData.AuthorityFullName = item.CategoryFullName;
+                    #region 是否存在部门类别关系
 
-                treeDataList.Add(treeData);
+                    var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
 
-                c_trlMain.RefreshDataSource();
+                    if (departCateTemp == null)
+                    {
+                        DepartmentMng.Insert(new TblDepartment_AdministrativeCategory()
+                        {
+                            DepartmentID = focusedRowDepartment.DepartmentID,
+                            AdministrativeCategoryID = depart.AdministrativeCategoryID
+                        });
+                    }
 
-                treeID++;
-            }
+                    #endregion
 
-            if (departCateBach.Count > 0)
-            {
-                DepartmentMng.InsertBath(departCateBach);
+                    #region 加载数据
+
+                    var treeData = new TreeMainData();
+
+                    treeData.TreeDataID = Guid.NewGuid().ToString();
+                    treeData.TreeDataCode = treeData.TreeDataID;
+                    treeData.Department = focusedRowDepartment;
+                    treeData.DepartmentName = focusedRowDepartment.DepartmentName;
+                    treeData.Category = depart;
+                    treeData.CategoryName = depart.AdministrativeCategoryName;
+                    treeData.CategoryFileName = item.CategoryFileName;
+                    treeData.AuthorityFullName = item.CategoryFullName;
+
+                    lock (treeDataList)
+                    {
+                        treeDataList.Add(treeData);
+                        Value();
+
+                        #region 刷新数据
+
+                        this.Invoke(new Action(() =>
+                        {
+                            c_trlMain.RefreshDataSource();
+                        }));
+
+                        #endregion
+                    }
+                  
+                    #endregion
+                }), cateItem);
             }
         }
 
@@ -323,7 +373,7 @@ namespace GovernmentInfoStudio
                     {
                         var treeData = new TreeMainData();
 
-                        treeData.TreeDataID = treeDataList.Count + 1;
+                        treeData.TreeDataID = Guid.NewGuid().ToString();
                         treeData.TreeDataCode = focusedRow.TreeDataID;
                         treeData.Department = focusedRow.Department;
                         treeData.DepartmentName = focusedRow.DepartmentName;
@@ -588,9 +638,9 @@ namespace GovernmentInfoStudio
 
         private class TreeMainData
         {
-            public int TreeDataID { get; set; }
+            public string TreeDataID { get; set; }
 
-            public int TreeDataCode { get; set; }
+            public string TreeDataCode { get; set; }
 
             public TblDepartment Department { get; set; }
 
@@ -619,5 +669,33 @@ namespace GovernmentInfoStudio
 
         }
 
+        void Value()
+        {
+            this.Invoke(new Action(() =>
+            {
+                processValue++;
+                lblValue.Text = processValue.ToString();
+                progressBarControl1.Text = processValue.ToString(); 
+            }));
+        }
+
+        void Value(int value)
+        {
+            this.Invoke(new Action(() =>
+            {
+                lblValue.Text = value.ToString();
+                progressBarControl1.Text = value.ToString();
+            }));
+        }
+        void MaxValue(int valeu)
+        {
+            processValue = 0;
+            this.Invoke(new Action(() =>
+            {
+                lblMaxValue.Text = valeu.ToString();
+                progressBarControl1.Text = processValue.ToString();
+                progressBarControl1.Properties.Maximum = valeu;
+            }));
+        }
     }
 }

@@ -130,6 +130,33 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Insert(TblDepartment_AdministrativeCategory data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (QueryCount(session, data) > 1)
+                    {
+                        return true;
+                    }
+
+                    if (!TblDepartment_AdministrativeCategoryCtrl.InsertNoPK(data, session, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
         public static bool InsertBath(List<TblDepartment_AdministrativeCategory> dataList)
         {
             try
@@ -148,7 +175,6 @@ namespace GovernmentInfoStudio.ActionManager
                 return false;
             }
         }
-
 
         public static int QueryCount(TblDepartment data)
         {
@@ -201,6 +227,28 @@ namespace GovernmentInfoStudio.ActionManager
             {
                 SqlQueryCondition sqlQuery = new SqlQueryCondition();
                 sqlQuery.Where.Add(TblAdministrativeCategory.GetAdministrativeCategoryNameField(), SqlWhereCondition.Equals, data.AdministrativeCategoryName);
+                int rowCount = 0;
+                string errMsg = string.Empty;
+                if (!TblAdministrativeCategoryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
+                {
+                    return -1;
+                }
+                return rowCount;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public static int QueryCount(DBSession session, TblDepartment_AdministrativeCategory data)
+        {
+            try
+            {
+                SqlQueryCondition sqlQuery = new SqlQueryCondition();
+                sqlQuery.Where.Add(TblDepartment_AdministrativeCategory.GetAdministrativeCategoryIDField(), SqlWhereCondition.Equals, data.AdministrativeCategoryID);
+                sqlQuery.Where.Add(TblDepartment_AdministrativeCategory.GetDepartmentIDField(), SqlWhereCondition.Equals, data.DepartmentID);
+
                 int rowCount = 0;
                 string errMsg = string.Empty;
                 if (!TblAdministrativeCategoryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
