@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.c_grcMain = new DevExpress.XtraGrid.GridControl();
@@ -45,11 +45,11 @@
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.c_trlMain = new DevExpress.XtraTreeList.TreeList();
             this.c_trlMain_DepartmentName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.c_trlMain_AuthorityFullName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_CategoryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityMatteryCode = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityMatteryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityDetailName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.c_trlMain_AuthorityFullName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -234,7 +234,6 @@
             this.c_grcMain_view_ReadDepartment.Caption = "读取";
             this.c_grcMain_view_ReadDepartment.ColumnEdit = this.repositoryItemButtonEdit1;
             this.c_grcMain_view_ReadDepartment.Name = "c_grcMain_view_ReadDepartment";
-            this.c_grcMain_view_ReadDepartment.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_ReadDepartment.Visible = true;
             this.c_grcMain_view_ReadDepartment.VisibleIndex = 3;
             // 
@@ -242,7 +241,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "读取", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "读取", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -260,7 +259,6 @@
             this.c_grcMain_view_Delete.Caption = "删除";
             this.c_grcMain_view_Delete.ColumnEdit = this.repositoryItemButtonEdit2;
             this.c_grcMain_view_Delete.Name = "c_grcMain_view_Delete";
-            this.c_grcMain_view_Delete.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_Delete.Visible = true;
             this.c_grcMain_view_Delete.VisibleIndex = 4;
             this.c_grcMain_view_Delete.Width = 67;
@@ -269,7 +267,7 @@
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "删除", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit2_ButtonClick);
@@ -292,11 +290,11 @@
             // 
             this.c_trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.c_trlMain_DepartmentName,
+            this.c_trlMain_AuthorityFullName,
             this.c_trlMain_CategoryName,
             this.c_trlMain_AuthorityMatteryCode,
             this.c_trlMain_AuthorityMatteryName,
-            this.c_trlMain_AuthorityDetailName,
-            this.c_trlMain_AuthorityFullName});
+            this.c_trlMain_AuthorityDetailName});
             this.c_trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c_trlMain.Location = new System.Drawing.Point(0, 0);
             this.c_trlMain.Name = "c_trlMain";
@@ -326,6 +324,22 @@
             this.c_trlMain_DepartmentName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_DepartmentName.Width = 114;
             // 
+            // c_trlMain_AuthorityFullName
+            // 
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseFont = true;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_trlMain_AuthorityFullName.Caption = "路径";
+            this.c_trlMain_AuthorityFullName.FieldName = "路径";
+            this.c_trlMain_AuthorityFullName.Name = "c_trlMain_AuthorityFullName";
+            this.c_trlMain_AuthorityFullName.OptionsColumn.AllowEdit = false;
+            this.c_trlMain_AuthorityFullName.OptionsColumn.ReadOnly = true;
+            this.c_trlMain_AuthorityFullName.Visible = true;
+            this.c_trlMain_AuthorityFullName.VisibleIndex = 0;
+            this.c_trlMain_AuthorityFullName.Width = 73;
+            // 
             // c_trlMain_CategoryName
             // 
             this.c_trlMain_CategoryName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
@@ -339,8 +353,8 @@
             this.c_trlMain_CategoryName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_CategoryName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_CategoryName.Visible = true;
-            this.c_trlMain_CategoryName.VisibleIndex = 0;
-            this.c_trlMain_CategoryName.Width = 51;
+            this.c_trlMain_CategoryName.VisibleIndex = 1;
+            this.c_trlMain_CategoryName.Width = 36;
             // 
             // c_trlMain_AuthorityMatteryCode
             // 
@@ -355,7 +369,8 @@
             this.c_trlMain_AuthorityMatteryCode.OptionsColumn.AllowEdit = false;
             this.c_trlMain_AuthorityMatteryCode.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityMatteryCode.Visible = true;
-            this.c_trlMain_AuthorityMatteryCode.VisibleIndex = 1;
+            this.c_trlMain_AuthorityMatteryCode.VisibleIndex = 2;
+            this.c_trlMain_AuthorityMatteryCode.Width = 60;
             // 
             // c_trlMain_AuthorityMatteryName
             // 
@@ -370,8 +385,8 @@
             this.c_trlMain_AuthorityMatteryName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_AuthorityMatteryName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityMatteryName.Visible = true;
-            this.c_trlMain_AuthorityMatteryName.VisibleIndex = 2;
-            this.c_trlMain_AuthorityMatteryName.Width = 120;
+            this.c_trlMain_AuthorityMatteryName.VisibleIndex = 3;
+            this.c_trlMain_AuthorityMatteryName.Width = 105;
             // 
             // c_trlMain_AuthorityDetailName
             // 
@@ -386,24 +401,7 @@
             this.c_trlMain_AuthorityDetailName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_AuthorityDetailName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityDetailName.Visible = true;
-            this.c_trlMain_AuthorityDetailName.VisibleIndex = 3;
-            this.c_trlMain_AuthorityDetailName.Width = 90;
-            // 
-            // c_trlMain_AuthorityFullName
-            // 
-            this.c_trlMain_AuthorityFullName.AppearanceHeader.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
-            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseFont = true;
-            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseTextOptions = true;
-            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_trlMain_AuthorityFullName.Caption = "路径";
-            this.c_trlMain_AuthorityFullName.FieldName = "路径";
-            this.c_trlMain_AuthorityFullName.Name = "c_trlMain_AuthorityFullName";
-            this.c_trlMain_AuthorityFullName.OptionsColumn.AllowEdit = false;
-            this.c_trlMain_AuthorityFullName.OptionsColumn.ReadOnly = true;
-            this.c_trlMain_AuthorityFullName.Visible = true;
-            this.c_trlMain_AuthorityFullName.VisibleIndex = 4;
-            this.c_trlMain_AuthorityFullName.Width = 88;
+            this.c_trlMain_AuthorityDetailName.VisibleIndex = 4;
             // 
             // splitContainerControl3
             // 
@@ -682,7 +680,7 @@
             this.Controls.Add(this.groupControl4);
             this.Name = "FrmMain";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "行政责任清单和权利清单";
+            this.Text = "行政责任清单和权利清单管理系统";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);

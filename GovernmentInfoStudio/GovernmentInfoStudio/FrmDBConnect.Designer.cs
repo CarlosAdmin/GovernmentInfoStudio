@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDBConnect));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.c_txtDBNumber = new DevExpress.XtraEditors.TextEdit();
             this.c_txtDBUserName = new DevExpress.XtraEditors.TextEdit();
             this.c_txtDBPassword = new DevExpress.XtraEditors.TextEdit();
             this.c_txtDBServerName = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.c_txtDBNumber = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c_txtDBNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBServerName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_txtDBNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -72,6 +73,16 @@
             this.c_btnExit.TabIndex = 1;
             this.c_btnExit.Text = "返回";
             this.c_btnExit.Click += new System.EventHandler(this.c_btnExit_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Location = new System.Drawing.Point(10, 14);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(117, 41);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "测试连接";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // c_btnSave
             // 
@@ -110,6 +121,14 @@
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "数据明细";
             // 
+            // c_txtDBNumber
+            // 
+            this.c_txtDBNumber.Location = new System.Drawing.Point(87, 59);
+            this.c_txtDBNumber.Name = "c_txtDBNumber";
+            this.c_txtDBNumber.Properties.AutoHeight = false;
+            this.c_txtDBNumber.Size = new System.Drawing.Size(273, 25);
+            this.c_txtDBNumber.TabIndex = 83;
+            // 
             // c_txtDBUserName
             // 
             this.c_txtDBUserName.Location = new System.Drawing.Point(87, 91);
@@ -134,6 +153,14 @@
             this.c_txtDBServerName.Size = new System.Drawing.Size(273, 25);
             this.c_txtDBServerName.TabIndex = 80;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(33, 64);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(48, 14);
+            this.labelControl1.TabIndex = 48;
+            this.labelControl1.Text = "数据库：";
+            // 
             // labelControl7
             // 
             this.labelControl7.Location = new System.Drawing.Point(45, 127);
@@ -150,32 +177,6 @@
             this.labelControl3.TabIndex = 48;
             this.labelControl3.Text = "用户名：";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Location = new System.Drawing.Point(10, 14);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(117, 41);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "测试连接";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(33, 64);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 14);
-            this.labelControl1.TabIndex = 48;
-            this.labelControl1.Text = "数据库：";
-            // 
-            // c_txtDBNumber
-            // 
-            this.c_txtDBNumber.Location = new System.Drawing.Point(87, 59);
-            this.c_txtDBNumber.Name = "c_txtDBNumber";
-            this.c_txtDBNumber.Properties.AutoHeight = false;
-            this.c_txtDBNumber.Size = new System.Drawing.Size(273, 25);
-            this.c_txtDBNumber.TabIndex = 83;
-            // 
             // FrmDBConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -183,6 +184,7 @@
             this.ClientSize = new System.Drawing.Size(394, 238);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDBConnect";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -193,10 +195,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c_txtDBNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDBServerName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_txtDBNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

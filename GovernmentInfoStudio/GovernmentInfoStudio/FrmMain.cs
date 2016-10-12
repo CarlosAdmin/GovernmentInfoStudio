@@ -307,29 +307,38 @@ namespace GovernmentInfoStudio
             {
                 var Mattery = ReadAuthorityMattery(focusedRow.Department.DepartmentID, focusedRow.Category.AdministrativeCategorySortID, focusedRow.AuthorityFullName);
 
+                if (Mattery.AuthorityMatteryDetailList.Count <= 0)
+                {
+                    return;
+                }
+
                 focusedRow.AuthorityMatteryDetail = Mattery.AuthorityMatteryDetailList[0];
+                focusedRow.AuthorityMatteryCode = Mattery.AuthorityMatteryDetailList[0].AuthorityCode;
                 focusedRow.AuthorityMatteryName = Mattery.AuthorityMatteryName;
                 focusedRow.AuthorityDetailName = (Mattery.AuthorityMatteryDetailList.Count <= 1 ? "无" : Mattery.AuthorityMatteryDetailList.Count.ToString()) + "子项";
 
-                foreach (var item in Mattery.AuthorityMatteryDetailList)
+                if (Mattery.AuthorityMatteryDetailList.Count > 1)
                 {
-                    var treeData = new TreeMainData();
+                    foreach (var item in Mattery.AuthorityMatteryDetailList)
+                    {
+                        var treeData = new TreeMainData();
 
-                    treeData.TreeDataID = treeDataList.Count + 1;
-                    treeData.TreeDataCode = focusedRow.TreeDataID;
-                    treeData.Department = focusedRow.Department;
-                    treeData.DepartmentName = focusedRow.DepartmentName;
-                    treeData.Category = focusedRow.Category;
-                    treeData.CategoryName = focusedRow.Category.AdministrativeCategoryName;
-                    treeData.CategoryFileName = item.MatteryPath;
-                    treeData.AuthorityMatteryCode = item.AuthorityCode;
-                    treeData.AuthorityMatteryName = item.AuthorityName;
-                    treeData.AuthorityMatteryDetail = item;
-                    treeData.AuthorityDetailName = "无子项";
+                        treeData.TreeDataID = treeDataList.Count + 1;
+                        treeData.TreeDataCode = focusedRow.TreeDataID;
+                        treeData.Department = focusedRow.Department;
+                        treeData.DepartmentName = focusedRow.DepartmentName;
+                        treeData.Category = focusedRow.Category;
+                        treeData.CategoryName = focusedRow.Category.AdministrativeCategoryName;
+                        treeData.CategoryFileName = item.MatteryPath;
+                        treeData.AuthorityMatteryCode = item.AuthorityCode;
+                        treeData.AuthorityMatteryName = item.AuthorityName;
+                        treeData.AuthorityMatteryDetail = item;
+                        treeData.AuthorityDetailName = "无子项";
 
-                    treeDataList.Add(treeData);
+                        treeDataList.Add(treeData);
 
-                    c_trlMain.RefreshDataSource();
+                        c_trlMain.RefreshDataSource();
+                    }
                 }
             }
 
@@ -433,7 +442,7 @@ namespace GovernmentInfoStudio
 
                         var authdetail = new TblAuthorityDetail();
 
-                        authdetail.AuthorityMatteryTitle = itemrow[0].Value.ToString();
+                        authdetail.AuthorityMatteryTitle = itemrow[0].Value.ToString().Trim();
 
                         if (rowCount == 1)
                         {
