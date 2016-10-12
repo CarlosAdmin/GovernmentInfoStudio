@@ -41,6 +41,12 @@
            set { _administrativecategorysortid = value; }
         }
 
+        public TblDepartment Department { get; set; }
+
+        public string CategoryFullName { get; set; }
+
+        public string CategoryFileName { get; set; }
+
         private int _rowCntDBCtrl = 0;
         public int RowCntDBCtrl
         {

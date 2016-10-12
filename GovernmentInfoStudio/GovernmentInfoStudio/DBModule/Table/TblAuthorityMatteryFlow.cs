@@ -7,7 +7,9 @@
     using System.Collections.Generic;
     using System.Data;
 
-
+    /// <summary>
+    /// 职权三级同级
+    /// </summary>
     [Serializable]
     public class TblAuthorityMatteryFlow
     {

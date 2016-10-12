@@ -18,13 +18,11 @@ namespace GovernmentInfoStudio
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var dataList = new List<TblDepartment>();
-            string errMsg = string.Empty;
-            DepartmentMng.GetList(ref dataList, ref errMsg);
+            
 
-            FrmLogin frmLogin = new FrmLogin();
+            //FrmLogin frmLogin = new FrmLogin();
 
-            if (frmLogin.ShowDialog() == DialogResult.OK)
+            //if (frmLogin.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new FrmMain());
             }

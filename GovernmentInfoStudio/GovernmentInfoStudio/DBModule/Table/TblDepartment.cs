@@ -48,6 +48,9 @@
            set { this._rowCntDBCtrl = value; }
         }
 
+        public string DepartFullName { get; set; }
+
+        public int DepartProcess { get; set; }
 
         public void SetFieldValue(DataRow dr, string[] columnNameList)
         {

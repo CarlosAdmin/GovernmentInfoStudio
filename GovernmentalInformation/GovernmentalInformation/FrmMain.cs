@@ -341,15 +341,15 @@ namespace GovernmentalInformation
 
                         cateItem.Department = item;
 
-     //                   sql += string.Format(@"INSERT INTO [Department_AdministrativeCategory]
-     //      ([DepartmentID]
-     //      ,[AdministrativeCategoryID])
-     //VALUES
-     //      (''
-     //      ,'')" , item.DepartmentSortID, cateItem.AdministrativeCategorySortID) + ";";
-                        //var value = ReadAuthorityMattery(cateItem);
-                        //richTextBox3.Text += value.ToString() + "\r\n";
-                        //authorityList.Add(value);
+                        //                   sql += string.Format(@"INSERT INTO [Department_AdministrativeCategory]
+                        //      ([DepartmentID]
+                        //      ,[AdministrativeCategoryID])
+                        //VALUES
+                        //      (''
+                        //      ,'')" , item.DepartmentSortID, cateItem.AdministrativeCategorySortID) + ";";
+                        var value = ReadAuthorityMattery(cateItem);
+                        richTextBox3.Text += value.ToString() + "\r\n";
+                        authorityList.Add(value);
                     }
                 }
 

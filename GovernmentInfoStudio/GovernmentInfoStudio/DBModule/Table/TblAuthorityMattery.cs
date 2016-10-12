@@ -8,6 +8,9 @@
     using System.Data;
 
 
+    /// <summary>
+    /// 职权一级
+    /// </summary>
     [Serializable]
     public class TblAuthorityMattery
     {
@@ -58,6 +61,7 @@
            set { this._rowCntDBCtrl = value; }
         }
 
+        public List<TblAuthorityMatteryDetail> AuthorityMatteryDetailList { get; set; }
 
         public void SetFieldValue(DataRow dr, string[] columnNameList)
         {

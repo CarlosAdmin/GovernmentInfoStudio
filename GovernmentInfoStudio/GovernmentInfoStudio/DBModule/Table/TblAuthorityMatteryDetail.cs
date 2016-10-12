@@ -7,7 +7,9 @@
     using System.Collections.Generic;
     using System.Data;
 
-
+    /// <summary>
+    /// 职权二级
+    /// </summary>
     [Serializable]
     public class TblAuthorityMatteryDetail
     {
@@ -58,6 +60,9 @@
            set { this._rowCntDBCtrl = value; }
         }
 
+        public List<TblAuthorityDetail> AuthorityDetailList { get; set; }
+
+        public TblAuthorityMatteryFlow AuthorityMatteryFlow { get; set; }
 
         public void SetFieldValue(DataRow dr, string[] columnNameList)
         {
