@@ -300,7 +300,7 @@ namespace GovernmentInfoStudio
 
         }
 
-        TblAuthorityMattery ReadAuthorityMattery(TblAdministrativeCategory category,ref )
+        TblAuthorityMattery ReadAuthorityMattery(TblAdministrativeCategory category )
         {
             var authoryMatt = new TblAuthorityMattery();
 
@@ -364,7 +364,7 @@ namespace GovernmentInfoStudio
 
                         if (rowCount == 1)
                         {
-                            detail.AuthorityDetail.Add(authdetail);
+                            //detail.AuthorityDetail.Add(authdetail);
                             continue;
                         }
 
@@ -375,7 +375,7 @@ namespace GovernmentInfoStudio
                             continue;
                         }
 
-                        detail.AuthorityDetail.Add(authdetail);
+                       // detail.AuthorityDetail.Add(authdetail);
                     }
 
                     //detail.AuthorityFullName = fileInfo.Name.Replace(".xls", "");
@@ -383,7 +383,7 @@ namespace GovernmentInfoStudio
 
                     if (File.Exists(item.Replace(".xls", ".doc")))
                     {
-                        detail.AuthorityMatteryFlow = new AuthorityMatteryFlow();
+                        //detail.AuthorityMatteryFlow = new AuthorityMatteryFlow();
 
                         new Aspose.Words.License().SetLicense(new MemoryStream(Convert.FromBase64String(Key)));
 
@@ -395,7 +395,7 @@ namespace GovernmentInfoStudio
 
                             using (System.Drawing.Image image = Bitmap.FromStream(stream)) // 原始图
                             {
-                                detail.AuthorityMatteryFlow.AuthorityMatteryFlowImage = image;
+                               // detail.AuthorityMatteryFlow.AuthorityMatteryFlowImage = image;
 
                                 string imagePath = item.Replace("doc", "jpg");
 
@@ -404,13 +404,13 @@ namespace GovernmentInfoStudio
                                     image2.Save(imagePath);
                                 }
 
-                                detail.AuthorityMatteryFlow.FlowInagePath = imagePath;
+                                //detail.AuthorityMatteryFlow.FlowInagePath = imagePath;
                             }
                         }
                     }
 
 
-                    authoryMatt.AuthorityMatteryDetail.Add(detail);
+                    //authoryMatt.AuthorityMatteryDetail.Add(detail);
                 }
             }
             catch (Exception exception)
@@ -446,5 +446,11 @@ namespace GovernmentInfoStudio
             "V0ZVJpNUhyZmc9PC9TaWduYXR1cmU+DQo8L0xpY2Vuc2U+";
 
         #endregion
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            FrmDBConnect frmDb = new FrmDBConnect();
+            frmDb.ShowDialog();
+        }
     }
 }

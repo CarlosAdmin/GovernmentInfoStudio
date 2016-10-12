@@ -16,6 +16,7 @@ namespace BaseCommon.Common.Session
     using System;
     using System.Configuration;
     using System.Collections.Generic;
+    using GovernmentInfoStudio.Session;
 
     public class SessionMng
     {
@@ -44,16 +45,31 @@ namespace BaseCommon.Common.Session
 
             foreach (int myCode in Enum.GetValues(typeof(SQLType)))
             {
-                Session session = new Session();
+                Session session = null;
 
+                if (!DicSession.ContainsKey((SQLType)myCode))
+                {
+                    session = new Session();
+                }
+                else
+                {
+                    DicSession.TryGetValue((SQLType)myCode, out session);
+                }
+                
                 switch ((SQLType)myCode)
                 {
                     case SQLType.Default:
-                        session.DBUserName = "GovernmentInfo";
-                        session.DBPassword = "GovernmentInfo";
-                        session.DBServerName = "218.200.71.227,1414";
-                        session.DBServerNameBak = "218.200.71.227,1414";
-                        session.DBNumber = "GovernmentInfo";
+                        session.DBUserName = DBConnectMng.DBUserName;
+                        session.DBPassword = DBConnectMng.DBPassword;
+                        session.DBServerName = DBConnectMng.DBServerName;
+                        session.DBServerNameBak = DBConnectMng.DBServerName;
+                        session.DBNumber = DBConnectMng.DBNumber;
+
+                        //session.DBUserName = "GovernmentInfo";
+                        //session.DBPassword = "GovernmentInfo";
+                        //session.DBServerName = "218.200.71.227,1414";
+                        //session.DBServerNameBak = "218.200.71.227,1414";
+                        //session.DBNumber = "GovernmentInfo";
                         session.DbType = "SQLServer";
                         break;
                 }

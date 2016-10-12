@@ -109,6 +109,12 @@
     <Compile Include="DB\DBMng.cs" />
     <Compile Include="DB\DBSession.cs" />
     <Compile Include="ExeTypeEnum.cs" />
+    <Compile Include="FrmDBConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDBConnect.Designer.cs">
+      <DependentUpon>FrmDBConnect.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,8 +132,12 @@
     <Compile Include="MsgBoxConfirmResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\DBConnectMng.cs" />
     <Compile Include="Session\Session.cs" />
     <Compile Include="Session\SessionMng.cs" />
+    <EmbeddedResource Include="FrmDBConnect.resx">
+      <DependentUpon>FrmDBConnect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using GovernmentInfoStudio.ActionManager;
 using BaseCommon.DBModuleTable.DBModule.Table;
+using GovernmentInfoStudio.Session;
 
 namespace GovernmentInfoStudio
 {
@@ -18,7 +19,19 @@ namespace GovernmentInfoStudio
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
+            DBConnectMng.LoadConnfig();
+
+            if (string.IsNullOrEmpty(DBConnectMng.DBNumber) ||
+                string.IsNullOrEmpty(DBConnectMng.DBPassword) ||
+                string.IsNullOrEmpty(DBConnectMng.DBServerName) ||
+                string.IsNullOrEmpty(DBConnectMng.DBUserName))
+            {
+                FrmDBConnect dbConnect = new FrmDBConnect();
+                if (dbConnect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+            }
 
             //FrmLogin frmLogin = new FrmLogin();
 
