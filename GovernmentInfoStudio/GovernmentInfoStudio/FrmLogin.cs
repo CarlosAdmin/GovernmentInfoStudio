@@ -9,10 +9,11 @@ namespace GovernmentInfoStudio
 {
     public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
-
         BackgroundWorker m_BackgroundWorker;
         string errMsg = string.Empty, hostCode = string.Empty;
         int personID = 0;
+        string loginName = "admin";
+        string loginPassword = "songzibianban";
 
         public FrmLogin()
         {
@@ -57,7 +58,7 @@ namespace GovernmentInfoStudio
                 c_btnEnter.Enabled = false;
             }));
 
-            e.Result = c_txtAccount.Text.Trim() == "admin" && c_txtPassword.Text.Trim() == "admin";
+            e.Result = c_txtAccount.Text.Trim() == loginName && c_txtPassword.Text.Trim() == loginPassword;
         }
 
         private bool CheckData()
