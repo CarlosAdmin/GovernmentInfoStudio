@@ -12,6 +12,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using LinqToExcel;
 using Aspose.Words;
+using System.Threading;
 
 namespace GovernmentInfoStudio
 {
@@ -43,6 +44,7 @@ namespace GovernmentInfoStudio
             c_trlMain_AuthorityMatteryName.FieldName = "AuthorityMatteryName";
             c_trlMain_AuthorityDetailName.FieldName = "AuthorityDetailName";
             c_trlMain_AuthorityFullName.FieldName = "CategoryFileName";
+            c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
 
             c_trlMain.DataSource = treeDataList;
         }
@@ -71,7 +73,7 @@ namespace GovernmentInfoStudio
                 return;
             }
 
-            buttonEdit1.Text = dialog.SelectedPath;
+            buttonEdit2.Text = dialog.SelectedPath;
         }
 
         List<TblDepartment> ReadDepaet(string path)
@@ -122,41 +124,71 @@ namespace GovernmentInfoStudio
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(buttonEdit2.Text))
+            {
+                return;
+            }
+
             //读取部门
-            var dataList = ReadDepaet(buttonEdit1.Text);
+            var dataList = ReadDepaet(buttonEdit2.Text);
+
+            progressBar1.Maximum = dataList.Count;
 
             foreach (var item in dataList)
             {
-                var depart = departList.Find(c => c.DepartmentName == item.DepartmentName);
-                if (depart == null)
+                ThreadPool.QueueUserWorkItem(new WaitCallback((obj) =>
                 {
-                    DepartmentMng.Insert(item);
-                    departList.Add(item);
-                }
-                else
-                {
-                    depart.DepartFullName = item.DepartFullName;
-                }
-              
-                c_grcMain.RefreshDataSource();
+                    var departItme = obj as TblDepartment;
+
+                    if (departItme == null)
+                    {
+                        return;
+                    }
+
+                    var depart = departList.Find(c => c.DepartmentName == departItme.DepartmentName);
+
+                    if (depart == null)
+                    {
+                        DepartmentMng.Insert(departItme);
+                        departList.Add(departItme);
+                    }
+                    else
+                    {
+                        depart.DepartFullName = departItme.DepartFullName;
+                    }
+
+                    this.Invoke(new Action(() =>
+                    {
+                        c_grcMain.RefreshDataSource();
+
+                        progressBar1.Value++;
+
+                        //if (progressBar1.Value >= progressBar1.Maximum)
+                        //{
+                        //    progressBar1.Value = 0;
+                        //}
+                    }));
+                }), item);
             }
         }
+
+        TblDepartment focusedRowDepartment = new TblDepartment();
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             treeDataList = new List<TreeMainData>();
             c_trlMain.DataSource = treeDataList;
 
-            var data = (TblDepartment)c_grcMain_View.GetFocusedRow();
+            focusedRowDepartment = (TblDepartment)c_grcMain_View.GetFocusedRow();
 
             //读取部门分类
-            var category = ReadAdministrativeCategory(data);
+            var category = ReadAdministrativeCategory(focusedRowDepartment);
 
             var departCategory = new List<TblDepartment_AdministrativeCategory>();
 
             string errMsg = string.Empty;
 
-            DepartmentMng.GetList(data, ref departCategory, ref errMsg);
+            DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg);
 
             int treeID = 0;
 
@@ -171,18 +203,14 @@ namespace GovernmentInfoStudio
                     DepartmentMng.Insert(item);
                     categoryList.Add(item);
                 }
-                else
-                {
-                    depart.CategoryFullName = item.CategoryFullName;
-                }
 
-                var departCateTemp = departCategory.Find(c => c.DepartmentID == data.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
+                var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
 
                 if (departCateTemp == null)
                 {
                     departCateBach.Add(new TblDepartment_AdministrativeCategory()
                     {
-                        DepartmentID = data.DepartmentID,
+                        DepartmentID = focusedRowDepartment.DepartmentID,
                         AdministrativeCategoryID = depart.AdministrativeCategoryID
                     });
                 }
@@ -191,11 +219,12 @@ namespace GovernmentInfoStudio
 
                 treeData.TreeDataID = treeID;
                 treeData.TreeDataCode = treeID;
-                treeData.Department = data;
-                treeData.DepartmentName = data.DepartmentName;
+                treeData.Department = focusedRowDepartment;
+                treeData.DepartmentName = focusedRowDepartment.DepartmentName;
                 treeData.Category = depart;
                 treeData.CategoryName = depart.AdministrativeCategoryName;
                 treeData.CategoryFileName = item.CategoryFileName;
+                treeData.AuthorityFullName = item.CategoryFullName;
 
                 treeDataList.Add(treeData);
 
@@ -269,64 +298,109 @@ namespace GovernmentInfoStudio
 
         }
 
-        private class TreeMainData
-        {
-            public int TreeDataID { get; set; }
-
-            public int TreeDataCode { get; set; }
-
-            public TblDepartment Department { get; set; }
-
-            public string DepartmentName { get; set; }
-
-            public TblAdministrativeCategory Category { get; set; }
-
-            public string CategoryName { get; set; }
-
-            public string AuthorityMatteryName { get; set; }
-
-            public string AuthorityFullName { get; set; }
-
-            public string CategoryFileName { get; set; }
-
-            public string AuthorityDetailName { get; set; }
-        }
-
         private void c_trlMain_DoubleClick(object sender, EventArgs e)
         {
             TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
 
+            if (focusedRow.TreeDataID == focusedRow.TreeDataCode &&
+                focusedRow.AuthorityMatteryDetail == null)
+            {
+                var Mattery = ReadAuthorityMattery(focusedRow.Department.DepartmentID, focusedRow.Category.AdministrativeCategorySortID, focusedRow.AuthorityFullName);
 
+                focusedRow.AuthorityMatteryDetail = Mattery.AuthorityMatteryDetailList[0];
+                focusedRow.AuthorityMatteryName = Mattery.AuthorityMatteryName;
+                focusedRow.AuthorityDetailName = (Mattery.AuthorityMatteryDetailList.Count <= 1 ? "无" : Mattery.AuthorityMatteryDetailList.Count.ToString()) + "子项";
 
+                foreach (var item in Mattery.AuthorityMatteryDetailList)
+                {
+                    var treeData = new TreeMainData();
+
+                    treeData.TreeDataID = treeDataList.Count + 1;
+                    treeData.TreeDataCode = focusedRow.TreeDataID;
+                    treeData.Department = focusedRow.Department;
+                    treeData.DepartmentName = focusedRow.DepartmentName;
+                    treeData.Category = focusedRow.Category;
+                    treeData.CategoryName = focusedRow.Category.AdministrativeCategoryName;
+                    treeData.CategoryFileName = item.MatteryPath;
+                    treeData.AuthorityMatteryCode = item.AuthorityCode;
+                    treeData.AuthorityMatteryName = item.AuthorityName;
+                    treeData.AuthorityMatteryDetail = item;
+                    treeData.AuthorityDetailName = "无子项";
+
+                    treeDataList.Add(treeData);
+
+                    c_trlMain.RefreshDataSource();
+                }
+            }
+
+            ShowAuthorityMattery(focusedRow.AuthorityMatteryDetail);
+
+            c_trlMain.RefreshDataSource();
         }
 
-        TblAuthorityMattery ReadAuthorityMattery(TblAdministrativeCategory category )
+        void ShowAuthorityMattery(TblAuthorityMatteryDetail detailValue) 
+        {
+            try
+            {
+                if (detailValue == null)
+                {
+                    return;
+                }
+
+                if (detailValue.AuthorityDetailList!=null)
+                {
+                    memoEdit1.Text = "";
+                    foreach (var item in detailValue.AuthorityDetailList)
+                    {
+                        memoEdit1.Text += item.AuthorityMatteryTitle + ":" + item.AuthorityMatteryContent + "\r\n";
+                    }
+                }
+
+                if (detailValue.AuthorityMatteryFlow != null)
+                {
+                    pictureBox1.Image = Image.FromFile(detailValue.AuthorityMatteryFlow.FlowImagePath);
+                }
+                else
+                {
+                    pictureBox1.Image = null;
+                }
+            }
+            catch (Exception exception)
+            {
+                
+            }
+        }
+
+        TblAuthorityMattery ReadAuthorityMattery(int DepartmentID, int CategoryID, string CategoryFullName)
         {
             var authoryMatt = new TblAuthorityMattery();
 
             try
             {
-
-                FileInfo fileInfo = new FileInfo(category.CategoryFullName);
+                FileInfo fileInfo = new FileInfo(CategoryFullName);
 
                 string title = fileInfo.Name;
 
-                var titleRegex = new Regex("—(.*)");
+                var titleRegex = new Regex("[—,-]{1,}(.*)");
 
                 if (titleRegex.IsMatch(title))
                 {
                     title = titleRegex.Match(title).Groups[1].Value;
                 }
+                else
+                {
+
+                }
 
                 authoryMatt.AuthorityMatteryName = title;
-                authoryMatt.DepartmentID = category.Department.DepartmentID;
-                authoryMatt.AdministrativeCategoryID = category.AdministrativeCategoryID;
+                authoryMatt.DepartmentID = DepartmentID;
+                authoryMatt.AdministrativeCategoryID = CategoryID;
 
-                var excels = Directory.GetFiles(category.CategoryFullName, "*.xls");
+                var excels = Directory.GetFiles(CategoryFullName, "*.xls");
 
-                var AuthorityMatteryDetail = new List<TblAuthorityMatteryDetail>();
+                authoryMatt.AuthorityMatteryDetailList = new List<TblAuthorityMatteryDetail>();
 
-                //authoryMatt.AuthorityMatteryDetail = new List<AuthorityMatteryDetail>();
+                #region 子项
 
                 foreach (var item in excels)
                 {
@@ -346,9 +420,9 @@ namespace GovernmentInfoStudio
                     var rows = excelRows.ToList();
 
                     var detail = new TblAuthorityMatteryDetail();
-
-
-                    var AuthorityDetail = new List<TblAuthorityMatteryDetail>();
+                    detail.AuthorityDetailList = new List<TblAuthorityDetail>();
+                   
+                    #region 子项明细
 
                     foreach (var itemrow in rows)
                     {
@@ -357,14 +431,13 @@ namespace GovernmentInfoStudio
                             continue;
                         }
 
-
                         var authdetail = new TblAuthorityDetail();
 
                         authdetail.AuthorityMatteryTitle = itemrow[0].Value.ToString();
 
                         if (rowCount == 1)
                         {
-                            //detail.AuthorityDetail.Add(authdetail);
+                            detail.AuthorityDetailList.Add(authdetail);
                             continue;
                         }
 
@@ -375,43 +448,95 @@ namespace GovernmentInfoStudio
                             continue;
                         }
 
-                       // detail.AuthorityDetail.Add(authdetail);
+                        detail.AuthorityDetailList.Add(authdetail);
                     }
 
-                    //detail.AuthorityFullName = fileInfo.Name.Replace(".xls", "");
-                    detail.AuthorityName = fileInfo.Name.Replace(".xls", "");
+                    #endregion
 
-                    if (File.Exists(item.Replace(".xls", ".doc")))
+                    if (detail.AuthorityDetailList.FindIndex(c => c.AuthorityMatteryTitle == "职权编码") > 0)
                     {
-                        //detail.AuthorityMatteryFlow = new AuthorityMatteryFlow();
+                        detail.AuthorityCode = detail.AuthorityDetailList.Find(c => c.AuthorityMatteryTitle == "职权编码").AuthorityMatteryContent.Trim();
+                    }
+                    
+                    detail.AuthorityName = fileInfo.Name.Replace(".xls", "");
+                    detail.MatteryPath = fileInfo.FullName;
 
-                        new Aspose.Words.License().SetLicense(new MemoryStream(Convert.FromBase64String(Key)));
+                    #region 子项流程图
 
-                        Document doc = new Document(item.Replace(".xls", ".doc"));
+                    string imagePath = string.Empty;
+                    detail.AuthorityMatteryFlow = new TblAuthorityMatteryFlow();
 
-                        using (Stream stream = new MemoryStream())
+                    var docPath = fileInfo.FullName.Replace(".xls", ".doc");
+
+                    try
+                    {
+                        #region 存在相同文件名Word
+
+                        GetDoc:
+
+                        if (File.Exists(docPath))
                         {
-                            doc.Save(stream, SaveFormat.Jpeg);
+                            imagePath = docPath.Replace("doc", "jpg");
 
-                            using (System.Drawing.Image image = Bitmap.FromStream(stream)) // 原始图
+                            if (File.Exists(imagePath))
                             {
-                               // detail.AuthorityMatteryFlow.AuthorityMatteryFlowImage = image;
+                                File.Delete(imagePath);
+                            }
+                          
+                            new Aspose.Words.License().SetLicense(new MemoryStream(Convert.FromBase64String(Key)));
 
-                                string imagePath = item.Replace("doc", "jpg");
+                            Document doc = new Document(docPath);
 
-                                using (Bitmap image2 = new Bitmap(image))
+                            using (MemoryStream stream = new MemoryStream())
+                            {
+                                doc.Save(stream, SaveFormat.Jpeg);
+
+                                detail.AuthorityMatteryFlow.AuthorityMatteryFlowImage = stream.GetBuffer();
+
+                                using (System.Drawing.Image image = Bitmap.FromStream(stream)) // 原始图
                                 {
-                                    image2.Save(imagePath);
-                                }
+                                    detail.AuthorityMatteryFlow.AuthorityFlowImage = image;
 
-                                //detail.AuthorityMatteryFlow.FlowInagePath = imagePath;
+                                    using (Bitmap image2 = new Bitmap(image))
+                                    {
+                                        image2.Save(imagePath);
+                                    }
+
+                                    detail.AuthorityMatteryFlow.FlowImagePath = imagePath;
+                                }
                             }
                         }
+
+                        #endregion
+
+                        #region
+                        else
+                        {
+                            DirectoryInfo directoryInfo = new DirectoryInfo(fileInfo.Directory.FullName);
+
+                            var docs = directoryInfo.GetFiles("*.doc");
+
+                            if (docs.Length>0)
+                            {
+                                docPath = docs[0].FullName;
+                                goto GetDoc;
+                            }
+                        }
+                        #endregion
+                    }
+                    catch (Exception exception)
+                    {
+                        detail.AuthorityMatteryFlow.FlowImagePath = imagePath;
                     }
 
+                    detail.MatteryFlowPath = docPath;
 
-                    //authoryMatt.AuthorityMatteryDetail.Add(detail);
+                    #endregion
+                    
+                    authoryMatt.AuthorityMatteryDetailList.Add(detail);
                 }
+
+                #endregion
             }
             catch (Exception exception)
             {
@@ -421,6 +546,11 @@ namespace GovernmentInfoStudio
             return authoryMatt;
         }
 
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            FrmDBConnect frmDb = new FrmDBConnect();
+            frmDb.ShowDialog();
+        }
 
         #region key
 
@@ -447,10 +577,38 @@ namespace GovernmentInfoStudio
 
         #endregion
 
-        private void simpleButton4_Click(object sender, EventArgs e)
+        private class TreeMainData
         {
-            FrmDBConnect frmDb = new FrmDBConnect();
-            frmDb.ShowDialog();
+            public int TreeDataID { get; set; }
+
+            public int TreeDataCode { get; set; }
+
+            public TblDepartment Department { get; set; }
+
+            public string DepartmentName { get; set; }
+
+            public TblAdministrativeCategory Category { get; set; }
+
+            public string CategoryName { get; set; }
+
+            public string AuthorityMatteryCode { get; set; }
+
+            public string AuthorityMatteryName { get; set; }
+
+            public string AuthorityFullName { get; set; }
+
+            public string CategoryFileName { get; set; }
+
+            public string AuthorityDetailName { get; set; }
+
+            public bool IsLoad { get; set; }
+            public TblAuthorityMatteryDetail AuthorityMatteryDetail { get; set; }
         }
+
+        private void labelControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

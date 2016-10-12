@@ -64,6 +64,10 @@
 
         public TblAuthorityMatteryFlow AuthorityMatteryFlow { get; set; }
 
+        public string MatteryPath { get; set; }
+
+        public string MatteryFlowPath { get; set; }
+
         public void SetFieldValue(DataRow dr, string[] columnNameList)
         {
            for (int i = 0; i < columnNameList.Length; i++)

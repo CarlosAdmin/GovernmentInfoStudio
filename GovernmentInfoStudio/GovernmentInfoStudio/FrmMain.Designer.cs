@@ -46,19 +46,36 @@
             this.c_trlMain = new DevExpress.XtraTreeList.TreeList();
             this.c_trlMain_DepartmentName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_CategoryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.c_trlMain_AuthorityMatteryCode = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityMatteryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityDetailName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityFullName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -70,9 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
+            this.splitContainerControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
@@ -84,9 +104,9 @@
             // 
             this.groupControl2.Controls.Add(this.splitContainerControl1);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(5, 150);
+            this.groupControl2.Location = new System.Drawing.Point(5, 107);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1081, 343);
+            this.groupControl2.Size = new System.Drawing.Size(1217, 386);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "数据列表";
             // 
@@ -99,8 +119,8 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1077, 318);
-            this.splitContainerControl1.SplitterPosition = 346;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1213, 361);
+            this.splitContainerControl1.SplitterPosition = 297;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -113,7 +133,7 @@
             this.c_grcMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2});
-            this.c_grcMain.Size = new System.Drawing.Size(346, 318);
+            this.c_grcMain.Size = new System.Drawing.Size(297, 361);
             this.c_grcMain.TabIndex = 1;
             this.c_grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.c_grcMain_View});
@@ -130,7 +150,6 @@
             this.c_grcMain_View.GridControl = this.c_grcMain;
             this.c_grcMain_View.Name = "c_grcMain_View";
             this.c_grcMain_View.OptionsSelection.MultiSelect = true;
-            this.c_grcMain_View.OptionsView.ShowFooter = true;
             this.c_grcMain_View.OptionsView.ShowGroupPanel = false;
             this.c_grcMain_View.OptionsView.ShowIndicator = false;
             // 
@@ -149,8 +168,6 @@
             this.c_grcMain_view_DepartmentID.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentID.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "", "记录数：{0}")});
-            this.c_grcMain_view_DepartmentID.Visible = true;
-            this.c_grcMain_view_DepartmentID.VisibleIndex = 0;
             this.c_grcMain_view_DepartmentID.Width = 92;
             // 
             // c_grcMain_view_DepartmentName
@@ -165,9 +182,10 @@
             this.c_grcMain_view_DepartmentName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentName.Caption = "部门名称";
             this.c_grcMain_view_DepartmentName.Name = "c_grcMain_view_DepartmentName";
+            this.c_grcMain_view_DepartmentName.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentName.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentName.Visible = true;
-            this.c_grcMain_view_DepartmentName.VisibleIndex = 1;
+            this.c_grcMain_view_DepartmentName.VisibleIndex = 0;
             this.c_grcMain_view_DepartmentName.Width = 87;
             // 
             // c_grcMain_view_DepartmentFullName
@@ -182,9 +200,10 @@
             this.c_grcMain_view_DepartmentFullName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentFullName.Caption = "部门路径";
             this.c_grcMain_view_DepartmentFullName.Name = "c_grcMain_view_DepartmentFullName";
+            this.c_grcMain_view_DepartmentFullName.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentFullName.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentFullName.Visible = true;
-            this.c_grcMain_view_DepartmentFullName.VisibleIndex = 2;
+            this.c_grcMain_view_DepartmentFullName.VisibleIndex = 1;
             this.c_grcMain_view_DepartmentFullName.Width = 79;
             // 
             // c_grcMain_view_DepartmentProcess
@@ -199,9 +218,10 @@
             this.c_grcMain_view_DepartmentProcess.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentProcess.Caption = "读取进度";
             this.c_grcMain_view_DepartmentProcess.Name = "c_grcMain_view_DepartmentProcess";
+            this.c_grcMain_view_DepartmentProcess.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentProcess.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentProcess.Visible = true;
-            this.c_grcMain_view_DepartmentProcess.VisibleIndex = 3;
+            this.c_grcMain_view_DepartmentProcess.VisibleIndex = 2;
             this.c_grcMain_view_DepartmentProcess.Width = 86;
             // 
             // c_grcMain_view_ReadDepartment
@@ -214,8 +234,9 @@
             this.c_grcMain_view_ReadDepartment.Caption = "读取";
             this.c_grcMain_view_ReadDepartment.ColumnEdit = this.repositoryItemButtonEdit1;
             this.c_grcMain_view_ReadDepartment.Name = "c_grcMain_view_ReadDepartment";
+            this.c_grcMain_view_ReadDepartment.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_ReadDepartment.Visible = true;
-            this.c_grcMain_view_ReadDepartment.VisibleIndex = 4;
+            this.c_grcMain_view_ReadDepartment.VisibleIndex = 3;
             // 
             // repositoryItemButtonEdit1
             // 
@@ -241,7 +262,7 @@
             this.c_grcMain_view_Delete.Name = "c_grcMain_view_Delete";
             this.c_grcMain_view_Delete.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_Delete.Visible = true;
-            this.c_grcMain_view_Delete.VisibleIndex = 5;
+            this.c_grcMain_view_Delete.VisibleIndex = 4;
             this.c_grcMain_view_Delete.Width = 67;
             // 
             // repositoryItemButtonEdit2
@@ -260,11 +281,10 @@
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.c_trlMain);
             this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.memoEdit1);
-            this.splitContainerControl2.Panel2.Controls.Add(this.pictureEdit1);
+            this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(726, 318);
-            this.splitContainerControl2.SplitterPosition = 432;
+            this.splitContainerControl2.Size = new System.Drawing.Size(911, 361);
+            this.splitContainerControl2.SplitterPosition = 351;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -273,6 +293,7 @@
             this.c_trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.c_trlMain_DepartmentName,
             this.c_trlMain_CategoryName,
+            this.c_trlMain_AuthorityMatteryCode,
             this.c_trlMain_AuthorityMatteryName,
             this.c_trlMain_AuthorityDetailName,
             this.c_trlMain_AuthorityFullName});
@@ -282,11 +303,11 @@
             this.c_trlMain.OptionsBehavior.EnterMovesNextColumn = true;
             this.c_trlMain.OptionsMenu.EnableColumnMenu = false;
             this.c_trlMain.OptionsMenu.EnableFooterMenu = false;
+            this.c_trlMain.OptionsSelection.MultiSelect = true;
             this.c_trlMain.OptionsView.EnableAppearanceEvenRow = true;
             this.c_trlMain.OptionsView.EnableAppearanceOddRow = true;
             this.c_trlMain.OptionsView.ShowIndicator = false;
-            this.c_trlMain.OptionsView.ShowSummaryFooter = true;
-            this.c_trlMain.Size = new System.Drawing.Size(432, 318);
+            this.c_trlMain.Size = new System.Drawing.Size(351, 361);
             this.c_trlMain.TabIndex = 2;
             this.c_trlMain.DoubleClick += new System.EventHandler(this.c_trlMain_DoubleClick);
             // 
@@ -303,8 +324,6 @@
             this.c_trlMain_DepartmentName.Name = "c_trlMain_DepartmentName";
             this.c_trlMain_DepartmentName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_DepartmentName.OptionsColumn.ReadOnly = true;
-            this.c_trlMain_DepartmentName.Visible = true;
-            this.c_trlMain_DepartmentName.VisibleIndex = 0;
             this.c_trlMain_DepartmentName.Width = 114;
             // 
             // c_trlMain_CategoryName
@@ -317,8 +336,26 @@
             this.c_trlMain_CategoryName.Caption = "类别";
             this.c_trlMain_CategoryName.FieldName = "类别";
             this.c_trlMain_CategoryName.Name = "c_trlMain_CategoryName";
+            this.c_trlMain_CategoryName.OptionsColumn.AllowEdit = false;
+            this.c_trlMain_CategoryName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_CategoryName.Visible = true;
-            this.c_trlMain_CategoryName.VisibleIndex = 1;
+            this.c_trlMain_CategoryName.VisibleIndex = 0;
+            this.c_trlMain_CategoryName.Width = 51;
+            // 
+            // c_trlMain_AuthorityMatteryCode
+            // 
+            this.c_trlMain_AuthorityMatteryCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.c_trlMain_AuthorityMatteryCode.AppearanceHeader.Options.UseFont = true;
+            this.c_trlMain_AuthorityMatteryCode.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_trlMain_AuthorityMatteryCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_trlMain_AuthorityMatteryCode.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_trlMain_AuthorityMatteryCode.Caption = "职权编码";
+            this.c_trlMain_AuthorityMatteryCode.FieldName = "职权编码";
+            this.c_trlMain_AuthorityMatteryCode.Name = "c_trlMain_AuthorityMatteryCode";
+            this.c_trlMain_AuthorityMatteryCode.OptionsColumn.AllowEdit = false;
+            this.c_trlMain_AuthorityMatteryCode.OptionsColumn.ReadOnly = true;
+            this.c_trlMain_AuthorityMatteryCode.Visible = true;
+            this.c_trlMain_AuthorityMatteryCode.VisibleIndex = 1;
             // 
             // c_trlMain_AuthorityMatteryName
             // 
@@ -333,8 +370,8 @@
             this.c_trlMain_AuthorityMatteryName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_AuthorityMatteryName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityMatteryName.Visible = true;
-            this.c_trlMain_AuthorityMatteryName.VisibleIndex = 3;
-            this.c_trlMain_AuthorityMatteryName.Width = 155;
+            this.c_trlMain_AuthorityMatteryName.VisibleIndex = 2;
+            this.c_trlMain_AuthorityMatteryName.Width = 120;
             // 
             // c_trlMain_AuthorityDetailName
             // 
@@ -343,47 +380,83 @@
             this.c_trlMain_AuthorityDetailName.AppearanceHeader.Options.UseTextOptions = true;
             this.c_trlMain_AuthorityDetailName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.c_trlMain_AuthorityDetailName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_trlMain_AuthorityDetailName.Caption = "职权事项子项";
+            this.c_trlMain_AuthorityDetailName.Caption = "子项";
             this.c_trlMain_AuthorityDetailName.FieldName = "treeListColumn4";
             this.c_trlMain_AuthorityDetailName.Name = "c_trlMain_AuthorityDetailName";
             this.c_trlMain_AuthorityDetailName.OptionsColumn.AllowEdit = false;
             this.c_trlMain_AuthorityDetailName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityDetailName.Visible = true;
-            this.c_trlMain_AuthorityDetailName.VisibleIndex = 2;
-            this.c_trlMain_AuthorityDetailName.Width = 139;
+            this.c_trlMain_AuthorityDetailName.VisibleIndex = 3;
+            this.c_trlMain_AuthorityDetailName.Width = 90;
             // 
             // c_trlMain_AuthorityFullName
             // 
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseFont = true;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_trlMain_AuthorityFullName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_trlMain_AuthorityFullName.Caption = "路径";
             this.c_trlMain_AuthorityFullName.FieldName = "路径";
             this.c_trlMain_AuthorityFullName.Name = "c_trlMain_AuthorityFullName";
+            this.c_trlMain_AuthorityFullName.OptionsColumn.AllowEdit = false;
+            this.c_trlMain_AuthorityFullName.OptionsColumn.ReadOnly = true;
             this.c_trlMain_AuthorityFullName.Visible = true;
             this.c_trlMain_AuthorityFullName.VisibleIndex = 4;
+            this.c_trlMain_AuthorityFullName.Width = 88;
+            // 
+            // splitContainerControl3
+            // 
+            this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl3.Name = "splitContainerControl3";
+            this.splitContainerControl3.Panel1.Controls.Add(this.memoEdit1);
+            this.splitContainerControl3.Panel1.Text = "Panel1";
+            this.splitContainerControl3.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainerControl3.Panel2.Text = "Panel2";
+            this.splitContainerControl3.Size = new System.Drawing.Size(555, 361);
+            this.splitContainerControl3.SplitterPosition = 289;
+            this.splitContainerControl3.TabIndex = 1;
+            this.splitContainerControl3.Text = "splitContainerControl3";
             // 
             // memoEdit1
             // 
             this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit1.Location = new System.Drawing.Point(0, 0);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(289, 222);
+            this.memoEdit1.Properties.ReadOnly = true;
+            this.memoEdit1.Size = new System.Drawing.Size(289, 361);
             this.memoEdit1.TabIndex = 0;
             // 
-            // pictureEdit1
+            // pictureBox1
             // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 222);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Size = new System.Drawing.Size(289, 96);
-            this.pictureEdit1.TabIndex = 1;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(261, 361);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // groupControl3
             // 
+            this.groupControl3.Controls.Add(this.progressBar1);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupControl3.Location = new System.Drawing.Point(5, 493);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1081, 32);
+            this.groupControl3.ShowCaption = false;
+            this.groupControl3.Size = new System.Drawing.Size(1217, 32);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "groupControl1";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar1.Location = new System.Drawing.Point(2, 2);
+            this.progressBar1.MarqueeAnimationSpeed = 500;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(1213, 28);
+            this.progressBar1.TabIndex = 0;
             // 
             // groupControl4
             // 
@@ -392,38 +465,14 @@
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl4.Location = new System.Drawing.Point(5, 5);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(1081, 64);
+            this.groupControl4.ShowCaption = false;
+            this.groupControl4.Size = new System.Drawing.Size(1217, 45);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "条件";
             // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Location = new System.Drawing.Point(234, 34);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(100, 35);
-            this.simpleButton4.TabIndex = 2;
-            this.simpleButton4.Text = "更新配置";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Location = new System.Drawing.Point(128, 34);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(100, 35);
-            this.simpleButton5.TabIndex = 2;
-            this.simpleButton5.Text = "更新数据";
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.Location = new System.Drawing.Point(15, 34);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(100, 35);
-            this.simpleButton6.TabIndex = 2;
-            this.simpleButton6.Text = "查询数据";
-            // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(15, 36);
+            this.labelControl2.Location = new System.Drawing.Point(15, 13);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(48, 14);
             this.labelControl2.TabIndex = 1;
@@ -432,7 +481,7 @@
             // buttonEdit2
             // 
             this.buttonEdit2.EditValue = "D:\\松滋市";
-            this.buttonEdit2.Location = new System.Drawing.Point(69, 31);
+            this.buttonEdit2.Location = new System.Drawing.Point(69, 8);
             this.buttonEdit2.Name = "buttonEdit2";
             this.buttonEdit2.Properties.AutoHeight = false;
             this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -440,30 +489,200 @@
             this.buttonEdit2.Size = new System.Drawing.Size(175, 25);
             this.buttonEdit2.TabIndex = 0;
             // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(234, 14);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton4.TabIndex = 2;
+            this.simpleButton4.Text = "更新配置";
+            this.simpleButton4.ToolTip = "配置数据库连接信息";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(128, 14);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton5.TabIndex = 2;
+            this.simpleButton5.Text = "更新数据";
+            this.simpleButton5.ToolTip = "对比数据 更新数据";
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Location = new System.Drawing.Point(15, 14);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton6.TabIndex = 2;
+            this.simpleButton6.Text = "查询数据";
+            this.simpleButton6.ToolTip = "查询基础数据 如部门 类别等";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl14);
+            this.groupControl1.Controls.Add(this.labelControl12);
+            this.groupControl1.Controls.Add(this.labelControl7);
+            this.groupControl1.Controls.Add(this.labelControl5);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.labelControl13);
+            this.groupControl1.Controls.Add(this.labelControl11);
+            this.groupControl1.Controls.Add(this.labelControl6);
+            this.groupControl1.Controls.Add(this.labelControl15);
+            this.groupControl1.Controls.Add(this.labelControl10);
+            this.groupControl1.Controls.Add(this.labelControl9);
+            this.groupControl1.Controls.Add(this.labelControl8);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.simpleButton4);
             this.groupControl1.Controls.Add(this.simpleButton6);
             this.groupControl1.Controls.Add(this.simpleButton5);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(5, 69);
+            this.groupControl1.Location = new System.Drawing.Point(5, 50);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1081, 81);
+            this.groupControl1.ShowCaption = false;
+            this.groupControl1.Size = new System.Drawing.Size(1217, 57);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "条件";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl14.Location = new System.Drawing.Point(827, 29);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(11, 14);
+            this.labelControl14.TabIndex = 1;
+            this.labelControl14.Text = "5.";
+            this.labelControl14.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl12.Location = new System.Drawing.Point(632, 26);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(11, 14);
+            this.labelControl12.TabIndex = 1;
+            this.labelControl12.Text = "4.";
+            this.labelControl12.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl7.Location = new System.Drawing.Point(539, 26);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(11, 14);
+            this.labelControl7.TabIndex = 1;
+            this.labelControl7.Text = "3.";
+            this.labelControl7.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl5.Location = new System.Drawing.Point(447, 26);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(11, 14);
+            this.labelControl5.TabIndex = 1;
+            this.labelControl5.Text = "2.";
+            this.labelControl5.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl3.Location = new System.Drawing.Point(358, 26);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(11, 14);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "1.";
+            this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(849, 26);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(148, 14);
+            this.labelControl13.TabIndex = 1;
+            this.labelControl13.Text = "点击职权信息 预览职权信息";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(649, 26);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(144, 14);
+            this.labelControl11.TabIndex = 1;
+            this.labelControl11.Text = "双击职权信息读取职权信息";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(556, 26);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(48, 14);
+            this.labelControl6.TabIndex = 1;
+            this.labelControl6.Text = "读取部门";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl15.Location = new System.Drawing.Point(802, 26);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(13, 14);
+            this.labelControl15.TabIndex = 1;
+            this.labelControl15.Text = "->";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl10.Location = new System.Drawing.Point(610, 26);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(13, 14);
+            this.labelControl10.TabIndex = 1;
+            this.labelControl10.Text = "->";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl9.Location = new System.Drawing.Point(519, 26);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(13, 14);
+            this.labelControl9.TabIndex = 1;
+            this.labelControl9.Text = "->";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl8.Location = new System.Drawing.Point(429, 26);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(13, 14);
+            this.labelControl8.TabIndex = 1;
+            this.labelControl8.Text = "->";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(464, 26);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(48, 14);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "查询数据";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(375, 26);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(48, 14);
+            this.labelControl1.TabIndex = 1;
+            this.labelControl1.Text = "选择目录";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1091, 530);
+            this.ClientSize = new System.Drawing.Size(1227, 530);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl4);
             this.Name = "FrmMain";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "Form1";
+            this.Text = "行政责任清单和权利清单";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -476,15 +695,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
+            this.splitContainerControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -500,7 +723,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_AuthorityMatteryName;
         private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_AuthorityDetailName;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraGrid.GridControl c_grcMain;
         private DevExpress.XtraGrid.Views.Grid.GridView c_grcMain_View;
         private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_DepartmentID;
@@ -520,6 +742,24 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_AuthorityMatteryCode;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

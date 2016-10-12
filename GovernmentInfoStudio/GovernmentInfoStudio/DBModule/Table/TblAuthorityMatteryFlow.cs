@@ -33,6 +33,10 @@
            set { _authoritymatteryflowimage = value; }
         }
 
+        public System.Drawing.Image  AuthorityFlowImage { get; set; }
+
+        public string FlowImagePath { get; set; }
+
         private int _authoritymatterydetailcode = 0;
         /// <summary>
         /// 职权编码
