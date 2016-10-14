@@ -55,6 +55,7 @@
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.lblMaxValue = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.lblValue = new DevExpress.XtraEditors.LabelControl();
@@ -79,7 +80,6 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -97,12 +97,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
@@ -452,6 +452,16 @@
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "groupControl1";
             // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBarControl1.Location = new System.Drawing.Point(2, 2);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Properties.DisplayFormat.FormatString = "{0}/{1}";
+            this.progressBarControl1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.progressBarControl1.Size = new System.Drawing.Size(1213, 28);
+            this.progressBarControl1.TabIndex = 0;
+            // 
             // lblMaxValue
             // 
             this.lblMaxValue.Location = new System.Drawing.Point(1102, 26);
@@ -692,16 +702,6 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
             // 
-            // progressBarControl1
-            // 
-            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBarControl1.Location = new System.Drawing.Point(2, 2);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Properties.DisplayFormat.FormatString = "{0}/{1}";
-            this.progressBarControl1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.progressBarControl1.Size = new System.Drawing.Size(1213, 28);
-            this.progressBarControl1.TabIndex = 0;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -733,6 +733,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
@@ -740,7 +741,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

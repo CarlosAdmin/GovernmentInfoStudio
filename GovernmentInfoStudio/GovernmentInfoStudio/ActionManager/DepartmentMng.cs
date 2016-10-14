@@ -156,6 +156,70 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Insert(TblAuthorityMattery data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    if (QueryCount(session, data) > 1)
+                    {
+                        return true;
+                    }
+
+                    if (!TblAuthorityMatteryCtrl.InsertNoPK(data, session, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    foreach (var item in data.AuthorityMatteryDetailList)
+                    {
+                        item.AuthorityMatteryID = data.AuthorityMatteryID;
+
+                        if (!TblAuthorityMatteryDetailCtrl.InsertNoPK(item, session, ref errMsg))
+                        {
+                            return false;
+                        }
+
+                        foreach (var detail in item.AuthorityDetailList)
+                        {
+                            detail.AuthorityMatteryDetailCode = item.AuthorityMatteryID;
+                        }
+                        if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))
+                        {
+                             return false;
+                        }
+
+                        if (item.AuthorityMatteryFlow != null)
+                        {
+                            if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
+                            {
+                                return false;
+                            }
+
+                            int updCount = 0;
+
+                            if (TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                            {
+
+                            }
+                        }
+                    }
+
+                    session.Commit();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public static bool InsertBath(List<TblDepartment_AdministrativeCategory> dataList)
         {
@@ -252,6 +316,27 @@ namespace GovernmentInfoStudio.ActionManager
                 int rowCount = 0;
                 string errMsg = string.Empty;
                 if (!TblAdministrativeCategoryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
+                {
+                    return -1;
+                }
+                return rowCount;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public static int QueryCount(DBSession session, TblAuthorityMattery data)
+        {
+            try
+            {
+                SqlQueryCondition sqlQuery = new SqlQueryCondition();
+                sqlQuery.Where.Add(TblAuthorityMattery.GetAuthorityMatteryNameField(), SqlWhereCondition.Equals, data.AuthorityMatteryName);
+
+                int rowCount = 0;
+                string errMsg = string.Empty;
+                if (!TblAuthorityMatteryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
                 {
                     return -1;
                 }

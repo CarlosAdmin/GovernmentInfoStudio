@@ -159,8 +159,6 @@ namespace GovernmentInfoStudio
             try
             {
                 Value(e.ProgressPercentage);
-                c_grcMain.DataSource = departList;
-                c_grcMain.Refresh();
                 c_grcMain.RefreshDataSource();
             }
             catch (Exception)
@@ -221,7 +219,6 @@ namespace GovernmentInfoStudio
             string errMsg = string.Empty;
 
             DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg);
-
 
             foreach (var cateItem in category)
             {
@@ -362,6 +359,8 @@ namespace GovernmentInfoStudio
                     return;
                 }
 
+                DepartmentMng.Insert(Mattery);
+
                 focusedRow.AuthorityMatteryDetail = Mattery.AuthorityMatteryDetailList[0];
                 focusedRow.AuthorityMatteryCode = Mattery.AuthorityMatteryDetailList[0].AuthorityCode;
                 focusedRow.AuthorityMatteryName = Mattery.AuthorityMatteryName;
@@ -372,7 +371,7 @@ namespace GovernmentInfoStudio
                     foreach (var item in Mattery.AuthorityMatteryDetailList)
                     {
                         var treeData = new TreeMainData();
-
+                   
                         treeData.TreeDataID = Guid.NewGuid().ToString();
                         treeData.TreeDataCode = focusedRow.TreeDataID;
                         treeData.Department = focusedRow.Department;
