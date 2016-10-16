@@ -55,7 +55,21 @@
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.部门进度 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.process3 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lable3 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.process2 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.lable2 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.process1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.lable1 = new DevExpress.XtraEditors.LabelControl();
             this.lblMaxValue = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.lblValue = new DevExpress.XtraEditors.LabelControl();
@@ -97,7 +111,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.部门进度)).BeginInit();
+            this.部门进度.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.process3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.process2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
+            this.panelControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.process1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
@@ -111,7 +145,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(5, 107);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1217, 386);
+            this.groupControl2.Size = new System.Drawing.Size(1217, 233);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "数据列表";
             // 
@@ -124,7 +158,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1213, 361);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1213, 208);
             this.splitContainerControl1.SplitterPosition = 297;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -138,7 +172,7 @@
             this.c_grcMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2});
-            this.c_grcMain.Size = new System.Drawing.Size(297, 361);
+            this.c_grcMain.Size = new System.Drawing.Size(297, 208);
             this.c_grcMain.TabIndex = 1;
             this.c_grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.c_grcMain_View});
@@ -286,7 +320,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(911, 361);
+            this.splitContainerControl2.Size = new System.Drawing.Size(911, 208);
             this.splitContainerControl2.SplitterPosition = 351;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -310,7 +344,7 @@
             this.c_trlMain.OptionsView.EnableAppearanceEvenRow = true;
             this.c_trlMain.OptionsView.EnableAppearanceOddRow = true;
             this.c_trlMain.OptionsView.ShowIndicator = false;
-            this.c_trlMain.Size = new System.Drawing.Size(351, 361);
+            this.c_trlMain.Size = new System.Drawing.Size(351, 208);
             this.c_trlMain.TabIndex = 2;
             this.c_trlMain.DoubleClick += new System.EventHandler(this.c_trlMain_DoubleClick);
             // 
@@ -417,7 +451,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(555, 361);
+            this.splitContainerControl3.Size = new System.Drawing.Size(555, 208);
             this.splitContainerControl3.SplitterPosition = 289;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -428,7 +462,7 @@
             this.memoEdit1.Location = new System.Drawing.Point(0, 0);
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Properties.ReadOnly = true;
-            this.memoEdit1.Size = new System.Drawing.Size(289, 361);
+            this.memoEdit1.Size = new System.Drawing.Size(289, 208);
             this.memoEdit1.TabIndex = 0;
             // 
             // pictureBox1
@@ -436,31 +470,173 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 361);
+            this.pictureBox1.Size = new System.Drawing.Size(261, 208);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // groupControl3
             // 
-            this.groupControl3.Controls.Add(this.progressBarControl1);
+            this.groupControl3.Controls.Add(this.部门进度);
+            this.groupControl3.Controls.Add(this.groupControl6);
+            this.groupControl3.Controls.Add(this.groupControl5);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl3.Location = new System.Drawing.Point(5, 493);
+            this.groupControl3.Location = new System.Drawing.Point(5, 340);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.ShowCaption = false;
-            this.groupControl3.Size = new System.Drawing.Size(1217, 32);
+            this.groupControl3.Size = new System.Drawing.Size(1217, 292);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "groupControl1";
             // 
-            // progressBarControl1
+            // 部门进度
             // 
-            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBarControl1.Location = new System.Drawing.Point(2, 2);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Properties.DisplayFormat.FormatString = "{0}/{1}";
-            this.progressBarControl1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.progressBarControl1.Size = new System.Drawing.Size(1213, 28);
-            this.progressBarControl1.TabIndex = 0;
+            this.部门进度.Controls.Add(this.panelControl2);
+            this.部门进度.Controls.Add(this.panelControl1);
+            this.部门进度.Dock = System.Windows.Forms.DockStyle.Top;
+            this.部门进度.Location = new System.Drawing.Point(2, 190);
+            this.部门进度.Name = "部门进度";
+            this.部门进度.Size = new System.Drawing.Size(1213, 95);
+            this.部门进度.TabIndex = 1;
+            this.部门进度.Text = "职权子项读取进度";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.process3);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(2, 57);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(1209, 36);
+            this.panelControl2.TabIndex = 0;
+            // 
+            // process3
+            // 
+            this.process3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.process3.Location = new System.Drawing.Point(2, 2);
+            this.process3.Name = "process3";
+            this.process3.Properties.DisplayFormat.FormatString = "{0}/{1}";
+            this.process3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.process3.Size = new System.Drawing.Size(1205, 32);
+            this.process3.TabIndex = 0;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.lable3);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(2, 23);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // lable3
+            // 
+            this.lable3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lable3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lable3.Location = new System.Drawing.Point(2, 2);
+            this.lable3.Name = "lable3";
+            this.lable3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lable3.Size = new System.Drawing.Size(128, 29);
+            this.lable3.TabIndex = 0;
+            this.lable3.Text = "正在职权子项信息";
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.panelControl5);
+            this.groupControl6.Controls.Add(this.panelControl6);
+            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl6.Location = new System.Drawing.Point(2, 96);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(1213, 94);
+            this.groupControl6.TabIndex = 2;
+            this.groupControl6.Text = "职权读取进度";
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.Controls.Add(this.process2);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl5.Location = new System.Drawing.Point(2, 57);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(1209, 35);
+            this.panelControl5.TabIndex = 0;
+            // 
+            // process2
+            // 
+            this.process2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.process2.Location = new System.Drawing.Point(2, 2);
+            this.process2.Name = "process2";
+            this.process2.Properties.DisplayFormat.FormatString = "{0}/{1}";
+            this.process2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.process2.Size = new System.Drawing.Size(1205, 31);
+            this.process2.TabIndex = 0;
+            // 
+            // panelControl6
+            // 
+            this.panelControl6.Controls.Add(this.lable2);
+            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl6.Location = new System.Drawing.Point(2, 23);
+            this.panelControl6.Name = "panelControl6";
+            this.panelControl6.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl6.TabIndex = 0;
+            // 
+            // lable2
+            // 
+            this.lable2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lable2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lable2.Location = new System.Drawing.Point(2, 2);
+            this.lable2.Name = "lable2";
+            this.lable2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lable2.Size = new System.Drawing.Size(96, 29);
+            this.lable2.TabIndex = 0;
+            this.lable2.Text = "正在职权信息";
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.panelControl3);
+            this.groupControl5.Controls.Add(this.panelControl4);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl5.Location = new System.Drawing.Point(2, 2);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(1213, 94);
+            this.groupControl5.TabIndex = 1;
+            this.groupControl5.Text = "部门读取进度";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.process1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 57);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1209, 35);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // process1
+            // 
+            this.process1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.process1.Location = new System.Drawing.Point(2, 2);
+            this.process1.Name = "process1";
+            this.process1.Properties.DisplayFormat.FormatString = "{0}/{1}";
+            this.process1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.process1.Size = new System.Drawing.Size(1205, 31);
+            this.process1.TabIndex = 0;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Controls.Add(this.lable1);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl4.Location = new System.Drawing.Point(2, 23);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl4.TabIndex = 0;
+            // 
+            // lable1
+            // 
+            this.lable1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lable1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lable1.Location = new System.Drawing.Point(2, 2);
+            this.lable1.Name = "lable1";
+            this.lable1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lable1.Size = new System.Drawing.Size(112, 29);
+            this.lable1.TabIndex = 0;
+            this.lable1.Text = "正在读部门信息";
             // 
             // lblMaxValue
             // 
@@ -535,6 +711,7 @@
             this.simpleButton5.TabIndex = 2;
             this.simpleButton5.Text = "更新数据";
             this.simpleButton5.ToolTip = "对比数据 更新数据";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // simpleButton6
             // 
@@ -706,7 +883,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 530);
+            this.ClientSize = new System.Drawing.Size(1227, 637);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupControl3);
@@ -733,7 +910,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.部门进度)).EndInit();
+            this.部门进度.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.process3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.process2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
+            this.panelControl6.ResumeLayout(false);
+            this.panelControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.process1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            this.panelControl4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
@@ -795,7 +995,21 @@
         private DevExpress.XtraEditors.LabelControl lblMaxValue;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl lblValue;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private DevExpress.XtraEditors.ProgressBarControl process3;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.ProgressBarControl process1;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.LabelControl lable1;
+        private DevExpress.XtraEditors.GroupControl 部门进度;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl lable3;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraEditors.ProgressBarControl process2;
+        private DevExpress.XtraEditors.PanelControl panelControl6;
+        private DevExpress.XtraEditors.LabelControl lable2;
     }
 }
 

@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using LinqToExcel;
 using Aspose.Words;
 using System.Threading;
+using DevExpress.XtraEditors;
 
 namespace GovernmentInfoStudio
 {
@@ -23,14 +24,14 @@ namespace GovernmentInfoStudio
             InitializeComponent();
 
             bgWork.DoWork += new DoWorkEventHandler(bgWork_DoWork);
-            bgWork.ProgressChanged += new ProgressChangedEventHandler(bgWork_ProgressChanged);
             bgWork.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgWork_RunWorkerCompleted);
-            bgWork.WorkerReportsProgress = true;
         }
 
         List<TblDepartment> departList = new List<TblDepartment>();
         List<TblAdministrativeCategory> categoryList = new List<TblAdministrativeCategory>();
         List<TreeMainData> treeDataList = new List<TreeMainData>();
+
+        BackgroundWorker backUpdateData = new BackgroundWorker();
 
         void InitControl()
         {
@@ -52,6 +53,11 @@ namespace GovernmentInfoStudio
             c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
 
             c_trlMain.DataSource = treeDataList;
+
+            backUpdateData.WorkerReportsProgress = true;
+            backUpdateData.DoWork += new DoWorkEventHandler(backUpdateData_DoWork);
+            backUpdateData.ProgressChanged += new ProgressChangedEventHandler(backUpdateData_ProgressChanged);
+            backUpdateData.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backUpdateData_RunWorkerCompleted);
         }
 
         void LoadData() 
@@ -143,8 +149,6 @@ namespace GovernmentInfoStudio
                 return;
             }
 
-           
-
             simpleButton6.Enabled = false;
             bgWork.RunWorkerAsync();
         }
@@ -152,18 +156,6 @@ namespace GovernmentInfoStudio
         void bgWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             simpleButton6.Enabled = true;
-        }
-
-        void bgWork_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            try
-            {
-                Value(e.ProgressPercentage);
-                c_grcMain.RefreshDataSource();
-            }
-            catch (Exception)
-            {
-            }          
         }
 
         void bgWork_DoWork(object sender, DoWorkEventArgs e)
@@ -193,8 +185,6 @@ namespace GovernmentInfoStudio
                 {
                     depart.DepartFullName = departItme.DepartFullName;
                 }
-
-                bgWork.ReportProgress(i + 1);
             }
         }
 
@@ -439,7 +429,7 @@ namespace GovernmentInfoStudio
 
                 string title = fileInfo.Name;
 
-                var titleRegex = new Regex("[—,-]{1,}(.*)");
+                var titleRegex = new Regex("[—,-,－,-]{1,}(.*)");
 
                 if (titleRegex.IsMatch(title))
                 {
@@ -460,8 +450,17 @@ namespace GovernmentInfoStudio
 
                 #region 子项
 
+                int excelIndex = 0;
+                double maxExcels = excels.Length;
+
                 foreach (var item in excels)
                 {
+                    excelIndex++;
+
+                    SetLabText(lable3, string.Format("正在读取 {0} {1} 路径:{1}", authoryMatt.AuthorityMatteryName, item));
+
+                    SetProcess(process3, (excelIndex / maxExcels) * 100);
+                   
                     var excel = new ExcelQueryFactory(item);
 
                     var excelRows = excel.WorksheetNoHeader(0);
@@ -674,7 +673,7 @@ namespace GovernmentInfoStudio
             {
                 processValue++;
                 lblValue.Text = processValue.ToString();
-                progressBarControl1.Text = processValue.ToString(); 
+                process3.Text = processValue.ToString(); 
             }));
         }
 
@@ -683,7 +682,7 @@ namespace GovernmentInfoStudio
             this.Invoke(new Action(() =>
             {
                 lblValue.Text = value.ToString();
-                progressBarControl1.Text = value.ToString();
+                process3.Text = value.ToString();
             }));
         }
         void MaxValue(int valeu)
@@ -692,9 +691,221 @@ namespace GovernmentInfoStudio
             this.Invoke(new Action(() =>
             {
                 lblMaxValue.Text = valeu.ToString();
-                progressBarControl1.Text = processValue.ToString();
-                progressBarControl1.Properties.Maximum = valeu;
+                process3.Text = processValue.ToString();
+                process3.Properties.Maximum = valeu;
             }));
+        }
+
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            if (backUpdateData.IsBusy)
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(buttonEdit2.Text))
+            {
+                return;
+            }
+
+            if (!Directory.Exists(buttonEdit2.Text))
+            {
+                return;
+            }
+
+            process3.Text = "0";
+
+            backUpdateData.RunWorkerAsync();
+            simpleButton6.Enabled = false;
+            simpleButton5.Enabled = false;
+            simpleButton4.Enabled = false;
+        }
+
+        void backUpdateData_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            process1.Text = "0";
+            lable1.Text = "读取部门完成";
+
+            simpleButton6.Enabled = true;
+            simpleButton5.Enabled = true;
+            simpleButton4.Enabled = true;
+        }
+
+        void backUpdateData_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lable1.Text = e.UserState.ToString();
+            process1.Text = e.ProgressPercentage.ToString();
+        }
+
+        void backUpdateData_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                double departId = 0;
+
+                double maxCount = Convert.ToDouble(departList.Count);
+
+                foreach (var departItem in departList)
+                {
+                    departId++;
+
+                    var process = Convert.ToInt32((departId / maxCount) * 100);
+
+                    backUpdateData.ReportProgress(process, string.Format("正在读取部门{0} 路径{1}", departItem.DepartmentName, departItem.DepartFullName));
+
+                    try
+                    {
+                        #region 部门信息
+
+                        if (string.IsNullOrEmpty(departItem.DepartFullName))
+                        {
+                            continue;
+                        }
+
+                        var category = ReadAdministrativeCategory(departItem);
+
+                        var departCategory = new List<TblDepartment_AdministrativeCategory>();
+
+                        string errMsg = string.Empty;
+
+                        if (!DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg))
+                        {
+                            continue;
+                        }
+
+                        #endregion
+
+                       
+                        SetProcess(process2, 0);
+                        double maxCategoryCount = Convert.ToDouble(category.Count);
+
+                        var treeDataList = new List<TreeMainData>();
+
+                        #region 分类
+
+                        foreach (var cateItem in category)
+                        {
+                            #region 是否存在分类
+
+                            var depart = categoryList.Find(c => c.AdministrativeCategoryName == cateItem.AdministrativeCategoryName);
+
+                            if (depart == null)
+                            {
+                                DepartmentMng.Insert(cateItem);
+                                categoryList.Add(cateItem);
+                            }
+
+                            #endregion
+
+                            #region 是否存在部门类别关系
+
+                            var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
+
+                            if (departCateTemp == null)
+                            {
+                                DepartmentMng.Insert(new TblDepartment_AdministrativeCategory()
+                                {
+                                    DepartmentID = focusedRowDepartment.DepartmentID,
+                                    AdministrativeCategoryID = depart.AdministrativeCategoryID
+                                });
+                            }
+
+                            #endregion
+
+                            #region 职权分类及子分类
+
+                            var treeData = new TreeMainData();
+
+                            treeData.TreeDataID = Guid.NewGuid().ToString();
+                            treeData.TreeDataCode = treeData.TreeDataID;
+                            treeData.Department = focusedRowDepartment;
+                            treeData.DepartmentName = focusedRowDepartment.DepartmentName;
+                            treeData.Category = depart;
+                            treeData.CategoryName = depart.AdministrativeCategoryName;
+                            treeData.CategoryFileName = cateItem.CategoryFileName;
+                            treeData.AuthorityFullName = cateItem.CategoryFullName;
+
+                            treeDataList.Add(treeData);
+
+                            #endregion
+                        }
+
+                        #endregion
+
+                        SetProcess(process2, 0);
+
+                        double treeId = 0;
+
+                        double maxtreeCount = Convert.ToDouble(treeDataList.Count);
+
+                        #region 职权信息
+
+                        foreach (var treeItem in treeDataList)
+                        {
+                            treeId++;
+
+                            SetLabText(lable2, string.Format("正在读取 {0} {1}", treeItem.CategoryFileName, treeItem.AuthorityFullName));
+                            SetProcess(process2, (treeId / maxtreeCount) * 100);
+
+                            try
+                            {
+                                if (treeItem.TreeDataID == treeItem.TreeDataCode &&
+                                    treeItem.AuthorityMatteryDetail == null)
+                                {
+                                    var Mattery = ReadAuthorityMattery(treeItem.Department.DepartmentID, treeItem.Category.AdministrativeCategorySortID, treeItem.AuthorityFullName);
+
+                                    if (Mattery.AuthorityMatteryDetailList.Count <= 0)
+                                    {
+                                        continue;
+                                    }
+
+                                    DepartmentMng.Insert(Mattery);
+                                }
+
+                            }
+                            catch (Exception exception)
+                            {
+
+                            }
+                        }
+
+                        #endregion
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        void SetLabText(LabelControl lable, string text)
+        {
+            if (lable.InvokeRequired)
+            {
+                lable.Invoke(new Action<LabelControl, string>(SetLabText), lable, text);
+            }
+            else
+            {
+                lable.Text = text;
+            }
+        }
+
+        void SetProcess(ProgressBarControl processControl, double value)
+        {
+            if (processControl.InvokeRequired)
+            {
+                processControl.Invoke(new Action<ProgressBarControl, double>(SetProcess), processControl, value);
+            }
+            else
+            {
+
+                processControl.Text = Convert.ToInt32(value).ToString();
+            }
         }
     }
 }
