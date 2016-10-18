@@ -196,6 +196,8 @@ namespace GovernmentInfoStudio.ActionManager
 
                         if (item.AuthorityMatteryFlow != null)
                         {
+                            item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
+
                             if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
                             {
                                 return false;

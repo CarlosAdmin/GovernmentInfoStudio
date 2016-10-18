@@ -156,6 +156,7 @@ namespace GovernmentInfoStudio
         void bgWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             simpleButton6.Enabled = true;
+           
         }
 
         void bgWork_DoWork(object sender, DoWorkEventArgs e)
@@ -185,6 +186,8 @@ namespace GovernmentInfoStudio
                 {
                     depart.DepartFullName = departItme.DepartFullName;
                 }
+
+                Refresh();               
             }
         }
 
@@ -676,6 +679,13 @@ namespace GovernmentInfoStudio
                 process3.Text = processValue.ToString(); 
             }));
         }
+        void Refresh()
+        {
+            this.Invoke(new Action(() =>
+            {
+                c_grcMain_View.RefreshData();
+            }));
+        }
 
         void Value(int value)
         {
@@ -775,8 +785,7 @@ namespace GovernmentInfoStudio
                         }
 
                         #endregion
-
-                       
+                
                         SetProcess(process2, 0);
                         double maxCategoryCount = Convert.ToDouble(category.Count);
 
@@ -819,8 +828,8 @@ namespace GovernmentInfoStudio
 
                             treeData.TreeDataID = Guid.NewGuid().ToString();
                             treeData.TreeDataCode = treeData.TreeDataID;
-                            treeData.Department = focusedRowDepartment;
-                            treeData.DepartmentName = focusedRowDepartment.DepartmentName;
+                            treeData.Department = departItem;
+                            treeData.DepartmentName = departItem.DepartmentName;
                             treeData.Category = depart;
                             treeData.CategoryName = depart.AdministrativeCategoryName;
                             treeData.CategoryFileName = cateItem.CategoryFileName;

@@ -129,6 +129,18 @@
     <Compile Include="FrmDBConnect.Designer.cs">
       <DependentUpon>FrmDBConnect.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDepartEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartEdit.Designer.cs">
+      <DependentUpon>FrmDepartEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDepartMng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartMng.Designer.cs">
+      <DependentUpon>FrmDepartMng.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     <Compile Include="Session\SessionMng.cs" />
     <EmbeddedResource Include="FrmDBConnect.resx">
       <DependentUpon>FrmDBConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDepartEdit.resx">
+      <DependentUpon>FrmDepartEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDepartMng.resx">
+      <DependentUpon>FrmDepartMng.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
