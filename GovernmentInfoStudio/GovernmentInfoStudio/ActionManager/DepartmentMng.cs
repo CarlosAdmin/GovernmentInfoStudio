@@ -86,7 +86,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
-                    if (QueryCount(session, data) > 1)
+                    if (QueryCount(session, data) >= 1)
                     {
                         return true;
                     }
@@ -112,7 +112,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
-                    if (QueryCount(session, data) > 1)
+                    if (QueryCount(session, data) >= 1)
                     {
                         return true;
                     }
@@ -138,7 +138,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
-                    if (QueryCount(session, data) > 1)
+                    if (QueryCount(session, data) >= 1)
                     {
                         return true;
                     }
@@ -166,7 +166,7 @@ namespace GovernmentInfoStudio.ActionManager
                 {
                     session.BeginTrans();
 
-                    if (QueryCount(session, data) > 1)
+                    if (QueryCount(session, data) >= 1)
                     {
                         return true;
                     }
