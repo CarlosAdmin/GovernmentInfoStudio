@@ -170,7 +170,7 @@ namespace GovernmentInfoStudio.ActionManager
                     {
                         return true;
                     }
-
+                   
                     if (!TblAuthorityMatteryCtrl.InsertNoPK(data, session, ref errMsg))
                     {
                         return false;
@@ -179,7 +179,7 @@ namespace GovernmentInfoStudio.ActionManager
                     foreach (var item in data.AuthorityMatteryDetailList)
                     {
                         item.AuthorityMatteryID = data.AuthorityMatteryID;
-
+                        
                         if (!TblAuthorityMatteryDetailCtrl.InsertNoPK(item, session, ref errMsg))
                         {
                             return false;
@@ -189,6 +189,7 @@ namespace GovernmentInfoStudio.ActionManager
                         {
                             detail.AuthorityMatteryDetailCode = item.AuthorityMatteryID;
                         }
+
                         if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))
                         {
                              return false;
@@ -205,7 +206,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                             int updCount = 0;
 
-                            if (TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                            if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
                             {
 
                             }

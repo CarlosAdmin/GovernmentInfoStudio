@@ -191,7 +191,7 @@ namespace GovernmentInfoStudio
             }
         }
 
-        TblDepartment focusedRowDepartment = new TblDepartment();
+        TblDepartment focusedDepartment = new TblDepartment();
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -200,10 +200,10 @@ namespace GovernmentInfoStudio
             c_trlMain.DataSource = treeDataList;
             c_trlMain.RefreshDataSource();
 
-            focusedRowDepartment = (TblDepartment)c_grcMain_View.GetFocusedRow();
+            focusedDepartment = (TblDepartment)c_grcMain_View.GetFocusedRow();
 
             //读取部门分类
-            var category = ReadAdministrativeCategory(focusedRowDepartment);
+            var category = ReadAdministrativeCategory(focusedDepartment);
 
             MaxValue(category.Count);
 
@@ -211,7 +211,7 @@ namespace GovernmentInfoStudio
 
             string errMsg = string.Empty;
 
-            DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg);
+            DepartmentMng.GetList(focusedDepartment, ref departCategory, ref errMsg);
 
             foreach (var cateItem in category)
             {
@@ -233,13 +233,13 @@ namespace GovernmentInfoStudio
 
                     #region 是否存在部门类别关系
 
-                    var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
+                    var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
 
                     if (departCateTemp == null)
                     {
                         DepartmentMng.Insert(new TblDepartment_AdministrativeCategory()
                         {
-                            DepartmentID = focusedRowDepartment.DepartmentID,
+                            DepartmentID = focusedDepartment.DepartmentID,
                             AdministrativeCategoryID = depart.AdministrativeCategoryID
                         });
                     }
@@ -252,8 +252,8 @@ namespace GovernmentInfoStudio
 
                     treeData.TreeDataID = Guid.NewGuid().ToString();
                     treeData.TreeDataCode = treeData.TreeDataID;
-                    treeData.Department = focusedRowDepartment;
-                    treeData.DepartmentName = focusedRowDepartment.DepartmentName;
+                    treeData.Department = focusedDepartment;
+                    treeData.DepartmentName = focusedDepartment.DepartmentName;
                     treeData.Category = depart;
                     treeData.CategoryName = depart.AdministrativeCategoryName;
                     treeData.CategoryFileName = item.CategoryFileName;
@@ -779,7 +779,7 @@ namespace GovernmentInfoStudio
 
                         string errMsg = string.Empty;
 
-                        if (!DepartmentMng.GetList(focusedRowDepartment, ref departCategory, ref errMsg))
+                        if (!DepartmentMng.GetList(departItem, ref departCategory, ref errMsg))
                         {
                             continue;
                         }
@@ -809,13 +809,13 @@ namespace GovernmentInfoStudio
 
                             #region 是否存在部门类别关系
 
-                            var departCateTemp = departCategory.Find(c => c.DepartmentID == focusedRowDepartment.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
+                            var departCateTemp = departCategory.Find(c => c.DepartmentID == departItem.DepartmentID && c.AdministrativeCategoryID == depart.AdministrativeCategoryID);
 
                             if (departCateTemp == null)
                             {
                                 DepartmentMng.Insert(new TblDepartment_AdministrativeCategory()
                                 {
-                                    DepartmentID = focusedRowDepartment.DepartmentID,
+                                    DepartmentID = departItem.DepartmentID,
                                     AdministrativeCategoryID = depart.AdministrativeCategoryID
                                 });
                             }
