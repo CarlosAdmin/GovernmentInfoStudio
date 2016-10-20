@@ -187,7 +187,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                         foreach (var detail in item.AuthorityDetailList)
                         {
-                            detail.AuthorityMatteryDetailCode = item.AuthorityMatteryID;
+                            detail.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
                         }
 
                         if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))

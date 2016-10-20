@@ -734,7 +734,7 @@ namespace GovernmentInfoStudio
 
         void backUpdateData_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            process1.Text = "0";
+            //process1.Text = "0";
             lable1.Text = "读取部门完成";
 
             simpleButton6.Enabled = true;
