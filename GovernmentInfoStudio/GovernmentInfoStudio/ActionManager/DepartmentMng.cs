@@ -156,6 +156,8 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+       static int sortId = 0;
+
         public static bool Insert(TblAuthorityMattery data)
         {
             try
@@ -170,24 +172,36 @@ namespace GovernmentInfoStudio.ActionManager
                     {
                         return true;
                     }
-                   
+
+                    sortId++;
+
+                    data.AuthorityMatterySortID = sortId;
+
                     if (!TblAuthorityMatteryCtrl.InsertNoPK(data, session, ref errMsg))
                     {
                         return false;
                     }
 
+                    int detailSortId=0;
                     foreach (var item in data.AuthorityMatteryDetailList)
                     {
+                        detailSortId++;
+
                         item.AuthorityMatteryID = data.AuthorityMatteryID;
-                        
+                        item.AuthorityMatteryDetailSortID = detailSortId;
+
                         if (!TblAuthorityMatteryDetailCtrl.InsertNoPK(item, session, ref errMsg))
                         {
                             return false;
                         }
 
+                        int id = 0;
+
                         foreach (var detail in item.AuthorityDetailList)
                         {
+                            id++;
                             detail.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
+                            detail.AuthorityDetailSortID = id;
                         }
 
                         if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))
@@ -198,7 +212,7 @@ namespace GovernmentInfoStudio.ActionManager
                         if (item.AuthorityMatteryFlow != null)
                         {
                             item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
-
+                            
                             if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
                             {
                                 return false;

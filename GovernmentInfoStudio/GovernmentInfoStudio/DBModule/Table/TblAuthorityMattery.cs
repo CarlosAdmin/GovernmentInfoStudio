@@ -7,7 +7,9 @@
     using System.Collections.Generic;
     using System.Data;
 
-
+    /// <summary>
+    /// 职权
+    /// </summary>
     [Serializable]
     public class TblAuthorityMattery
     {

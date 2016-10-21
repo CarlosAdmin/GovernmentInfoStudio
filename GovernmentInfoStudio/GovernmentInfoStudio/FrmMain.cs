@@ -456,14 +456,17 @@ namespace GovernmentInfoStudio
                 int excelIndex = 0;
                 double maxExcels = excels.Length;
 
+                SetLabText(lblMaxValue3, maxExcels.ToString());
+
                 foreach (var item in excels)
                 {
                     excelIndex++;
 
-                    SetLabText(lable3, string.Format("正在读取 {0} {1} 路径:{1}", authoryMatt.AuthorityMatteryName, item));
+                    SetLabText(lable3, string.Format("正在读取 {0} 路径:{1}", authoryMatt.AuthorityMatteryName, item));
 
                     SetProcess(process3, (excelIndex / maxExcels) * 100);
-                   
+                    SetLabText(lblValue3, excelIndex.ToString());
+
                     var excel = new ExcelQueryFactory(item);
 
                     var excelRows = excel.WorksheetNoHeader(0);
@@ -562,6 +565,8 @@ namespace GovernmentInfoStudio
                                         image2.Save(imagePath);
                                     }
 
+                                    FileInfo fileImage = new FileInfo(imagePath);
+                                    detail.AuthorityMatteryFlow.AuthorityMatteryFlowName = fileImage.Name;
                                     detail.AuthorityMatteryFlow.FlowImagePath = imagePath;
                                 }
                             }
@@ -675,7 +680,7 @@ namespace GovernmentInfoStudio
             this.Invoke(new Action(() =>
             {
                 processValue++;
-                lblValue.Text = processValue.ToString();
+                lblValue1.Text = processValue.ToString();
                 process3.Text = processValue.ToString(); 
             }));
         }
@@ -691,7 +696,7 @@ namespace GovernmentInfoStudio
         {
             this.Invoke(new Action(() =>
             {
-                lblValue.Text = value.ToString();
+                lblValue1.Text = value.ToString();
                 process3.Text = value.ToString();
             }));
         }
@@ -700,7 +705,7 @@ namespace GovernmentInfoStudio
             processValue = 0;
             this.Invoke(new Action(() =>
             {
-                lblMaxValue.Text = valeu.ToString();
+                lblMaxValue1.Text = valeu.ToString();
                 process3.Text = processValue.ToString();
                 process3.Properties.Maximum = valeu;
             }));
@@ -756,11 +761,15 @@ namespace GovernmentInfoStudio
 
                 double maxCount = Convert.ToDouble(departList.Count);
 
+                SetLabText(lblMaxValue1, maxCount.ToString());
+
                 foreach (var departItem in departList)
                 {
                     departId++;
 
                     var process = Convert.ToInt32((departId / maxCount) * 100);
+
+                    SetLabText(lblValue1, departId.ToString());
 
                     backUpdateData.ReportProgress(process, string.Format("正在读取部门{0} 路径{1}", departItem.DepartmentName, departItem.DepartFullName));
 
@@ -843,10 +852,13 @@ namespace GovernmentInfoStudio
                         #endregion
 
                         SetProcess(process2, 0);
+                        SetLabText(lblMaxValue2, 0.ToString());
 
                         double treeId = 0;
 
                         double maxtreeCount = Convert.ToDouble(treeDataList.Count);
+
+                        SetLabText(lblMaxValue2, maxtreeCount.ToString());
 
                         #region 职权信息
 
@@ -856,6 +868,8 @@ namespace GovernmentInfoStudio
 
                             SetLabText(lable2, string.Format("正在读取 {0} {1}", treeItem.CategoryFileName, treeItem.AuthorityFullName));
                             SetProcess(process2, (treeId / maxtreeCount) * 100);
+
+                            SetLabText(lblValue2, treeId.ToString());
 
                             try
                             {
@@ -903,6 +917,8 @@ namespace GovernmentInfoStudio
                 lable.Text = text;
             }
         }
+
+        
 
         void SetProcess(ProgressBarControl processControl, double value)
         {

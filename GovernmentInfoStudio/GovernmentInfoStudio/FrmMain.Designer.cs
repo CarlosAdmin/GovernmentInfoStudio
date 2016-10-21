@@ -70,9 +70,9 @@
             this.process1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.lable1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblMaxValue = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaxValue1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.lblValue = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
@@ -94,6 +94,12 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaxValue2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaxValue3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -638,29 +644,29 @@
             this.lable1.TabIndex = 0;
             this.lable1.Text = "正在读部门信息";
             // 
-            // lblMaxValue
+            // lblMaxValue1
             // 
-            this.lblMaxValue.Location = new System.Drawing.Point(1102, 26);
-            this.lblMaxValue.Name = "lblMaxValue";
-            this.lblMaxValue.Size = new System.Drawing.Size(21, 14);
-            this.lblMaxValue.TabIndex = 1;
-            this.lblMaxValue.Text = "100";
+            this.lblMaxValue1.Location = new System.Drawing.Point(1075, 2);
+            this.lblMaxValue1.Name = "lblMaxValue1";
+            this.lblMaxValue1.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue1.TabIndex = 1;
+            this.lblMaxValue1.Text = "100";
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(1076, 26);
+            this.labelControl17.Location = new System.Drawing.Point(1049, 2);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(5, 14);
             this.labelControl17.TabIndex = 1;
             this.labelControl17.Text = "/";
             // 
-            // lblValue
+            // lblValue1
             // 
-            this.lblValue.Location = new System.Drawing.Point(1046, 26);
-            this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(7, 14);
-            this.lblValue.TabIndex = 1;
-            this.lblValue.Text = "0";
+            this.lblValue1.Location = new System.Drawing.Point(1019, 2);
+            this.lblValue1.Name = "lblValue1";
+            this.lblValue1.Size = new System.Drawing.Size(7, 14);
+            this.lblValue1.TabIndex = 1;
+            this.lblValue1.Text = "0";
             // 
             // groupControl4
             // 
@@ -725,10 +731,16 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.lblMaxValue);
+            this.groupControl1.Controls.Add(this.lblMaxValue3);
+            this.groupControl1.Controls.Add(this.lblMaxValue2);
+            this.groupControl1.Controls.Add(this.labelControl21);
+            this.groupControl1.Controls.Add(this.lblMaxValue1);
+            this.groupControl1.Controls.Add(this.labelControl18);
             this.groupControl1.Controls.Add(this.labelControl17);
+            this.groupControl1.Controls.Add(this.lblValue3);
             this.groupControl1.Controls.Add(this.labelControl14);
-            this.groupControl1.Controls.Add(this.lblValue);
+            this.groupControl1.Controls.Add(this.lblValue2);
+            this.groupControl1.Controls.Add(this.lblValue1);
             this.groupControl1.Controls.Add(this.labelControl12);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl5);
@@ -879,6 +891,54 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
             // 
+            // lblValue2
+            // 
+            this.lblValue2.Location = new System.Drawing.Point(1019, 22);
+            this.lblValue2.Name = "lblValue2";
+            this.lblValue2.Size = new System.Drawing.Size(7, 14);
+            this.lblValue2.TabIndex = 1;
+            this.lblValue2.Text = "0";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(1049, 22);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(5, 14);
+            this.labelControl18.TabIndex = 1;
+            this.labelControl18.Text = "/";
+            // 
+            // lblMaxValue2
+            // 
+            this.lblMaxValue2.Location = new System.Drawing.Point(1075, 22);
+            this.lblMaxValue2.Name = "lblMaxValue2";
+            this.lblMaxValue2.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue2.TabIndex = 1;
+            this.lblMaxValue2.Text = "100";
+            // 
+            // lblValue3
+            // 
+            this.lblValue3.Location = new System.Drawing.Point(1019, 39);
+            this.lblValue3.Name = "lblValue3";
+            this.lblValue3.Size = new System.Drawing.Size(7, 14);
+            this.lblValue3.TabIndex = 1;
+            this.lblValue3.Text = "0";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(1049, 39);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(5, 14);
+            this.labelControl21.TabIndex = 1;
+            this.labelControl21.Text = "/";
+            // 
+            // lblMaxValue3
+            // 
+            this.lblMaxValue3.Location = new System.Drawing.Point(1075, 39);
+            this.lblMaxValue3.Name = "lblMaxValue3";
+            this.lblMaxValue3.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue3.TabIndex = 1;
+            this.lblMaxValue3.Text = "100";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -992,9 +1052,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl lblMaxValue;
+        private DevExpress.XtraEditors.LabelControl lblMaxValue1;
         private DevExpress.XtraEditors.LabelControl labelControl17;
-        private DevExpress.XtraEditors.LabelControl lblValue;
+        private DevExpress.XtraEditors.LabelControl lblValue1;
         private DevExpress.XtraEditors.ProgressBarControl process3;
         private DevExpress.XtraEditors.GroupControl groupControl5;
         private DevExpress.XtraEditors.PanelControl panelControl3;
@@ -1010,6 +1070,12 @@
         private DevExpress.XtraEditors.ProgressBarControl process2;
         private DevExpress.XtraEditors.PanelControl panelControl6;
         private DevExpress.XtraEditors.LabelControl lable2;
+        private DevExpress.XtraEditors.LabelControl lblMaxValue3;
+        private DevExpress.XtraEditors.LabelControl lblMaxValue2;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl lblValue3;
+        private DevExpress.XtraEditors.LabelControl lblValue2;
     }
 }
 
