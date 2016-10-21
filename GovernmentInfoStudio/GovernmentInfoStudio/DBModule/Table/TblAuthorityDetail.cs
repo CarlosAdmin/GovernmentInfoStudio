@@ -7,9 +7,7 @@
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary>
-    /// 职权三级
-    /// </summary>
+
     [Serializable]
     public class TblAuthorityDetail
     {
@@ -53,6 +51,16 @@
            set { _authoritymatterydetailcode = value; }
         }
 
+        private int _authoritydetailsortid = 0;
+        /// <summary>
+        ///  
+        /// </summary>
+        public int AuthorityDetailSortID
+        {
+           get { return _authoritydetailsortid; }
+           set { _authoritydetailsortid = value; }
+        }
+
         private int _rowCntDBCtrl = 0;
         public int RowCntDBCtrl
         {
@@ -78,6 +86,9 @@
                      break;
                   case "AUTHORITYMATTERYDETAILCODE":
                       AuthorityMatteryDetailCode = ComFn.GetDBFieldInt(dr[i]);
+                     break;
+                  case "AUTHORITYDETAILSORTID":
+                      AuthorityDetailSortID = ComFn.GetDBFieldInt(dr[i]);
                      break;
                   case "ROWCNTDBCTRL":
                       _rowCntDBCtrl = ComFn.GetDBFieldInt(dr[i]);
@@ -106,6 +117,11 @@
            return GetField("AuthorityMatteryDetailCode");
         }
 
+        public static FieldInfo GetAuthorityDetailSortIDField()
+        {
+           return GetField("AuthorityDetailSortID");
+        }
+
         public static FieldInfo GetRowCntDBCtrlField()
         {
             return GetField("RowCntDBCtrl");
@@ -124,10 +140,13 @@
                   return new FieldInfo("AUTHORITYMATTERYTITLE", "string", 200, 0, false, "");
 
               case "AUTHORITYMATTERYCONTENT":
-                  return new FieldInfo("AUTHORITYMATTERYCONTENT", "string", 2147483647, 0, false, "");
+                  return new FieldInfo("AUTHORITYMATTERYCONTENT", "string", -1, 0, false, "");
 
               case "AUTHORITYMATTERYDETAILCODE":
                   return new FieldInfo("AUTHORITYMATTERYDETAILCODE", "int", 10, 0, false, "");
+
+              case "AUTHORITYDETAILSORTID":
+                  return new FieldInfo("AUTHORITYDETAILSORTID", "int", 10, 0, false, "");
 
                 case "ROWCNTDBCTRL":
                     return new FieldInfo("ROWCNTDBCTRL", "int", 10, 0, false, "");
@@ -144,6 +163,7 @@
            list.Add(GetAuthorityMatteryTitleField());
            list.Add(GetAuthorityMatteryContentField());
            list.Add(GetAuthorityMatteryDetailCodeField());
+           list.Add(GetAuthorityDetailSortIDField());
            return list;
         }
 

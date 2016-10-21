@@ -3,7 +3,7 @@
     using BaseCommon.Common;
     using BaseCommon.Common.DB;
     using BaseCommon.Common.DBSql;
-  
+   
     using BaseCommon.DBModuleTable.DBModule.Table;
     using System;
     using System.Text;
@@ -23,7 +23,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -46,7 +46,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -74,7 +74,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -89,7 +89,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -146,7 +146,7 @@
             catch (Exception exception)
             {
                  errMsg = exception.Message;
-                 
+                
                  return false;
             }
         }
@@ -180,7 +180,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -197,7 +197,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }

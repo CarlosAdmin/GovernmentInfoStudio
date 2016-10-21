@@ -3,7 +3,7 @@
     using BaseCommon.Common;
     using BaseCommon.Common.DB;
     using BaseCommon.Common.DBSql;
-  
+   
     using BaseCommon.DBModuleTable.DBModule.Table;
     using System;
     using System.Text;
@@ -23,7 +23,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -46,7 +46,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -63,12 +63,14 @@
                 builder.Append(" AuthorityMatteryName");
                 builder.Append(" ,DepartmentID");
                 builder.Append(" ,AdministrativeCategoryID");
+                builder.Append(" ,AuthorityMatterySortID");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" '" + ComFn.GetSafeSql(item.AuthorityMatteryName) + "'");
                 builder.Append(" ," + item.DepartmentID);
                 builder.Append(" ," + item.AdministrativeCategoryID);
+                builder.Append(" ," + item.AuthorityMatterySortID);
                 builder.Append(" )");
                 sql = builder.ToString();
                 return true;
@@ -76,7 +78,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -91,7 +93,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -110,6 +112,7 @@
                      builder.Append(" AuthorityMatteryName = '" + ComFn.GetSafeSql(item.AuthorityMatteryName) + "'");
                      builder.Append(" ,DepartmentID = " + item.DepartmentID);
                      builder.Append(" ,AdministrativeCategoryID = " + item.AdministrativeCategoryID);
+                     builder.Append(" ,AuthorityMatterySortID = " + item.AuthorityMatterySortID);
                  }
                  else
                  {
@@ -127,6 +130,9 @@
                                     goto Label_1000;
                                 case "ADMINISTRATIVECATEGORYID":
                                     builder.Append(" AdministrativeCategoryID = " + item.AdministrativeCategoryID);
+                                    goto Label_1000;
+                                case "AUTHORITYMATTERYSORTID":
+                                    builder.Append(" AuthorityMatterySortID = " + item.AuthorityMatterySortID);
                                     goto Label_1000;
                             }
                         }
@@ -152,7 +158,7 @@
             catch (Exception exception)
             {
                  errMsg = exception.Message;
-                 
+                
                  return false;
             }
         }
@@ -186,7 +192,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -203,7 +209,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }

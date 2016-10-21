@@ -8,9 +8,6 @@
     using System.Data;
 
 
-    /// <summary>
-    /// 职权一级
-    /// </summary>
     [Serializable]
     public class TblAuthorityMattery
     {
@@ -54,6 +51,19 @@
            set { _administrativecategoryid = value; }
         }
 
+        private int _authoritymatterysortid = 0;
+        /// <summary>
+        ///  
+        /// </summary>
+        public int AuthorityMatterySortID
+        {
+           get { return _authoritymatterysortid; }
+           set { _authoritymatterysortid = value; }
+        }
+
+
+        public List<TblAuthorityMatteryDetail> AuthorityMatteryDetailList { get; set; }
+        
         private int _rowCntDBCtrl = 0;
         public int RowCntDBCtrl
         {
@@ -61,7 +71,6 @@
            set { this._rowCntDBCtrl = value; }
         }
 
-        public List<TblAuthorityMatteryDetail> AuthorityMatteryDetailList { get; set; }
 
         public void SetFieldValue(DataRow dr, string[] columnNameList)
         {
@@ -80,6 +89,9 @@
                      break;
                   case "ADMINISTRATIVECATEGORYID":
                       AdministrativeCategoryID = ComFn.GetDBFieldInt(dr[i]);
+                     break;
+                  case "AUTHORITYMATTERYSORTID":
+                      AuthorityMatterySortID = ComFn.GetDBFieldInt(dr[i]);
                      break;
                   case "ROWCNTDBCTRL":
                       _rowCntDBCtrl = ComFn.GetDBFieldInt(dr[i]);
@@ -108,6 +120,11 @@
            return GetField("AdministrativeCategoryID");
         }
 
+        public static FieldInfo GetAuthorityMatterySortIDField()
+        {
+           return GetField("AuthorityMatterySortID");
+        }
+
         public static FieldInfo GetRowCntDBCtrlField()
         {
             return GetField("RowCntDBCtrl");
@@ -131,6 +148,9 @@
               case "ADMINISTRATIVECATEGORYID":
                   return new FieldInfo("ADMINISTRATIVECATEGORYID", "int", 10, 0, false, "");
 
+              case "AUTHORITYMATTERYSORTID":
+                  return new FieldInfo("AUTHORITYMATTERYSORTID", "int", 10, 0, false, "");
+
                 case "ROWCNTDBCTRL":
                     return new FieldInfo("ROWCNTDBCTRL", "int", 10, 0, false, "");
 
@@ -146,6 +166,7 @@
            list.Add(GetAuthorityMatteryNameField());
            list.Add(GetDepartmentIDField());
            list.Add(GetAdministrativeCategoryIDField());
+           list.Add(GetAuthorityMatterySortIDField());
            return list;
         }
 

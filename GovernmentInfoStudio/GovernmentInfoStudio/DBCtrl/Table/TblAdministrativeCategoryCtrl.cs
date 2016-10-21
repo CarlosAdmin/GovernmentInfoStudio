@@ -49,6 +49,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -64,11 +65,13 @@
                 builder.Append(" (");
                 builder.Append(" AdministrativeCategoryName");
                 builder.Append(" ,AdministrativeCategorySortID");
+                builder.Append(" ,AdministrativeCategorysort");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" '" + ComFn.GetSafeSql(item.AdministrativeCategoryName) + "'");
                 builder.Append(" ," + item.AdministrativeCategorySortID);
+                builder.Append(" ," + item.AdministrativeCategorysort);
                 builder.Append(" )");
                 using (DBSession session = DBMng.GetDefault(parent))
                 {
@@ -79,6 +82,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+               
                 return false;
             }
         }
@@ -109,6 +113,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -128,6 +133,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -151,6 +157,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -173,6 +180,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -203,6 +211,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+                
                 return false;
             }
         }
@@ -226,6 +235,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
+               
                 return false;
              }
         }
@@ -253,7 +263,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-              
+               
                 return false;
             }
         }
@@ -268,7 +278,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-              
+                
                 return false;
             }
         }
@@ -286,6 +296,7 @@
                  {
                      builder.Append(" AdministrativeCategoryName = '" + ComFn.GetSafeSql(item.AdministrativeCategoryName) + "'");
                      builder.Append(" ,AdministrativeCategorySortID = " + item.AdministrativeCategorySortID);
+                     builder.Append(" ,AdministrativeCategorysort = " + item.AdministrativeCategorysort);
                  }
                  else
                  {
@@ -300,6 +311,9 @@
                                     goto Label_1000;
                                 case "ADMINISTRATIVECATEGORYSORTID":
                                     builder.Append(" AdministrativeCategorySortID = " + item.AdministrativeCategorySortID);
+                                    goto Label_1000;
+                                case "ADMINISTRATIVECATEGORYSORT":
+                                    builder.Append(" AdministrativeCategorysort = " + item.AdministrativeCategorysort);
                                     goto Label_1000;
                             }
                         }
@@ -328,7 +342,7 @@
             catch (Exception exception)
             {
                  errMsg = exception.Message;
-                
+                 
                  return false;
             }
         }
@@ -344,11 +358,13 @@
                 builder.Append(" (");
                 builder.Append(" AdministrativeCategoryName");
                 builder.Append(" ,AdministrativeCategorySortID");
+                builder.Append(" ,AdministrativeCategorysort");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" '" + ComFn.GetSafeSql(item.AdministrativeCategoryName) + "'");
                 builder.Append(" ," + item.AdministrativeCategorySortID);
+                builder.Append(" ," + item.AdministrativeCategorysort);
                 builder.Append(" )");
                 builder.Append("select @@identity ");
                 using (DBSession session = DBMng.GetDefault(parent))
@@ -366,7 +382,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -383,7 +399,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-              
+                
                 return false;
             }
         }
@@ -404,7 +420,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -426,7 +442,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -460,7 +476,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -479,7 +495,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-              
+               
                 return false;
             }
         }

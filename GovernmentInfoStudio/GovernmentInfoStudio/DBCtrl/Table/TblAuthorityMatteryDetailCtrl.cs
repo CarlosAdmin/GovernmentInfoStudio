@@ -3,7 +3,7 @@
     using BaseCommon.Common;
     using BaseCommon.Common.DB;
     using BaseCommon.Common.DBSql;
-  
+   
     using BaseCommon.DBModuleTable.DBModule.Table;
     using System;
     using System.Data;
@@ -25,7 +25,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -51,7 +51,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -68,12 +68,14 @@
                 builder.Append(" AuthorityCode");
                 builder.Append(" ,AuthorityName");
                 builder.Append(" ,AuthorityMatteryID");
+                builder.Append(" ,AuthorityMatteryDetailSortID");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" '" + ComFn.GetSafeSql(item.AuthorityCode) + "'");
                 builder.Append(" ,'" + ComFn.GetSafeSql(item.AuthorityName) + "'");
                 builder.Append(" ," + item.AuthorityMatteryID);
+                builder.Append(" ," + item.AuthorityMatteryDetailSortID);
                 builder.Append(" )");
                 using (DBSession session = DBMng.GetDefault(parent))
                 {
@@ -84,7 +86,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -115,7 +117,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -135,7 +137,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -159,7 +161,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -280,7 +282,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -299,6 +301,7 @@
                      builder.Append(" AuthorityCode = '" + ComFn.GetSafeSql(item.AuthorityCode) + "'");
                      builder.Append(" ,AuthorityName = '" + ComFn.GetSafeSql(item.AuthorityName) + "'");
                      builder.Append(" ,AuthorityMatteryID = " + item.AuthorityMatteryID);
+                     builder.Append(" ,AuthorityMatteryDetailSortID = " + item.AuthorityMatteryDetailSortID);
                  }
                  else
                  {
@@ -316,6 +319,9 @@
                                     goto Label_1000;
                                 case "AUTHORITYMATTERYID":
                                     builder.Append(" AuthorityMatteryID = " + item.AuthorityMatteryID);
+                                    goto Label_1000;
+                                case "AUTHORITYMATTERYDETAILSORTID":
+                                    builder.Append(" AuthorityMatteryDetailSortID = " + item.AuthorityMatteryDetailSortID);
                                     goto Label_1000;
                             }
                         }
@@ -344,7 +350,7 @@
             catch (Exception exception)
             {
                  errMsg = exception.Message;
-                 
+                
                  return false;
             }
         }
@@ -361,12 +367,14 @@
                 builder.Append(" AuthorityCode");
                 builder.Append(" ,AuthorityName");
                 builder.Append(" ,AuthorityMatteryID");
+                builder.Append(" ,AuthorityMatteryDetailSortID");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" '" + ComFn.GetSafeSql(item.AuthorityCode) + "'");
                 builder.Append(" ,'" + ComFn.GetSafeSql(item.AuthorityName) + "'");
                 builder.Append(" ," + item.AuthorityMatteryID);
+                builder.Append(" ," + item.AuthorityMatteryDetailSortID);
                 builder.Append(" )");
                 builder.Append("select @@identity ");
                 using (DBSession session = DBMng.GetDefault(parent))
@@ -384,7 +392,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -422,7 +430,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -444,7 +452,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -461,7 +469,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -478,7 +486,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -497,7 +505,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }

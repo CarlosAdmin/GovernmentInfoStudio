@@ -7,9 +7,7 @@
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary>
-    /// 职权二级
-    /// </summary>
+
     [Serializable]
     public class TblAuthorityMatteryDetail
     {
@@ -53,6 +51,16 @@
            set { _authoritymatteryid = value; }
         }
 
+        private int _authoritymatterydetailsortid = 0;
+        /// <summary>
+        ///  
+        /// </summary>
+        public int AuthorityMatteryDetailSortID
+        {
+           get { return _authoritymatterydetailsortid; }
+           set { _authoritymatterydetailsortid = value; }
+        }
+
         private int _rowCntDBCtrl = 0;
         public int RowCntDBCtrl
         {
@@ -86,6 +94,9 @@
                   case "AUTHORITYMATTERYID":
                       AuthorityMatteryID = ComFn.GetDBFieldInt(dr[i]);
                      break;
+                  case "AUTHORITYMATTERYDETAILSORTID":
+                      AuthorityMatteryDetailSortID = ComFn.GetDBFieldInt(dr[i]);
+                     break;
                   case "ROWCNTDBCTRL":
                       _rowCntDBCtrl = ComFn.GetDBFieldInt(dr[i]);
                      break;
@@ -113,6 +124,11 @@
            return GetField("AuthorityMatteryID");
         }
 
+        public static FieldInfo GetAuthorityMatteryDetailSortIDField()
+        {
+           return GetField("AuthorityMatteryDetailSortID");
+        }
+
         public static FieldInfo GetRowCntDBCtrlField()
         {
             return GetField("RowCntDBCtrl");
@@ -136,6 +152,9 @@
               case "AUTHORITYMATTERYID":
                   return new FieldInfo("AUTHORITYMATTERYID", "int", 10, 0, false, "");
 
+              case "AUTHORITYMATTERYDETAILSORTID":
+                  return new FieldInfo("AUTHORITYMATTERYDETAILSORTID", "int", 10, 0, false, "");
+
                 case "ROWCNTDBCTRL":
                     return new FieldInfo("ROWCNTDBCTRL", "int", 10, 0, false, "");
 
@@ -151,6 +170,7 @@
            list.Add(GetAuthorityCodeField());
            list.Add(GetAuthorityNameField());
            list.Add(GetAuthorityMatteryIDField());
+           list.Add(GetAuthorityMatteryDetailSortIDField());
            return list;
         }
 

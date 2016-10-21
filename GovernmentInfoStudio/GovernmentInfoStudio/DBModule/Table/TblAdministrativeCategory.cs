@@ -41,6 +41,16 @@
            set { _administrativecategorysortid = value; }
         }
 
+        private int _administrativecategorysort = 0;
+        /// <summary>
+        ///  
+        /// </summary>
+        public int AdministrativeCategorysort
+        {
+           get { return _administrativecategorysort; }
+           set { _administrativecategorysort = value; }
+        }
+
         public TblDepartment Department { get; set; }
 
         public string CategoryFullName { get; set; }
@@ -70,6 +80,9 @@
                   case "ADMINISTRATIVECATEGORYSORTID":
                       AdministrativeCategorySortID = ComFn.GetDBFieldInt(dr[i]);
                      break;
+                  case "ADMINISTRATIVECATEGORYSORT":
+                      AdministrativeCategorysort = ComFn.GetDBFieldInt(dr[i]);
+                     break;
                   case "ROWCNTDBCTRL":
                       _rowCntDBCtrl = ComFn.GetDBFieldInt(dr[i]);
                      break;
@@ -92,6 +105,11 @@
            return GetField("AdministrativeCategorySortID");
         }
 
+        public static FieldInfo GetAdministrativeCategorysortField()
+        {
+           return GetField("AdministrativeCategorysort");
+        }
+
         public static FieldInfo GetRowCntDBCtrlField()
         {
             return GetField("RowCntDBCtrl");
@@ -112,6 +130,9 @@
               case "ADMINISTRATIVECATEGORYSORTID":
                   return new FieldInfo("ADMINISTRATIVECATEGORYSORTID", "int", 10, 0, false, "");
 
+              case "ADMINISTRATIVECATEGORYSORT":
+                  return new FieldInfo("ADMINISTRATIVECATEGORYSORT", "int", 10, 0, false, "");
+
                 case "ROWCNTDBCTRL":
                     return new FieldInfo("ROWCNTDBCTRL", "int", 10, 0, false, "");
 
@@ -126,6 +147,7 @@
            list.Add(GetAdministrativeCategoryIDField());
            list.Add(GetAdministrativeCategoryNameField());
            list.Add(GetAdministrativeCategorySortIDField());
+           list.Add(GetAdministrativeCategorysortField());
            return list;
         }
 

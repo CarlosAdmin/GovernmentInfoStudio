@@ -3,7 +3,7 @@
     using BaseCommon.Common;
     using BaseCommon.Common.DB;
     using BaseCommon.Common.DBSql;
-  
+   
     using BaseCommon.DBModuleTable.DBModule.Table;
     using System;
     using System.Data;
@@ -25,7 +25,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -51,7 +51,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -67,11 +67,15 @@
                 builder.Append(" (");
                 builder.Append(" AuthorityMatteryFlowImage");
                 builder.Append(" ,AuthorityMatteryDetailCode");
+                builder.Append(" ,AuthorityMatteryFlowName");
+                builder.Append(" ,AuthorityMatteryFlowSortID");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" NULL");
                 builder.Append(" ," + item.AuthorityMatteryDetailCode);
+                builder.Append(" ,'" + ComFn.GetSafeSql(item.AuthorityMatteryFlowName) + "'");
+                builder.Append(" ," + item.AuthorityMatteryFlowSortID);
                 builder.Append(" )");
                 using (DBSession session = DBMng.GetDefault(parent))
                 {
@@ -82,7 +86,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -113,7 +117,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -133,7 +137,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -157,7 +161,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -278,7 +282,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-                
+               
                 return false;
             }
         }
@@ -296,6 +300,8 @@
                  {
                      builder.Append(" AuthorityMatteryFlowImage = null ");
                      builder.Append(" ,AuthorityMatteryDetailCode = " + item.AuthorityMatteryDetailCode);
+                     builder.Append(" ,AuthorityMatteryFlowName = '" + ComFn.GetSafeSql(item.AuthorityMatteryFlowName) + "'");
+                     builder.Append(" ,AuthorityMatteryFlowSortID = " + item.AuthorityMatteryFlowSortID);
                  }
                  else
                  {
@@ -310,6 +316,12 @@
                                     goto Label_1000;
                                 case "AUTHORITYMATTERYDETAILCODE":
                                     builder.Append(" AuthorityMatteryDetailCode = " + item.AuthorityMatteryDetailCode);
+                                    goto Label_1000;
+                                case "AUTHORITYMATTERYFLOWNAME":
+                                    builder.Append(" AuthorityMatteryFlowName = '" + ComFn.GetSafeSql(item.AuthorityMatteryFlowName) + "'");
+                                    goto Label_1000;
+                                case "AUTHORITYMATTERYFLOWSORTID":
+                                    builder.Append(" AuthorityMatteryFlowSortID = " + item.AuthorityMatteryFlowSortID);
                                     goto Label_1000;
                             }
                         }
@@ -338,7 +350,7 @@
             catch (Exception exception)
             {
                  errMsg = exception.Message;
-                 
+                
                  return false;
             }
         }
@@ -354,11 +366,15 @@
                 builder.Append(" (");
                 builder.Append(" AuthorityMatteryFlowImage");
                 builder.Append(" ,AuthorityMatteryDetailCode");
+                builder.Append(" ,AuthorityMatteryFlowName");
+                builder.Append(" ,AuthorityMatteryFlowSortID");
                 builder.Append(" )");
                 builder.Append(" VALUES");
                 builder.Append(" (");
                 builder.Append(" NULL");
                 builder.Append(" ," + item.AuthorityMatteryDetailCode);
+                builder.Append(" ,'" + ComFn.GetSafeSql(item.AuthorityMatteryFlowName) + "'");
+                builder.Append(" ," + item.AuthorityMatteryFlowSortID);
                 builder.Append(" )");
                 builder.Append("select @@identity ");
                 using (DBSession session = DBMng.GetDefault(parent))
@@ -376,7 +392,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -414,7 +430,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -436,7 +452,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -453,7 +469,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -470,7 +486,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }
@@ -489,7 +505,7 @@
             catch (Exception exception)
             {
                 errMsg = exception.Message;
-               
+                
                 return false;
             }
         }

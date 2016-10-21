@@ -7,9 +7,7 @@
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary>
-    /// 职权三级同级
-    /// </summary>
+
     [Serializable]
     public class TblAuthorityMatteryFlow
     {
@@ -33,10 +31,6 @@
            set { _authoritymatteryflowimage = value; }
         }
 
-        public System.Drawing.Image  AuthorityFlowImage { get; set; }
-
-        public string FlowImagePath { get; set; }
-
         private int _authoritymatterydetailcode = 0;
         /// <summary>
         /// 职权编码
@@ -46,6 +40,30 @@
            get { return _authoritymatterydetailcode; }
            set { _authoritymatterydetailcode = value; }
         }
+
+        private string _authoritymatteryflowname = string.Empty;
+        /// <summary>
+        ///  
+        /// </summary>
+        public string AuthorityMatteryFlowName
+        {
+           get { return _authoritymatteryflowname; }
+           set { _authoritymatteryflowname = value; }
+        }
+
+        private int _authoritymatteryflowsortid = 0;
+        /// <summary>
+        ///  
+        /// </summary>
+        public int AuthorityMatteryFlowSortID
+        {
+           get { return _authoritymatteryflowsortid; }
+           set { _authoritymatteryflowsortid = value; }
+        }
+
+        public System.Drawing.Image AuthorityFlowImage { get; set; }
+
+        public string FlowImagePath { get; set; }
 
         private int _rowCntDBCtrl = 0;
         public int RowCntDBCtrl
@@ -70,6 +88,12 @@
                   case "AUTHORITYMATTERYDETAILCODE":
                       AuthorityMatteryDetailCode = ComFn.GetDBFieldInt(dr[i]);
                      break;
+                  case "AUTHORITYMATTERYFLOWNAME":
+                      AuthorityMatteryFlowName = ComFn.GetDBFieldString(dr[i]);
+                     break;
+                  case "AUTHORITYMATTERYFLOWSORTID":
+                      AuthorityMatteryFlowSortID = ComFn.GetDBFieldInt(dr[i]);
+                     break;
                   case "ROWCNTDBCTRL":
                       _rowCntDBCtrl = ComFn.GetDBFieldInt(dr[i]);
                      break;
@@ -92,6 +116,16 @@
            return GetField("AuthorityMatteryDetailCode");
         }
 
+        public static FieldInfo GetAuthorityMatteryFlowNameField()
+        {
+           return GetField("AuthorityMatteryFlowName");
+        }
+
+        public static FieldInfo GetAuthorityMatteryFlowSortIDField()
+        {
+           return GetField("AuthorityMatteryFlowSortID");
+        }
+
         public static FieldInfo GetRowCntDBCtrlField()
         {
             return GetField("RowCntDBCtrl");
@@ -112,6 +146,12 @@
               case "AUTHORITYMATTERYDETAILCODE":
                   return new FieldInfo("AUTHORITYMATTERYDETAILCODE", "int", 10, 0, false, "");
 
+              case "AUTHORITYMATTERYFLOWNAME":
+                  return new FieldInfo("AUTHORITYMATTERYFLOWNAME", "string", 200, 0, false, "");
+
+              case "AUTHORITYMATTERYFLOWSORTID":
+                  return new FieldInfo("AUTHORITYMATTERYFLOWSORTID", "int", 10, 0, false, "");
+
                 case "ROWCNTDBCTRL":
                     return new FieldInfo("ROWCNTDBCTRL", "int", 10, 0, false, "");
 
@@ -126,6 +166,8 @@
            list.Add(GetAuthorityMatteryFlowIDField());
            list.Add(GetAuthorityMatteryFlowImageField());
            list.Add(GetAuthorityMatteryDetailCodeField());
+           list.Add(GetAuthorityMatteryFlowNameField());
+           list.Add(GetAuthorityMatteryFlowSortIDField());
            return list;
         }
 
