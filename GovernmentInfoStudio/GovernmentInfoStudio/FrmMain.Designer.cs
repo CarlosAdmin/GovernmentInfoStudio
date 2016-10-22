@@ -80,7 +80,13 @@
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblMaxValue3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblMaxValue2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.lblValue2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -94,12 +100,6 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblValue2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.lblMaxValue2 = new DevExpress.XtraEditors.LabelControl();
-            this.lblValue3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.lblMaxValue3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -765,6 +765,46 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "条件";
             // 
+            // lblMaxValue3
+            // 
+            this.lblMaxValue3.Location = new System.Drawing.Point(1075, 39);
+            this.lblMaxValue3.Name = "lblMaxValue3";
+            this.lblMaxValue3.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue3.TabIndex = 1;
+            this.lblMaxValue3.Text = "100";
+            // 
+            // lblMaxValue2
+            // 
+            this.lblMaxValue2.Location = new System.Drawing.Point(1075, 22);
+            this.lblMaxValue2.Name = "lblMaxValue2";
+            this.lblMaxValue2.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue2.TabIndex = 1;
+            this.lblMaxValue2.Text = "100";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(1049, 39);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(5, 14);
+            this.labelControl21.TabIndex = 1;
+            this.labelControl21.Text = "/";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(1049, 22);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(5, 14);
+            this.labelControl18.TabIndex = 1;
+            this.labelControl18.Text = "/";
+            // 
+            // lblValue3
+            // 
+            this.lblValue3.Location = new System.Drawing.Point(1019, 39);
+            this.lblValue3.Name = "lblValue3";
+            this.lblValue3.Size = new System.Drawing.Size(7, 14);
+            this.lblValue3.TabIndex = 1;
+            this.lblValue3.Text = "0";
+            // 
             // labelControl14
             // 
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -774,6 +814,14 @@
             this.labelControl14.TabIndex = 1;
             this.labelControl14.Text = "5.";
             this.labelControl14.Click += new System.EventHandler(this.labelControl3_Click);
+            // 
+            // lblValue2
+            // 
+            this.lblValue2.Location = new System.Drawing.Point(1019, 22);
+            this.lblValue2.Name = "lblValue2";
+            this.lblValue2.Size = new System.Drawing.Size(7, 14);
+            this.lblValue2.TabIndex = 1;
+            this.lblValue2.Text = "0";
             // 
             // labelControl12
             // 
@@ -890,54 +938,6 @@
             this.labelControl1.Size = new System.Drawing.Size(48, 14);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
-            // 
-            // lblValue2
-            // 
-            this.lblValue2.Location = new System.Drawing.Point(1019, 22);
-            this.lblValue2.Name = "lblValue2";
-            this.lblValue2.Size = new System.Drawing.Size(7, 14);
-            this.lblValue2.TabIndex = 1;
-            this.lblValue2.Text = "0";
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(1049, 22);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(5, 14);
-            this.labelControl18.TabIndex = 1;
-            this.labelControl18.Text = "/";
-            // 
-            // lblMaxValue2
-            // 
-            this.lblMaxValue2.Location = new System.Drawing.Point(1075, 22);
-            this.lblMaxValue2.Name = "lblMaxValue2";
-            this.lblMaxValue2.Size = new System.Drawing.Size(21, 14);
-            this.lblMaxValue2.TabIndex = 1;
-            this.lblMaxValue2.Text = "100";
-            // 
-            // lblValue3
-            // 
-            this.lblValue3.Location = new System.Drawing.Point(1019, 39);
-            this.lblValue3.Name = "lblValue3";
-            this.lblValue3.Size = new System.Drawing.Size(7, 14);
-            this.lblValue3.TabIndex = 1;
-            this.lblValue3.Text = "0";
-            // 
-            // labelControl21
-            // 
-            this.labelControl21.Location = new System.Drawing.Point(1049, 39);
-            this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(5, 14);
-            this.labelControl21.TabIndex = 1;
-            this.labelControl21.Text = "/";
-            // 
-            // lblMaxValue3
-            // 
-            this.lblMaxValue3.Location = new System.Drawing.Point(1075, 39);
-            this.lblMaxValue3.Name = "lblMaxValue3";
-            this.lblMaxValue3.Size = new System.Drawing.Size(21, 14);
-            this.lblMaxValue3.TabIndex = 1;
-            this.lblMaxValue3.Text = "100";
             // 
             // FrmMain
             // 

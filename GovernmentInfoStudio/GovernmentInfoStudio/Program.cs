@@ -37,7 +37,7 @@ namespace GovernmentInfoStudio
 
             //if (frmLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FrmMain());
+                Application.Run(new FrmNewMain());
             }
         }
     }

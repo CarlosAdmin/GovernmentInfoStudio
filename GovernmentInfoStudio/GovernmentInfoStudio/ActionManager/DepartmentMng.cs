@@ -332,7 +332,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                 int rowCount = 0;
                 string errMsg = string.Empty;
-                if (!TblAdministrativeCategoryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
+                if (!TblDepartment_AdministrativeCategoryCtrl.QueryCount(sqlQuery, session, ref rowCount, ref errMsg))
                 {
                     return -1;
                 }
