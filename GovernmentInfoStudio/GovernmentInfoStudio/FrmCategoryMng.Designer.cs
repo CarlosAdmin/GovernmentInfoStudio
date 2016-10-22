@@ -359,7 +359,7 @@
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmCategoryMng";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Text = "部门管理";
+            this.Text = "分类管理";
             this.Load += new System.EventHandler(this.FrmDepartMng_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDepartCode.Properties)).EndInit();

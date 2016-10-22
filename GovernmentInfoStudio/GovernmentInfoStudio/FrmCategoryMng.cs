@@ -149,10 +149,19 @@ namespace GovernmentInfoStudio
 
             if (sender == c_btnAppend)
             {
-                FrmDepartEdit frmEdit = new FrmDepartEdit();
+                FrmCategoryEdit frmEdit = new FrmCategoryEdit();
 
                 if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    var data = new GrdiMainData();
+
+                    data.CategoryCode = frmEdit.category.AdministrativeCategoryID;
+                    data.CategoryName = frmEdit.category.AdministrativeCategoryName;
+                    data.CategorySortCode = frmEdit.category.AdministrativeCategorySortID;
+                    data.Tag = frmEdit.category;
+
+                    gridMainDataList.Add(data);
+                    c_grcMain_View.RefreshData();
                 }
 
                 return;
