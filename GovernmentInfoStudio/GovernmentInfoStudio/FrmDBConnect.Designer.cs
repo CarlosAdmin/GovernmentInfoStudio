@@ -142,6 +142,7 @@
             this.c_txtDBPassword.Location = new System.Drawing.Point(87, 122);
             this.c_txtDBPassword.Name = "c_txtDBPassword";
             this.c_txtDBPassword.Properties.AutoHeight = false;
+            this.c_txtDBPassword.Properties.PasswordChar = '*';
             this.c_txtDBPassword.Size = new System.Drawing.Size(273, 25);
             this.c_txtDBPassword.TabIndex = 81;
             // 
@@ -187,6 +188,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDBConnect";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据库设置";
             this.Load += new System.EventHandler(this.FrmDBConnect_Load);

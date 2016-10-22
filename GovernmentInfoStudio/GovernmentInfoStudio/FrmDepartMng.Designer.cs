@@ -222,6 +222,7 @@
             this.c_btnUpdate.Name = "c_btnUpdate";
             this.c_btnUpdate.NullValuePromptShowForEmptyValue = true;
             this.c_btnUpdate.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.c_btnUpdate.Click += new System.EventHandler(this.c_btnUpdate_Click);
             // 
             // groupControl1
             // 
@@ -359,6 +360,7 @@
             this.Name = "FrmDepartMng";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "部门管理";
+            this.Load += new System.EventHandler(this.FrmDepartMng_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtDepartCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).EndInit();

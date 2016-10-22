@@ -11,6 +11,27 @@ namespace GovernmentInfoStudio.ActionManager
 {
     public class DepartmentMng
     {
+
+        public static bool GetList(SqlQuerySqlMng sqlMng, ref List<TblDepartment> dataList, ref string errMsg)
+        {
+            try
+            {
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblDepartmentCtrl.QueryMore(sqlMng, session, false, ref dataList, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+        } 
+
         public static bool GetList(ref List<TblDepartment> dataList, ref string errMsg)
         {
             try
@@ -103,6 +124,39 @@ namespace GovernmentInfoStudio.ActionManager
                 return false;
             }
         }
+
+        public static bool Update(TblDepartment data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int updCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+
+                    updateList.Add(TblDepartment.GetDepartmentNameField());
+                    updateList.Add(TblDepartment.GetDepartmentSortIDField());
+
+                    SqlWhereList where = new SqlWhereList();
+
+                    where.Add(TblDepartment.GetDepartmentIDField(), SqlWhereCondition.Equals, data.DepartmentID);
+
+                    if (!TblDepartmentCtrl.Update(updateList, data, where, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+
+                return updCount > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
 
         public static bool Insert(TblAdministrativeCategory data)
         {

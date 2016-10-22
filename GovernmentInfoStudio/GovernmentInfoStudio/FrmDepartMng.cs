@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BaseCommon.DBModuleTable.DBModule.Table;
 using BaseCommon.Common.DBSql;
+using GovernmentInfoStudio.ActionManager;
 
 namespace GovernmentInfoStudio
 {
@@ -16,7 +17,6 @@ namespace GovernmentInfoStudio
         public FrmDepartMng()
         {
             InitializeComponent();
-            Init();
         }
 
         void Init()
@@ -28,7 +28,6 @@ namespace GovernmentInfoStudio
 
             c_grcMain.DataSource = gridMainDataList;
         }
-
 
         List<GrdiMainData> gridMainDataList = new List<GrdiMainData>();
 
@@ -50,6 +49,8 @@ namespace GovernmentInfoStudio
 
             if (sender == c_btnQuery)
             {
+                #region 查询条件
+
                 SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
 
                 if (!string.IsNullOrEmpty(c_txtDepartCode.Text))
@@ -61,6 +62,35 @@ namespace GovernmentInfoStudio
                 {
                     sqlMng.Condition.Where.Add(TblDepartment.GetDepartmentNameField(), SqlWhereCondition.MidLike, c_txtDepartName.Text);
                 }
+
+
+                #endregion
+
+                string errMsg = string.Empty;
+                
+                var dataList = new List<TblDepartment>();
+
+                if (!DepartmentMng.GetList(sqlMng, ref dataList, ref errMsg))
+                {
+                    XtraMessageBox.Show(errMsg);
+                    return;
+                }
+
+                gridMainDataList = new List<GrdiMainData>();
+
+                foreach (var item in dataList)
+                {
+                    var data = new GrdiMainData();
+                    data.DepartCode = item.DepartmentID;
+                    data.DepartName = item.DepartmentName;
+                    data.DepartSortCode = item.DepartmentSortID;
+                    data.Tag = item;
+
+                    gridMainDataList.Add(data);
+                }
+
+                c_grcMain.DataSource = gridMainDataList;
+
                 return;
             }
 
@@ -90,7 +120,38 @@ namespace GovernmentInfoStudio
 
             if (sender == c_btnAppend)
             {
+                FrmDepartEdit frmEdit = new FrmDepartEdit();
+
+                if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                }
+
                 return;
+            }
+        }
+
+        private void FrmDepartMng_Load(object sender, EventArgs e)
+        {
+            Init();
+        }
+
+        private void c_btnUpdate_Click(object sender, EventArgs e)
+        {
+            var focuseRowData = c_grcMain_View.GetFocusedRow() as GrdiMainData;
+
+            if (focuseRowData==null)
+            {
+                return;
+            }
+
+            FrmDepartEdit frmEdit = new FrmDepartEdit(focuseRowData.Tag);
+
+            if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                focuseRowData.DepartName = frmEdit.depart.DepartmentName;
+                focuseRowData.DepartSortCode = frmEdit.depart.DepartmentSortID;
+
+                c_grcMain.Refresh();
             }
         }
 
@@ -103,9 +164,5 @@ namespace GovernmentInfoStudio
 
             public TblDepartment Tag { get; set; }
         }
-
-
-
-        
     }
 }
