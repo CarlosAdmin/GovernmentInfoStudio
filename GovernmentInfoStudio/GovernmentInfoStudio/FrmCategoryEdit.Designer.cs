@@ -1,6 +1,6 @@
 ﻿namespace GovernmentInfoStudio
 {
-    partial class FrmDepartEdit
+    partial class FrmCategoryEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDepartEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoryEdit));
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.c_grpGoodsInfo = new DevExpress.XtraEditors.GroupControl();
@@ -88,8 +88,6 @@
             this.txtDepartSortCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.txtDepartSortCode.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtDepartSortCode.Properties.AutoHeight = false;
-            this.txtDepartSortCode.Properties.Mask.EditMask = "\\d+";
-            this.txtDepartSortCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtDepartSortCode.Size = new System.Drawing.Size(202, 25);
             this.txtDepartSortCode.TabIndex = 97;
             // 
@@ -99,7 +97,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(84, 14);
             this.labelControl1.TabIndex = 98;
-            this.labelControl1.Text = "部门排序编码：";
+            this.labelControl1.Text = "分类排序编码：";
             // 
             // txtDepartName
             // 
@@ -117,7 +115,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(60, 14);
             this.labelControl2.TabIndex = 98;
-            this.labelControl2.Text = "部门名称：";
+            this.labelControl2.Text = "分类名称：";
             // 
             // panelControl1
             // 
@@ -129,7 +127,7 @@
             this.panelControl1.Size = new System.Drawing.Size(321, 59);
             this.panelControl1.TabIndex = 3;
             // 
-            // FrmDepartEdit
+            // FrmCategoryEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,10 +135,10 @@
             this.Controls.Add(this.c_grpGoodsInfo);
             this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmDepartEdit";
+            this.Name = "FrmCategoryEdit";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "部门编辑";
+            this.Text = "分类编辑";
             this.Load += new System.EventHandler(this.FrmDepartEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).EndInit();
             this.c_grpGoodsInfo.ResumeLayout(false);

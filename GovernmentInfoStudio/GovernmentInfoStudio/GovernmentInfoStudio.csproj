@@ -169,6 +169,18 @@
     <Compile Include="Session\DBConnectMng.cs" />
     <Compile Include="Session\Session.cs" />
     <Compile Include="Session\SessionMng.cs" />
+    <Compile Include="FrmCategoryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoryEdit.Designer.cs">
+      <DependentUpon>FrmCategoryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoryMng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoryMng.Designer.cs">
+      <DependentUpon>FrmCategoryMng.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmDBConnect.resx">
       <DependentUpon>FrmDBConnect.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +209,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="FrmCategoryEdit.resx">
+      <DependentUpon>FrmCategoryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoryMng.resx">
+      <DependentUpon>FrmCategoryMng.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

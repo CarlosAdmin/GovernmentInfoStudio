@@ -40,7 +40,10 @@ namespace GovernmentInfoStudio
             {
                 formType = typeof(FrmMain);
             }
-            else if (sender == nbi_分类管理) { return; }
+            else if (sender == nbi_分类管理)
+            {
+                formType = typeof(FrmCategoryMng);
+            }
             else if (sender == nbi_职权管理) { return; }
             else if (sender == nbi_职权流程图) { return; }
             else if (sender == nbi_职权明细管理) { return; }

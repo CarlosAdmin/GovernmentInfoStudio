@@ -9,13 +9,12 @@ using DevExpress.XtraEditors;
 using BaseCommon.DBModuleTable.DBModule.Table;
 using BaseCommon.Common.DBSql;
 using GovernmentInfoStudio.ActionManager;
-using System.Linq;
 
 namespace GovernmentInfoStudio
 {
-    public partial class FrmDepartMng : DevExpress.XtraEditors.XtraForm
+    public partial class FrmCategoryMng : DevExpress.XtraEditors.XtraForm
     {
-        public FrmDepartMng()
+        public FrmCategoryMng()
         {
             InitializeComponent();
         }
@@ -23,9 +22,9 @@ namespace GovernmentInfoStudio
         void Init()
         {
             c_grcMain_view_IsSelect.FieldName = "IsSelect";
-            c_grcMain_view_DepartmentID.FieldName = "DepartCode";
-            c_grcMain_view_DepartmentName.FieldName = "DepartName";
-            c_grcMain_view_DepartmentSortID.FieldName = "DepartSortCode";
+            c_grcMain_view_CategoryID.FieldName = "CategoryCode";
+            c_grcMain_view_CategoryName.FieldName = "CategoryName";
+            c_grcMain_view_CategorySortID.FieldName = "CategorySortCode";
 
             c_grcMain.DataSource = gridMainDataList;
         }
@@ -56,12 +55,12 @@ namespace GovernmentInfoStudio
 
                 if (!string.IsNullOrEmpty(c_txtDepartCode.Text))
                 {
-                    sqlMng.Condition.Where.Add(TblDepartment.GetDepartmentIDField(), SqlWhereCondition.Equals, c_txtDepartCode.Text);
+                    sqlMng.Condition.Where.Add(TblAdministrativeCategory.GetAdministrativeCategoryIDField(), SqlWhereCondition.Equals, c_txtDepartCode.Text);
                 }
 
                 if (!string.IsNullOrEmpty(c_txtDepartName.Text))
                 {
-                    sqlMng.Condition.Where.Add(TblDepartment.GetDepartmentNameField(), SqlWhereCondition.MidLike, c_txtDepartName.Text);
+                    sqlMng.Condition.Where.Add(TblAdministrativeCategory.GetAdministrativeCategoryNameField(), SqlWhereCondition.MidLike, c_txtDepartName.Text);
                 }
 
 
@@ -69,7 +68,7 @@ namespace GovernmentInfoStudio
 
                 string errMsg = string.Empty;
                 
-                var dataList = new List<TblDepartment>();
+                var dataList = new List<TblAdministrativeCategory>();
 
                 if (!DepartmentMng.GetList(sqlMng, ref dataList, ref errMsg))
                 {
@@ -82,9 +81,9 @@ namespace GovernmentInfoStudio
                 foreach (var item in dataList)
                 {
                     var data = new GrdiMainData();
-                    data.DepartCode = item.DepartmentID;
-                    data.DepartName = item.DepartmentName;
-                    data.DepartSortCode = item.DepartmentSortID;
+                    data.CategoryCode = item.AdministrativeCategoryID;
+                    data.CategoryName = item.AdministrativeCategoryName;
+                    data.CategorySortCode = item.AdministrativeCategorySortID;
                     data.Tag = item;
 
                     gridMainDataList.Add(data);
@@ -119,13 +118,13 @@ namespace GovernmentInfoStudio
 
                     for (int i = 0; i < delData.Count; i++)
                     {
-                        inObj[i] = delData[i].Tag.DepartmentID;
+                        inObj[i] = delData[i].Tag.AdministrativeCategoryID;
                     }
 
                     SqlWhereList where = new SqlWhereList();
-                    where.AddIn(TblDepartment.GetDepartmentIDField(), inObj);
+                    where.AddIn(TblAdministrativeCategory.GetAdministrativeCategoryIDField(), inObj);
 
-                    if (!DepartmentMng.DeletaDepart(where))
+                    if (!DepartmentMng.Deleta(where))
                     {
                         XtraMessageBox.Show("删除失败!");
                         return;
@@ -154,15 +153,6 @@ namespace GovernmentInfoStudio
 
                 if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    var data = new GrdiMainData();
-
-                    data.DepartCode = frmEdit.depart.DepartmentID;
-                    data.DepartName = frmEdit.depart.DepartmentName;
-                    data.DepartSortCode = frmEdit.depart.DepartmentSortID;
-                    data.Tag = frmEdit.depart;
-
-                    gridMainDataList.Add(data);
-                    c_grcMain_View.RefreshData();
                 }
 
                 return;
@@ -183,12 +173,12 @@ namespace GovernmentInfoStudio
                 return;
             }
 
-            FrmDepartEdit frmEdit = new FrmDepartEdit(focuseRowData.Tag);
+            FrmCategoryEdit frmEdit = new FrmCategoryEdit(focuseRowData.Tag);
 
             if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                focuseRowData.DepartName = frmEdit.depart.DepartmentName;
-                focuseRowData.DepartSortCode = frmEdit.depart.DepartmentSortID;
+                focuseRowData.CategoryName = frmEdit.category.AdministrativeCategoryName;
+                focuseRowData.CategorySortCode = frmEdit.category.AdministrativeCategorySortID;
 
                 c_grcMain.Refresh();
             }
@@ -197,11 +187,11 @@ namespace GovernmentInfoStudio
         class GrdiMainData
         {
             public bool IsSelect { get; set; }
-            public int DepartCode { get; set; }
-            public string DepartName { get; set; }
-            public int DepartSortCode { get; set; }
+            public int CategoryCode { get; set; }
+            public string CategoryName { get; set; }
+            public int CategorySortCode { get; set; }
 
-            public TblDepartment Tag { get; set; }
+            public TblAdministrativeCategory Tag { get; set; }
         }
     }
 }

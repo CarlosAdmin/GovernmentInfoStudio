@@ -54,6 +54,26 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool GetList(SqlQuerySqlMng sqlMng, ref List<TblAdministrativeCategory> dataList, ref string errMsg)
+        {
+            try
+            {
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblAdministrativeCategoryCtrl.QueryMore(sqlMng, session, false, ref dataList, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+        } 
+
         public static bool GetList(ref List<TblAdministrativeCategory> dataList, ref string errMsg)
         {
             try
@@ -157,6 +177,37 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Update(TblAdministrativeCategory data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int updCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+
+                    updateList.Add(TblAdministrativeCategory.GetAdministrativeCategoryNameField());
+                    updateList.Add(TblAdministrativeCategory.GetAdministrativeCategorySortIDField());
+
+                    SqlWhereList where = new SqlWhereList();
+
+                    where.Add(TblAdministrativeCategory.GetAdministrativeCategoryIDField(), SqlWhereCondition.Equals, data.AdministrativeCategoryID);
+
+                    if (!TblAdministrativeCategoryCtrl.Update(updateList, data, where, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+
+                return updCount > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public static bool Insert(TblAdministrativeCategory data)
         {
@@ -183,6 +234,51 @@ namespace GovernmentInfoStudio.ActionManager
                 return false;
             }
         }
+
+        public static bool Deleta(SqlWhereList where) 
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int delCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblAdministrativeCategoryCtrl.Delete(where, session,ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static bool DeletaDepart(SqlWhereList where)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int delCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblDepartmentCtrl.Delete(where, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
 
         public static bool Insert(TblDepartment_AdministrativeCategory data)
         {
