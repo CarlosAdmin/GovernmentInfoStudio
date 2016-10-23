@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using BaseCommon.DBModuleTable.DBModule.Table;
+using GovernmentInfoStudio.ActionManager;
+using BaseCommon.Common.DBSql;
 
 namespace GovernmentInfoStudio
 {
@@ -14,6 +17,320 @@ namespace GovernmentInfoStudio
         public FrmAuthorityMattery()
         {
             InitializeComponent();
+        }
+
+        List<TreeMainData> treeDataList = new List<TreeMainData>();
+
+        List<TblDepartment> departList = new List<TblDepartment>();
+        List<TblAdministrativeCategory> categoryList = new List<TblAdministrativeCategory>();
+
+        void InitControl()
+        {
+            c_trlMain.ParentFieldName = "TreeDataCode";
+            c_trlMain.KeyFieldName = "TreeDataID";
+
+            c_trlMain_DepartmentName.FieldName = "DepartmentName";
+            c_trlMain_CategoryName.FieldName = "CategoryName";
+            c_trlMain_AuthorityMatteryName.FieldName = "AuthorityMatteryName";
+            c_trlMain_AuthorityDetailName.FieldName = "AuthorityDetailName";
+            c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
+
+            c_trlMain.DataSource = treeDataList;
+
+            string errMsg = string.Empty;
+
+            DepartmentMng.GetList(ref departList, ref errMsg);
+            DepartmentMng.GetList(ref categoryList, ref errMsg);
+
+            foreach (var item in departList)
+            {
+                cbo_depart.Properties.Items.Add(item.DepartmentName);
+            }
+
+            foreach (var item in categoryList)
+            {
+                cboCategory.Properties.Items.Add(item.AdministrativeCategoryName);
+            }
+        }
+
+        private void FrmAuthorityMattery_Load(object sender, EventArgs e)
+        {
+            InitControl();
+        }
+
+        private class TreeMainData
+        {
+            public string TreeDataID { get; set; }
+
+            public string TreeDataCode { get; set; }
+
+            /// <summary>
+            ///部门
+            /// </summary>
+            public TblDepartment Department { get; set; }
+
+            /// <summary>
+            /// 部门名称
+            /// </summary>
+            public string DepartmentName { get; set; }
+
+            /// <summary>
+            /// 分类
+            /// </summary>
+            public TblAdministrativeCategory Category { get; set; }
+
+            /// <summary>
+            /// 分类名称
+            /// </summary>
+            public string CategoryName { get; set; }
+
+            /// <summary>
+            /// 职权编码
+            /// </summary>
+            public string AuthorityMatteryCode { get; set; }
+
+            /// <summary>
+            /// 职权名称
+            /// </summary>
+            public string AuthorityMatteryName { get; set; }
+
+            /// <summary>
+            /// 子项
+            /// </summary>
+            public string AuthorityDetailName { get; set; }
+
+            /// <summary>
+            /// 职权信息
+            /// </summary>
+            public TblAuthorityMatteryDetail AuthorityMatteryDetail { get; set; }
+
+            /// <summary>
+            /// 职权明细
+            /// </summary>
+            public List<TblAuthorityDetail> AuthorityDetailList { get; set; }
+
+            /// <summary>
+            /// 职权流程图
+            /// </summary>
+            public TblAuthorityMatteryFlow AuthorityMatteryFlow { get; set; }
+        }
+
+        private void c_btnQuery_Click(object sender, EventArgs e)
+        {
+            SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
+
+            #region  查询条件
+
+            if (cbo_depart.SelectedIndex >= 0)
+            {
+                sqlMng.Condition.Where.Add(TblAuthorityMattery.GetDepartmentIDField(), SqlWhereCondition.Equals, departList.Find(c => c.DepartmentName == cbo_depart.Text).DepartmentID);
+            }
+
+            if (cboCategory.SelectedIndex >= 0)
+            {
+                sqlMng.Condition.Where.Add(TblAuthorityMattery.GetAdministrativeCategoryIDField(), SqlWhereCondition.Equals, categoryList.Find(c => c.AdministrativeCategoryName == cboCategory.Text).AdministrativeCategoryID);
+            }
+
+            if (!string.IsNullOrEmpty(txtAuthorityMatteryID.Text))
+            {
+                sqlMng.Condition.Where.Add(TblAuthorityMattery.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, txtAuthorityMatteryID.Text.Trim());
+            }
+
+            if (!string.IsNullOrEmpty(txtAuthorityMatteryName.Text))
+            {
+                sqlMng.Condition.Where.Add(TblAuthorityMattery.GetAuthorityMatteryNameField(), SqlWhereCondition.MidLike, txtAuthorityMatteryName.Text.Trim());
+            }
+
+            #endregion
+
+            #region 职权
+          
+            var dataList = new List<TblAuthorityMattery>();
+
+            string errMsg = string.Empty;
+
+            if (!AuthorityMatteryMng.GetList(sqlMng, ref dataList, ref errMsg))
+            {
+                XtraMessageBox.Show(errMsg);
+                return;
+            }
+
+            if (dataList.Count <= 0)
+            {
+                XtraMessageBox.Show("没有数据");
+                return;
+            }
+
+            List<int> valueList = new List<int>();
+
+            treeDataList = new List<TreeMainData>();
+
+            foreach (var item in dataList)
+            {
+                valueList.Add(item.AuthorityMatteryID);
+
+                var treeData = new TreeMainData();
+
+                treeData.TreeDataID = item.AuthorityMatteryID.ToString();
+                treeData.TreeDataCode = item.AuthorityMatteryID.ToString();
+                var depart = departList.Find(c => c.DepartmentID == item.DepartmentID);
+
+                treeData.Department = depart;
+                treeData.DepartmentName = depart.DepartmentName;
+
+                var category = categoryList.Find(c => c.AdministrativeCategoryID == item.AdministrativeCategoryID);
+
+                treeData.Category = category;
+                treeData.CategoryName = category.AdministrativeCategoryName;
+
+                treeData.AuthorityMatteryCode = "";
+                treeData.AuthorityMatteryName = item.AuthorityMatteryName;
+
+                treeData.AuthorityDetailName = "无子项";
+
+                treeDataList.Add(treeData);
+            }
+
+            #endregion
+
+            #region 职权子项
+
+            SqlQuerySqlMng sqlDetailMng = new SqlQuerySqlMng();
+
+            object[] inValue = Array.ConvertAll<int, object>(valueList.ToArray(), new Converter<int, object>((c) => { return c; }));
+            sqlDetailMng.Condition.Where.AddIn(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), inValue);
+
+            var detailList = new List<TblAuthorityMatteryDetail>();
+
+            if (!AuthorityMatteryMng.GetList(sqlDetailMng, ref detailList, ref errMsg))
+            {
+                XtraMessageBox.Show(errMsg);
+                return;
+            }
+
+            foreach (var item in dataList)
+            {
+                var detail = detailList.FindAll(c => c.AuthorityMatteryID == item.AuthorityMatteryID);
+
+                if (detail==null)
+                {
+                    continue;
+                }
+
+                var faterTree = treeDataList.Find(c => c.TreeDataID == item.AuthorityMatteryID.ToString());
+
+                if (detail.Count == 1)
+                {
+                    faterTree.AuthorityMatteryCode = detail[0].AuthorityCode;
+                    faterTree.AuthorityDetailName = "无子项";
+                    faterTree.AuthorityMatteryDetail = detail[0];
+                    continue;
+                }
+
+                faterTree.AuthorityDetailName = detail.Count + "子项";
+
+                foreach (var detailItem in detail)
+                {
+                    var treeData = new TreeMainData();
+
+                    treeData.TreeDataID = detailItem.AuthorityMatteryDetailCode.ToString() + "-" + detailItem.AuthorityMatteryID.ToString();
+                    treeData.TreeDataCode = item.AuthorityMatteryID.ToString();
+
+                    treeData.Department = faterTree.Department;
+                    treeData.DepartmentName = faterTree.DepartmentName;
+
+                    treeData.Category = faterTree.Category;
+                    treeData.CategoryName = faterTree.CategoryName;
+
+                    treeData.AuthorityMatteryCode = detailItem.AuthorityCode;
+                    treeData.AuthorityMatteryName = detailItem.AuthorityName;
+
+                    treeData.AuthorityMatteryDetail = detailItem;
+
+                    treeDataList.Add(treeData);
+                }
+            }
+
+            #endregion
+
+            c_trlMain.DataSource = treeDataList;
+            c_trlMain.Refresh();
+        }
+
+        private void c_trlMain_btnAuthorityDetail_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
+            //查看,明细
+
+            if (focusedRow == null)
+            {
+                return;
+            }
+
+            if (focusedRow.AuthorityMatteryDetail == null)
+            {
+                return;
+            }
+
+            focusedRow.AuthorityDetailList = new List<TblAuthorityDetail>();
+
+            SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
+
+            sqlMng.Condition.Where.Add(TblAuthorityDetail.GetAuthorityMatteryDetailCodeField(), SqlWhereCondition.Equals, focusedRow.AuthorityMatteryDetail.AuthorityMatteryDetailCode);
+
+            string errMsg = string.Empty;
+
+            var dataList = new List<TblAuthorityDetail>();
+
+            if (!AuthorityMatteryMng.GetList(sqlMng, ref dataList, ref errMsg))
+            {
+                return;
+            }
+
+            if (dataList.Count <= 0)
+            {
+                XtraMessageBox.Show("没有数据!");
+                return;
+            }
+
+            focusedRow.AuthorityDetailList = dataList;
+        }
+
+        private void c_trlMain_btnAuthorityFlow_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //查看流程图
+            TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
+            //查看,明细
+            if (focusedRow == null)
+            {
+                return;
+            }
+
+            if (focusedRow.AuthorityMatteryDetail == null)
+            {
+                return;
+            }
+
+            SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
+
+            sqlMng.Condition.Where.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryDetailCodeField(), SqlWhereCondition.Equals, focusedRow.AuthorityMatteryDetail.AuthorityMatteryDetailCode);
+
+            string errMsg = string.Empty;
+
+            var dataList = new List<TblAuthorityMatteryFlow>();
+
+            if (!AuthorityMatteryMng.GetList(sqlMng, ref dataList, ref errMsg))
+            {
+                return;
+            }
+
+            if (dataList.Count <= 0)
+            {
+                XtraMessageBox.Show("没有数据!");
+                return;
+            }
+
+            focusedRow.AuthorityMatteryFlow = dataList[0];
         }
     }
 }
