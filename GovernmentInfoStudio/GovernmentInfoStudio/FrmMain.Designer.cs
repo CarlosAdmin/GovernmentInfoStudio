@@ -951,6 +951,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "行政责任清单和权利清单管理系统";
             this.Load += new System.EventHandler(this.FrmMain_Load);

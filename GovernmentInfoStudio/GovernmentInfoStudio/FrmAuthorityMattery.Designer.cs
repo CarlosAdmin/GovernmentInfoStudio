@@ -122,6 +122,7 @@
             this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
             this.c_btnDelete.TabIndex = 2;
             this.c_btnDelete.Text = "删除";
+            this.c_btnDelete.Click += new System.EventHandler(this.c_btnDelete_Click);
             // 
             // groupControl2
             // 

@@ -389,6 +389,49 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Deleta(TblAuthorityMattery data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int delCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    SqlWhereList where1 = new SqlWhereList();
+
+                    where1.Add(TblAuthorityMattery.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+
+                    if (!TblAuthorityMatteryCtrl.Delete(where1, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    SqlWhereList where2 = new SqlWhereList();
+
+                    where1.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+
+                    if (!TblAuthorityMatteryDetailCtrl.Delete(where2, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                    //AuthorityMattery
+                    //AuthorityMatteryDetail
+                    //AuthorityDetail
+                    //AuthorityMatteryFlow
+                    session.Commit();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool DeletaDepart(SqlWhereList where)
         {
             try
@@ -506,20 +549,23 @@ namespace GovernmentInfoStudio.ActionManager
                             return false;
                         }
 
-                        int id = 0;
-
-                        foreach (var detail in item.AuthorityDetailList)
+                        if (item.AuthorityDetailList != null)
                         {
-                            id++;
-                            detail.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
-                            detail.AuthorityDetailSortID = id;
-                        }
+                            int id = 0;
 
-                        if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))
-                        {
-                             return false;
-                        }
+                            foreach (var detail in item.AuthorityDetailList)
+                            {
+                                id++;
+                                detail.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
+                                detail.AuthorityDetailSortID = id;
+                            }
 
+                            if (!TblAuthorityDetailCtrl.InsertBatch(item.AuthorityDetailList, session, ref errMsg))
+                            {
+                                return false;
+                            }
+                        }
+                        
                         if (item.AuthorityMatteryFlow != null)
                         {
                             item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;

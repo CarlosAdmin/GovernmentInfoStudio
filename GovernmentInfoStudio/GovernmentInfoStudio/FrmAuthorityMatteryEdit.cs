@@ -24,6 +24,9 @@ namespace GovernmentInfoStudio
         {
             InitializeComponent();
 
+            departList = _departList;
+            categoryList = _categoryList;
+
             foreach (var item in _departList)
             {
                 cbo_depart.Properties.Items.Add(item.DepartmentName);
@@ -110,12 +113,12 @@ namespace GovernmentInfoStudio
                     data.AuthorityCode = item.AuthorityCode;
                     data.AuthorityMatteryDetailSortID = item.AuthorityMatteryDetailSortID;
 
-                    if (string.IsNullOrEmpty(item.ExcelPath))
+                    if (!string.IsNullOrEmpty(item.ExcelPath))
                     {
                         data.AuthorityDetailList = ReadExcel(item.ExcelPath);
                     }
 
-                    if (string.IsNullOrEmpty(item.WordPath))
+                    if (!string.IsNullOrEmpty(item.WordPath))
                     {
                         data.AuthorityMatteryFlow = ReadWord(item.WordPath);
                     }

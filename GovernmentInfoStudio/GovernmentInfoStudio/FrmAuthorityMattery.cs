@@ -113,6 +113,8 @@ namespace GovernmentInfoStudio
             /// 职权流程图
             /// </summary>
             public TblAuthorityMatteryFlow AuthorityMatteryFlow { get; set; }
+
+            public TblAuthorityMattery AuthorityMattery { get; set; }
         }
 
         private void c_btnQuery_Click(object sender, EventArgs e)
@@ -155,15 +157,17 @@ namespace GovernmentInfoStudio
                 return;
             }
 
+            treeDataList = new List<TreeMainData>();
+
             if (dataList.Count <= 0)
             {
                 XtraMessageBox.Show("没有数据");
+                c_trlMain.DataSource = treeDataList;
+                c_trlMain.Refresh();
                 return;
             }
 
             List<int> valueList = new List<int>();
-
-            treeDataList = new List<TreeMainData>();
 
             foreach (var item in dataList)
             {
@@ -187,6 +191,8 @@ namespace GovernmentInfoStudio
                 treeData.AuthorityMatteryName = item.AuthorityMatteryName;
 
                 treeData.AuthorityDetailName = "无子项";
+
+                treeData.AuthorityMattery = item;
 
                 treeDataList.Add(treeData);
             }
@@ -246,6 +252,7 @@ namespace GovernmentInfoStudio
                     treeData.AuthorityMatteryName = detailItem.AuthorityName;
 
                     treeData.AuthorityMatteryDetail = detailItem;
+                    treeData.AuthorityMattery = faterTree.AuthorityMattery;
 
                     treeDataList.Add(treeData);
                 }
@@ -346,6 +353,18 @@ namespace GovernmentInfoStudio
             {
 
             }
+        }
+
+        private void c_btnDelete_Click(object sender, EventArgs e)
+        {
+            TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
+            //查看,明细
+            if (focusedRow == null)
+            {
+                return;
+            }
+
+            DepartmentMng.Deleta(focusedRow.AuthorityMattery);
         }
 
     }

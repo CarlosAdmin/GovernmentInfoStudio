@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewMain));
             this.c_nbcMain = new DevExpress.XtraNavBar.NavBarControl();
-            this.nbg_Setting = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbi_数据库设置 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbi_数据更新维护 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbg_depart = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbi_部门管理 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbg_category = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbi_分类管理 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbg_Mattery = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbi_职权管理 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbi_子项职权管理 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbi_职权明细管理 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbg_Setting = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbi_数据库设置 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbi_数据更新维护 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbi_子项职权管理 = new DevExpress.XtraNavBar.NavBarItem();
             this.nbi_职权流程图 = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.c_tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -82,33 +82,9 @@
             this.c_nbcMain.OptionsNavPane.ShowExpandButton = false;
             this.c_nbcMain.OptionsNavPane.ShowOverflowButton = false;
             this.c_nbcMain.OptionsNavPane.ShowOverflowPanel = false;
-            this.c_nbcMain.Size = new System.Drawing.Size(156, 390);
+            this.c_nbcMain.Size = new System.Drawing.Size(156, 670);
             this.c_nbcMain.StoreDefaultPaintStyleName = true;
             this.c_nbcMain.TabIndex = 0;
-            // 
-            // nbg_Setting
-            // 
-            this.nbg_Setting.Caption = "设置";
-            this.nbg_Setting.Expanded = true;
-            this.nbg_Setting.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_数据库设置),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_数据更新维护)});
-            this.nbg_Setting.LargeImageIndex = 0;
-            this.nbg_Setting.Name = "nbg_Setting";
-            this.nbg_Setting.SelectedLinkIndex = 0;
-            // 
-            // nbi_数据库设置
-            // 
-            this.nbi_数据库设置.Caption = "数据库设置";
-            this.nbi_数据库设置.Name = "nbi_数据库设置";
-            this.nbi_数据库设置.SmallImageIndex = 0;
-            this.nbi_数据库设置.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
-            // 
-            // nbi_数据更新维护
-            // 
-            this.nbi_数据更新维护.Caption = "数据维护及更新";
-            this.nbi_数据更新维护.Name = "nbi_数据更新维护";
-            this.nbi_数据更新维护.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
             // 
             // nbg_depart
             // 
@@ -153,17 +129,41 @@
             this.nbi_职权管理.Name = "nbi_职权管理";
             this.nbi_职权管理.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
             // 
-            // nbi_子项职权管理
-            // 
-            this.nbi_子项职权管理.Caption = "职权子项管理";
-            this.nbi_子项职权管理.Name = "nbi_子项职权管理";
-            this.nbi_子项职权管理.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
-            // 
             // nbi_职权明细管理
             // 
             this.nbi_职权明细管理.Caption = "职权明细管理";
             this.nbi_职权明细管理.Name = "nbi_职权明细管理";
             this.nbi_职权明细管理.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
+            // 
+            // nbg_Setting
+            // 
+            this.nbg_Setting.Caption = "设置";
+            this.nbg_Setting.Expanded = true;
+            this.nbg_Setting.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_数据库设置),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_数据更新维护)});
+            this.nbg_Setting.LargeImageIndex = 0;
+            this.nbg_Setting.Name = "nbg_Setting";
+            this.nbg_Setting.SelectedLinkIndex = 0;
+            // 
+            // nbi_数据库设置
+            // 
+            this.nbi_数据库设置.Caption = "数据库设置";
+            this.nbi_数据库设置.Name = "nbi_数据库设置";
+            this.nbi_数据库设置.SmallImageIndex = 0;
+            this.nbi_数据库设置.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
+            // 
+            // nbi_数据更新维护
+            // 
+            this.nbi_数据更新维护.Caption = "数据维护及更新";
+            this.nbi_数据更新维护.Name = "nbi_数据更新维护";
+            this.nbi_数据更新维护.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
+            // 
+            // nbi_子项职权管理
+            // 
+            this.nbi_子项职权管理.Caption = "职权子项管理";
+            this.nbi_子项职权管理.Name = "nbi_子项职权管理";
+            this.nbi_子项职权管理.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_LinkClicked);
             // 
             // nbi_职权流程图
             // 
@@ -177,7 +177,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(160, 394);
+            this.panelControl1.Size = new System.Drawing.Size(160, 674);
             this.panelControl1.TabIndex = 10;
             // 
             // c_tmmMain
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 394);
+            this.ClientSize = new System.Drawing.Size(1144, 674);
             this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
