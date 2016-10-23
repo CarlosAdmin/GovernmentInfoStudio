@@ -145,6 +145,64 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Insert(TblAuthorityDetail data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblAuthorityDetailCtrl.InsertNoPK(data, session, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static bool Update(TblAuthorityDetail data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int updCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+
+                    updateList.Add(TblAuthorityDetail.GetAuthorityMatteryTitleField());
+                    updateList.Add(TblAuthorityDetail.GetAuthorityMatteryContentField());
+                    updateList.Add(TblAuthorityDetail.GetAuthorityDetailSortIDField());
+
+                    SqlWhereList where = new SqlWhereList();
+
+                    where.Add(TblAuthorityDetail.GetAuthorityDetailIDField(), SqlWhereCondition.Equals, data.AuthorityDetailID);
+
+                    if (!TblAuthorityDetailCtrl.Update(updateList, data, where, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    session.Commit();
+                }
+
+                return updCount > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool Update(TblDepartment data)
         {
             try
@@ -295,6 +353,31 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool DeletaAuthorityDetail(SqlWhereList where)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int delCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    if (!TblAuthorityDetailCtrl.Delete(where, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    session.Commit();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public static bool Insert(TblDepartment_AdministrativeCategory data)
         {
@@ -530,5 +613,6 @@ namespace GovernmentInfoStudio.ActionManager
                 return -1;
             }
         }
+
     }
 }

@@ -260,7 +260,6 @@ namespace GovernmentInfoStudio
         private void c_trlMain_btnAuthorityDetail_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
-            //查看,明细
 
             if (focusedRow == null)
             {
@@ -294,6 +293,9 @@ namespace GovernmentInfoStudio
             }
 
             focusedRow.AuthorityDetailList = dataList;
+
+            FrmAuthorityDetail frmEdit = new FrmAuthorityDetail(focusedRow.AuthorityDetailList);
+            frmEdit.ShowDialog();
         }
 
         private void c_trlMain_btnAuthorityFlow_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

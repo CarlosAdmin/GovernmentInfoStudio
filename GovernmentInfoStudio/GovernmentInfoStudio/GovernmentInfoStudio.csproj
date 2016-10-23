@@ -126,6 +126,12 @@
     <Compile Include="DB\DBMng.cs" />
     <Compile Include="DB\DBSession.cs" />
     <Compile Include="ExeTypeEnum.cs" />
+    <Compile Include="FrmAuthorityDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityDetail.Designer.cs">
+      <DependentUpon>FrmAuthorityDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAuthorityMattery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,15 @@
     <Compile Include="FrmCategoryMng.Designer.cs">
       <DependentUpon>FrmCategoryMng.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAuthorityDetailEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityDetailEdit.Designer.cs">
+      <DependentUpon>FrmAuthorityDetailEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAuthorityDetail.resx">
+      <DependentUpon>FrmAuthorityDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAuthorityMattery.resx">
       <DependentUpon>FrmAuthorityMattery.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoryMng.resx">
       <DependentUpon>FrmCategoryMng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthorityDetailEdit.resx">
+      <DependentUpon>FrmAuthorityDetailEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
