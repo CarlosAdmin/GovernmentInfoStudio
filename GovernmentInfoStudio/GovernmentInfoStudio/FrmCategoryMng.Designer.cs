@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoryMng));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.c_txtDepartCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -357,6 +358,7 @@
             this.Controls.Add(this.c_grpList);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCategoryMng";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "分类管理";

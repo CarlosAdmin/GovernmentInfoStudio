@@ -266,10 +266,14 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
+                    session.BeginTrans();
+
                     if (!TblDepartmentCtrl.Delete(where, session, ref delCount, ref errMsg))
                     {
                         return false;
                     }
+
+                    session.Commit();
                 }
                 return true;
             }

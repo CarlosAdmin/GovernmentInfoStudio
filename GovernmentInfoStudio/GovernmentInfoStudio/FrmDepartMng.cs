@@ -190,7 +190,7 @@ namespace GovernmentInfoStudio
                 focuseRowData.DepartName = frmEdit.depart.DepartmentName;
                 focuseRowData.DepartSortCode = frmEdit.depart.DepartmentSortID;
 
-                c_grcMain.Refresh();
+                c_grcMain_View.RefreshData();
             }
         }
 

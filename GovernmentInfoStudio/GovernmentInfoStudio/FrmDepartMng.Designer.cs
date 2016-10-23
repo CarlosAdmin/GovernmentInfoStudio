@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDepartMng));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.c_txtDepartCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -167,6 +168,7 @@
             this.c_grcMain_view_DepartmentID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentID.Caption = "部门编码";
             this.c_grcMain_view_DepartmentID.Name = "c_grcMain_view_DepartmentID";
+            this.c_grcMain_view_DepartmentID.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentID.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentID.Visible = true;
             this.c_grcMain_view_DepartmentID.VisibleIndex = 1;
@@ -181,6 +183,7 @@
             this.c_grcMain_view_DepartmentName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentName.Caption = "部门名称";
             this.c_grcMain_view_DepartmentName.Name = "c_grcMain_view_DepartmentName";
+            this.c_grcMain_view_DepartmentName.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentName.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentName.Visible = true;
             this.c_grcMain_view_DepartmentName.VisibleIndex = 2;
@@ -195,6 +198,7 @@
             this.c_grcMain_view_DepartmentSortID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_DepartmentSortID.Caption = "部门排序编码";
             this.c_grcMain_view_DepartmentSortID.Name = "c_grcMain_view_DepartmentSortID";
+            this.c_grcMain_view_DepartmentSortID.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_DepartmentSortID.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_DepartmentSortID.Visible = true;
             this.c_grcMain_view_DepartmentSortID.VisibleIndex = 3;
@@ -262,7 +266,7 @@
             this.c_btnClear.Location = new System.Drawing.Point(333, 30);
             this.c_btnClear.Name = "c_btnClear";
             this.c_btnClear.Size = new System.Drawing.Size(100, 35);
-            this.c_btnClear.TabIndex = 1;
+            this.c_btnClear.TabIndex = 3;
             this.c_btnClear.Text = "清除查询";
             this.c_btnClear.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -271,7 +275,7 @@
             this.c_btnExit.Location = new System.Drawing.Point(545, 30);
             this.c_btnExit.Name = "c_btnExit";
             this.c_btnExit.Size = new System.Drawing.Size(100, 35);
-            this.c_btnExit.TabIndex = 3;
+            this.c_btnExit.TabIndex = 5;
             this.c_btnExit.Text = "返回";
             this.c_btnExit.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -280,7 +284,7 @@
             this.c_btnQuery.Location = new System.Drawing.Point(227, 30);
             this.c_btnQuery.Name = "c_btnQuery";
             this.c_btnQuery.Size = new System.Drawing.Size(100, 35);
-            this.c_btnQuery.TabIndex = 0;
+            this.c_btnQuery.TabIndex = 2;
             this.c_btnQuery.Text = "查询";
             this.c_btnQuery.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -289,7 +293,7 @@
             this.c_btnDelete.Location = new System.Drawing.Point(439, 30);
             this.c_btnDelete.Name = "c_btnDelete";
             this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
-            this.c_btnDelete.TabIndex = 2;
+            this.c_btnDelete.TabIndex = 4;
             this.c_btnDelete.Text = "删除";
             this.c_btnDelete.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -309,7 +313,7 @@
             this.c_btnAppend.Location = new System.Drawing.Point(786, 30);
             this.c_btnAppend.Name = "c_btnAppend";
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
-            this.c_btnAppend.TabIndex = 4;
+            this.c_btnAppend.TabIndex = 6;
             this.c_btnAppend.Text = "新增";
             this.c_btnAppend.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -336,7 +340,7 @@
             this.c_btnUnSelectAll.Location = new System.Drawing.Point(119, 30);
             this.c_btnUnSelectAll.Name = "c_btnUnSelectAll";
             this.c_btnUnSelectAll.Size = new System.Drawing.Size(100, 35);
-            this.c_btnUnSelectAll.TabIndex = 0;
+            this.c_btnUnSelectAll.TabIndex = 1;
             this.c_btnUnSelectAll.Text = "反选";
             this.c_btnUnSelectAll.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -357,6 +361,7 @@
             this.Controls.Add(this.c_grpList);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDepartMng";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "部门管理";

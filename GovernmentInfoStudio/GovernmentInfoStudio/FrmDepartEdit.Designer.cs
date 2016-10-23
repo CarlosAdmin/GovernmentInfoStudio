@@ -83,7 +83,7 @@
             // 
             // txtDepartSortCode
             // 
-            this.txtDepartSortCode.Location = new System.Drawing.Point(107, 56);
+            this.txtDepartSortCode.Location = new System.Drawing.Point(107, 58);
             this.txtDepartSortCode.Name = "txtDepartSortCode";
             this.txtDepartSortCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.txtDepartSortCode.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -91,11 +91,11 @@
             this.txtDepartSortCode.Properties.Mask.EditMask = "\\d+";
             this.txtDepartSortCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtDepartSortCode.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartSortCode.TabIndex = 97;
+            this.txtDepartSortCode.TabIndex = 1;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(17, 61);
+            this.labelControl1.Location = new System.Drawing.Point(17, 63);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(84, 14);
             this.labelControl1.TabIndex = 98;
@@ -103,17 +103,17 @@
             // 
             // txtDepartName
             // 
-            this.txtDepartName.Location = new System.Drawing.Point(107, 25);
+            this.txtDepartName.Location = new System.Drawing.Point(107, 27);
             this.txtDepartName.Name = "txtDepartName";
             this.txtDepartName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.txtDepartName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtDepartName.Properties.AutoHeight = false;
             this.txtDepartName.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartName.TabIndex = 97;
+            this.txtDepartName.TabIndex = 0;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(41, 30);
+            this.labelControl2.Location = new System.Drawing.Point(41, 32);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(60, 14);
             this.labelControl2.TabIndex = 98;
