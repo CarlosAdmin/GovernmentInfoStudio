@@ -108,6 +108,7 @@
             // 
             // picFlow
             // 
+            this.picFlow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picFlow.Location = new System.Drawing.Point(143, 151);
             this.picFlow.Name = "picFlow";
             this.picFlow.Size = new System.Drawing.Size(500, 404);

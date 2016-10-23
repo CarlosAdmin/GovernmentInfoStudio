@@ -36,19 +36,6 @@
             this.cboCategory = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.c_grpList = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.c_btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.c_btnAppend = new DevExpress.XtraEditors.SimpleButton();
-            this.cbo_depart = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
-            this.c_btnUnSelectAll = new DevExpress.XtraEditors.SimpleButton();
-            this.c_btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.c_grcMain = new DevExpress.XtraGrid.GridControl();
             this.c_grcMain_View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.c_grcMain_view_IsSelect = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,11 +47,29 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.c_grpList = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.c_btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.c_btnUnSelectAll = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnAppend = new DevExpress.XtraEditors.SimpleButton();
+            this.cbo_depart = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).BeginInit();
             this.c_grpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -73,11 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAuthorityMatteryID
@@ -130,140 +130,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(859, 241);
             this.panel4.TabIndex = 2;
-            // 
-            // c_btnExit
-            // 
-            this.c_btnExit.Location = new System.Drawing.Point(330, 30);
-            this.c_btnExit.Name = "c_btnExit";
-            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
-            this.c_btnExit.TabIndex = 3;
-            this.c_btnExit.Text = "返回";
-            // 
-            // c_grpList
-            // 
-            this.c_grpList.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.c_grpList.AppearanceCaption.Options.UseFont = true;
-            this.c_grpList.Controls.Add(this.panel4);
-            this.c_grpList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_grpList.Location = new System.Drawing.Point(0, 143);
-            this.c_grpList.Name = "c_grpList";
-            this.c_grpList.Padding = new System.Windows.Forms.Padding(10);
-            this.c_grpList.Size = new System.Drawing.Size(883, 285);
-            this.c_grpList.TabIndex = 11;
-            this.c_grpList.Text = "数据列表";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(210, 38);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(60, 14);
-            this.labelControl2.TabIndex = 37;
-            this.labelControl2.Text = "分类名称：";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(13, 38);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 14);
-            this.labelControl1.TabIndex = 37;
-            this.labelControl1.Text = "部门名称：";
-            // 
-            // c_btnDelete
-            // 
-            this.c_btnDelete.Location = new System.Drawing.Point(224, 30);
-            this.c_btnDelete.Name = "c_btnDelete";
-            this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
-            this.c_btnDelete.TabIndex = 2;
-            this.c_btnDelete.Text = "删除";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
-            this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.c_btnUnSelectAll);
-            this.groupControl2.Controls.Add(this.c_btnSelectAll);
-            this.groupControl2.Controls.Add(this.c_btnExit);
-            this.groupControl2.Controls.Add(this.c_btnDelete);
-            this.groupControl2.Controls.Add(this.c_btnAppend);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl2.Location = new System.Drawing.Point(0, 68);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(883, 75);
-            this.groupControl2.TabIndex = 10;
-            this.groupControl2.Text = "功能操作";
-            // 
-            // c_btnAppend
-            // 
-            this.c_btnAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnAppend.Location = new System.Drawing.Point(771, 30);
-            this.c_btnAppend.Name = "c_btnAppend";
-            this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
-            this.c_btnAppend.TabIndex = 4;
-            this.c_btnAppend.Text = "新增子项";
-            // 
-            // cbo_depart
-            // 
-            this.cbo_depart.Location = new System.Drawing.Point(79, 33);
-            this.cbo_depart.Name = "cbo_depart";
-            this.cbo_depart.Properties.AutoHeight = false;
-            this.cbo_depart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_depart.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cbo_depart.Size = new System.Drawing.Size(125, 25);
-            this.cbo_depart.TabIndex = 38;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.txtAuthorityMatteryID);
-            this.groupControl1.Controls.Add(this.txtAuthorityMatteryName);
-            this.groupControl1.Controls.Add(this.cboCategory);
-            this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Controls.Add(this.cbo_depart);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(883, 68);
-            this.groupControl1.TabIndex = 9;
-            this.groupControl1.Text = "查询条件";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(407, 38);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(60, 14);
-            this.labelControl3.TabIndex = 37;
-            this.labelControl3.Text = "职权民称：";
-            // 
-            // repositoryItemCheckedComboBoxEdit1
-            // 
-            this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
-            this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemCheckedComboBoxEdit1.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "aaaa"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "bbbbb")});
-            this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
-            // 
-            // c_btnUnSelectAll
-            // 
-            this.c_btnUnSelectAll.Location = new System.Drawing.Point(119, 30);
-            this.c_btnUnSelectAll.Name = "c_btnUnSelectAll";
-            this.c_btnUnSelectAll.Size = new System.Drawing.Size(100, 35);
-            this.c_btnUnSelectAll.TabIndex = 6;
-            this.c_btnUnSelectAll.Text = "反选";
-            // 
-            // c_btnSelectAll
-            // 
-            this.c_btnSelectAll.Location = new System.Drawing.Point(13, 30);
-            this.c_btnSelectAll.Name = "c_btnSelectAll";
-            this.c_btnSelectAll.Size = new System.Drawing.Size(100, 35);
-            this.c_btnSelectAll.TabIndex = 5;
-            this.c_btnSelectAll.Text = "全选";
             // 
             // c_grcMain
             // 
@@ -404,6 +270,141 @@
             this.c_btnSave.TabIndex = 0;
             this.c_btnSave.Text = "保存";
             // 
+            // c_btnExit
+            // 
+            this.c_btnExit.Location = new System.Drawing.Point(330, 30);
+            this.c_btnExit.Name = "c_btnExit";
+            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
+            this.c_btnExit.TabIndex = 3;
+            this.c_btnExit.Text = "返回";
+            // 
+            // c_grpList
+            // 
+            this.c_grpList.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.c_grpList.AppearanceCaption.Options.UseFont = true;
+            this.c_grpList.Controls.Add(this.panel4);
+            this.c_grpList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_grpList.Location = new System.Drawing.Point(0, 143);
+            this.c_grpList.Name = "c_grpList";
+            this.c_grpList.Padding = new System.Windows.Forms.Padding(10);
+            this.c_grpList.Size = new System.Drawing.Size(883, 285);
+            this.c_grpList.TabIndex = 11;
+            this.c_grpList.Text = "数据列表";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(210, 38);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(60, 14);
+            this.labelControl2.TabIndex = 37;
+            this.labelControl2.Text = "分类名称：";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(13, 38);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(60, 14);
+            this.labelControl1.TabIndex = 37;
+            this.labelControl1.Text = "部门名称：";
+            // 
+            // c_btnDelete
+            // 
+            this.c_btnDelete.Location = new System.Drawing.Point(224, 30);
+            this.c_btnDelete.Name = "c_btnDelete";
+            this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
+            this.c_btnDelete.TabIndex = 2;
+            this.c_btnDelete.Text = "删除";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
+            this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.Controls.Add(this.c_btnUnSelectAll);
+            this.groupControl2.Controls.Add(this.c_btnSelectAll);
+            this.groupControl2.Controls.Add(this.c_btnExit);
+            this.groupControl2.Controls.Add(this.c_btnDelete);
+            this.groupControl2.Controls.Add(this.c_btnAppend);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl2.Location = new System.Drawing.Point(0, 68);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(883, 75);
+            this.groupControl2.TabIndex = 10;
+            this.groupControl2.Text = "功能操作";
+            // 
+            // c_btnUnSelectAll
+            // 
+            this.c_btnUnSelectAll.Location = new System.Drawing.Point(119, 30);
+            this.c_btnUnSelectAll.Name = "c_btnUnSelectAll";
+            this.c_btnUnSelectAll.Size = new System.Drawing.Size(100, 35);
+            this.c_btnUnSelectAll.TabIndex = 6;
+            this.c_btnUnSelectAll.Text = "反选";
+            // 
+            // c_btnSelectAll
+            // 
+            this.c_btnSelectAll.Location = new System.Drawing.Point(13, 30);
+            this.c_btnSelectAll.Name = "c_btnSelectAll";
+            this.c_btnSelectAll.Size = new System.Drawing.Size(100, 35);
+            this.c_btnSelectAll.TabIndex = 5;
+            this.c_btnSelectAll.Text = "全选";
+            // 
+            // c_btnAppend
+            // 
+            this.c_btnAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnAppend.Location = new System.Drawing.Point(771, 30);
+            this.c_btnAppend.Name = "c_btnAppend";
+            this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
+            this.c_btnAppend.TabIndex = 4;
+            this.c_btnAppend.Text = "新增子项";
+            this.c_btnAppend.Click += new System.EventHandler(this.c_btnAppend_Click);
+            // 
+            // cbo_depart
+            // 
+            this.cbo_depart.Location = new System.Drawing.Point(79, 33);
+            this.cbo_depart.Name = "cbo_depart";
+            this.cbo_depart.Properties.AutoHeight = false;
+            this.cbo_depart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbo_depart.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbo_depart.Size = new System.Drawing.Size(125, 25);
+            this.cbo_depart.TabIndex = 38;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.txtAuthorityMatteryID);
+            this.groupControl1.Controls.Add(this.txtAuthorityMatteryName);
+            this.groupControl1.Controls.Add(this.cboCategory);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.cbo_depart);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.labelControl1);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(883, 68);
+            this.groupControl1.TabIndex = 9;
+            this.groupControl1.Text = "查询条件";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(407, 38);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(60, 14);
+            this.labelControl3.TabIndex = 37;
+            this.labelControl3.Text = "职权民称：";
+            // 
+            // repositoryItemCheckedComboBoxEdit1
+            // 
+            this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
+            this.repositoryItemCheckedComboBoxEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCheckedComboBoxEdit1.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "aaaa"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "bbbbb")});
+            this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
+            // 
             // FrmAuthorityMatteryEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -414,12 +415,18 @@
             this.Controls.Add(this.groupControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAuthorityMatteryEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "职权编辑";
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).EndInit();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).EndInit();
             this.c_grpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
@@ -429,11 +436,6 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

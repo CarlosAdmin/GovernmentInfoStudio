@@ -433,6 +433,7 @@
             this.Name = "FrmAuthorityMattery";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "职权管理";
             this.Load += new System.EventHandler(this.FrmAuthorityMattery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -15,5 +15,11 @@ namespace GovernmentInfoStudio
         {
             InitializeComponent();
         }
+
+        private void c_btnAppend_Click(object sender, EventArgs e)
+        {
+            FrmAuthorityMatteryDetail frmEdit = new FrmAuthorityMatteryDetail();
+            frmEdit.ShowDialog();
+        }
     }
 }

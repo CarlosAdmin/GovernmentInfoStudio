@@ -9,6 +9,10 @@ using DevExpress.XtraEditors;
 using BaseCommon.DBModuleTable.DBModule.Table;
 using BaseCommon.Common.DBSql;
 using GovernmentInfoStudio.ActionManager;
+using System.IO;
+using Aspose.Words;
+using LinqToExcel;
+using System.Linq;
 
 namespace GovernmentInfoStudio
 {
@@ -232,8 +236,149 @@ namespace GovernmentInfoStudio
                 XtraMessageBox.Show("没有数据,无法导入");
                 return;
             }
-            FrmAuthorityMatteryFlowEdit frmEdit = new FrmAuthorityMatteryFlowEdit(dataList[0].AuthorityMatteryDetailCode);
+
+            if (string.IsNullOrEmpty(c_txtDepartCode.Text))
+            {
+                XtraMessageBox.Show("请输入职权编码");
+                return;
+            }
+
+            FrmAuthorityMatteryFlowEdit frmEdit = new FrmAuthorityMatteryFlowEdit(int.Parse(c_txtDepartCode.Text));
             frmEdit.ShowDialog();
+        }
+
+        private void c_btnImport_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(c_txtDepartCode.Text))
+            {
+                XtraMessageBox.Show("请输入职权明细编码");
+                return;
+            }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Multiselect = false;
+            openFileDialog.RestoreDirectory = false;
+            openFileDialog.Filter = "Word|*.doc";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string imagePath = string.Empty;
+                var authorityMatteryFlow = new TblAuthorityMatteryFlow();
+                int AuthorityMatteryDetailCode = int.Parse(c_txtDepartCode.Text);
+                authorityMatteryFlow.AuthorityMatteryDetailCode =AuthorityMatteryDetailCode;
+
+                try
+                {
+                    string docPath = openFileDialog.SafeFileName;
+
+                    imagePath = docPath.Replace("doc", "jpg");
+
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                    }
+
+                    new Aspose.Words.License().SetLicense(new MemoryStream(Convert.FromBase64String(Key)));
+
+                    Document doc = new Document(docPath);
+
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        doc.Save(stream, SaveFormat.Jpeg);
+
+                        authorityMatteryFlow.AuthorityMatteryFlowImage = stream.GetBuffer();
+
+                        using (System.Drawing.Image image = Bitmap.FromStream(stream)) // 原始图
+                        {
+                            authorityMatteryFlow.AuthorityFlowImage = image;
+
+                            using (Bitmap image2 = new Bitmap(image))
+                            {
+                                image2.Save(imagePath);
+                            }
+
+                            FileInfo fileImage = new FileInfo(imagePath);
+                            authorityMatteryFlow.AuthorityMatteryFlowName = fileImage.Name;
+                            authorityMatteryFlow.FlowImagePath = imagePath;
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+
+                }
+            }
+        }
+
+        private void c_btnImpoerExcel_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(c_txtDepartCode.Text))
+            {
+                XtraMessageBox.Show("请输入职权明细编码");
+                return;
+            }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Multiselect = false;
+            openFileDialog.RestoreDirectory = false;
+            openFileDialog.Filter = "Word|*.doc";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var excel = new ExcelQueryFactory(openFileDialog.FileName);
+
+                var excelRows = excel.WorksheetNoHeader(0);
+
+                var rowCount = excelRows.Count();
+
+                if (rowCount <= 0)
+                {
+                    return;
+                }
+
+                FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+
+                var rows = excelRows.ToList();
+
+              var  authorityDetailList = new List<TblAuthorityDetail>();
+
+              int AuthorityMatteryDetailCode = int.Parse(c_txtDepartCode.Text);
+
+              foreach (var itemrow in rows)
+              {
+                  if (itemrow.Count() < 2)
+                  {
+                      continue;
+                  }
+
+                  var authdetail = new TblAuthorityDetail();
+
+                  authdetail.AuthorityMatteryTitle = itemrow[0].Value.ToString().Trim();
+                  authdetail.AuthorityMatteryDetailCode = AuthorityMatteryDetailCode;
+
+                  if (rowCount == 1)
+                  {
+                      authorityDetailList.Add(authdetail);
+                      continue;
+                  }
+
+                  authdetail.AuthorityMatteryContent = itemrow[1].Value.ToString();
+
+                  if (string.IsNullOrEmpty(authdetail.AuthorityMatteryTitle) && string.IsNullOrEmpty(authdetail.AuthorityMatteryContent))
+                  {
+                      continue;
+                  }
+
+                  authdetail.AuthorityMatteryDetailCode = AuthorityMatteryDetailCode;
+                  authorityDetailList.Add(authdetail);
+              }
+            }
         }
 
         class GrdiMainData
@@ -245,6 +390,31 @@ namespace GovernmentInfoStudio
 
             public TblAuthorityDetail Tag { get; set; }
         }
+
+        #region key
+
+        public const string Key =
+            "PExpY2Vuc2U+DQogIDxEYXRhPg0KICAgIDxMaWNlbnNlZFRvPkFzcG9zZSBTY290bGFuZCB" +
+            "UZWFtPC9MaWNlbnNlZFRvPg0KICAgIDxFbWFpbFRvPmJpbGx5Lmx1bmRpZUBhc3Bvc2UuY2" +
+            "9tPC9FbWFpbFRvPg0KICAgIDxMaWNlbnNlVHlwZT5EZXZlbG9wZXIgT0VNPC9MaWNlbnNlV" +
+            "HlwZT4NCiAgICA8TGljZW5zZU5vdGU+TGltaXRlZCB0byAxIGRldmVsb3BlciwgdW5saW1p" +
+            "dGVkIHBoeXNpY2FsIGxvY2F0aW9uczwvTGljZW5zZU5vdGU+DQogICAgPE9yZGVySUQ+MTQ" +
+            "wNDA4MDUyMzI0PC9PcmRlcklEPg0KICAgIDxVc2VySUQ+OTQyMzY8L1VzZXJJRD4NCiAgIC" +
+            "A8T0VNPlRoaXMgaXMgYSByZWRpc3RyaWJ1dGFibGUgbGljZW5zZTwvT0VNPg0KICAgIDxQc" +
+            "m9kdWN0cz4NCiAgICAgIDxQcm9kdWN0PkFzcG9zZS5Ub3RhbCBmb3IgLk5FVDwvUHJvZHVj" +
+            "dD4NCiAgICA8L1Byb2R1Y3RzPg0KICAgIDxFZGl0aW9uVHlwZT5FbnRlcnByaXNlPC9FZGl" +
+            "0aW9uVHlwZT4NCiAgICA8U2VyaWFsTnVtYmVyPjlhNTk1NDdjLTQxZjAtNDI4Yi1iYTcyLT" +
+            "djNDM2OGYxNTFkNzwvU2VyaWFsTnVtYmVyPg0KICAgIDxTdWJzY3JpcHRpb25FeHBpcnk+M" +
+            "jAxNTEyMzE8L1N1YnNjcmlwdGlvbkV4cGlyeT4NCiAgICA8TGljZW5zZVZlcnNpb24+My4w" +
+            "PC9MaWNlbnNlVmVyc2lvbj4NCiAgICA8TGljZW5zZUluc3RydWN0aW9ucz5odHRwOi8vd3d" +
+            "3LmFzcG9zZS5jb20vY29ycG9yYXRlL3B1cmNoYXNlL2xpY2Vuc2UtaW5zdHJ1Y3Rpb25zLm" +
+            "FzcHg8L0xpY2Vuc2VJbnN0cnVjdGlvbnM+DQogIDwvRGF0YT4NCiAgPFNpZ25hdHVyZT5GT" +
+            "zNQSHNibGdEdDhGNTlzTVQxbDFhbXlpOXFrMlY2RThkUWtJUDdMZFRKU3hEaWJORUZ1MXpP" +
+            "aW5RYnFGZkt2L3J1dHR2Y3hvUk9rYzF0VWUwRHRPNmNQMVpmNkowVmVtZ1NZOGkvTFpFQ1R" +
+            "Hc3pScUpWUVJaME1vVm5CaHVQQUprNWVsaTdmaFZjRjhoV2QzRTRYUTNMemZtSkN1YWoyTk" +
+            "V0ZVJpNUhyZmc9PC9TaWduYXR1cmU+DQo8L0xpY2Vuc2U+";
+
+        #endregion
 
         
     }
