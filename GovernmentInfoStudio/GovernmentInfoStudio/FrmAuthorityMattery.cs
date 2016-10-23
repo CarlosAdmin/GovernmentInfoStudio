@@ -340,7 +340,7 @@ namespace GovernmentInfoStudio
 
         private void c_btnAppend_Click(object sender, EventArgs e)
         {
-            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit();
+            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit(departList,categoryList);
 
             if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
