@@ -147,6 +147,7 @@
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
             this.c_btnAppend.TabIndex = 4;
             this.c_btnAppend.Text = "新增";
+            this.c_btnAppend.Click += new System.EventHandler(this.c_btnAppend_Click);
             // 
             // repositoryItemCheckedComboBoxEdit1
             // 

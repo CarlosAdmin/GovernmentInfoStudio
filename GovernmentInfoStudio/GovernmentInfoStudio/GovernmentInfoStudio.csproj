@@ -138,6 +138,18 @@
     <Compile Include="FrmAuthorityMattery.Designer.cs">
       <DependentUpon>FrmAuthorityMattery.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAuthorityMatteryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityMatteryDetail.Designer.cs">
+      <DependentUpon>FrmAuthorityMatteryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAuthorityMatteryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityMatteryEdit.Designer.cs">
+      <DependentUpon>FrmAuthorityMatteryEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDBConnect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAuthorityMattery.resx">
       <DependentUpon>FrmAuthorityMattery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthorityMatteryDetail.resx">
+      <DependentUpon>FrmAuthorityMatteryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthorityMatteryEdit.resx">
+      <DependentUpon>FrmAuthorityMatteryEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDBConnect.resx">
       <DependentUpon>FrmDBConnect.cs</DependentUpon>

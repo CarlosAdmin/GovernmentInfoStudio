@@ -338,5 +338,15 @@ namespace GovernmentInfoStudio
             frmEdit.ShowDialog();
         }
 
+        private void c_btnAppend_Click(object sender, EventArgs e)
+        {
+            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit();
+
+            if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+        }
+
     }
 }

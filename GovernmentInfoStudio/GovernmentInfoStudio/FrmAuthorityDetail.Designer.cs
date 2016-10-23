@@ -191,7 +191,7 @@
             // 
             // c_txtDepartCode
             // 
-            this.c_txtDepartCode.Location = new System.Drawing.Point(79, 31);
+            this.c_txtDepartCode.Location = new System.Drawing.Point(99, 31);
             this.c_txtDepartCode.Name = "c_txtDepartCode";
             this.c_txtDepartCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.c_txtDepartCode.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -205,9 +205,9 @@
             // 
             this.labelControl1.Location = new System.Drawing.Point(13, 36);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 14);
+            this.labelControl1.Size = new System.Drawing.Size(84, 14);
             this.labelControl1.TabIndex = 37;
-            this.labelControl1.Text = "职权编码：";
+            this.labelControl1.Text = "职权子项编码：";
             // 
             // c_btnUpdate
             // 

@@ -227,6 +227,11 @@ namespace GovernmentInfoStudio
 
         private void btnFlow_Click(object sender, EventArgs e)
         {
+            if (dataList == null || dataList.Count <= 0)
+            {
+                XtraMessageBox.Show("没有数据,无法导入");
+                return;
+            }
             FrmAuthorityMatteryFlowEdit frmEdit = new FrmAuthorityMatteryFlowEdit(dataList[0].AuthorityMatteryDetailCode);
             frmEdit.ShowDialog();
         }
