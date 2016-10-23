@@ -49,7 +49,10 @@ namespace GovernmentInfoStudio
                 formType = typeof(FrmAuthorityMattery);
             }
             else if (sender == nbi_职权流程图) { return; }
-            else if (sender == nbi_职权明细管理) { return; }
+            else if (sender == nbi_职权明细管理)
+            {
+                formType = typeof(FrmAuthorityDetail);
+            }
             else if (sender == nbi_子项职权管理) { return; }
 
             OpenForm(nbi, formType);
