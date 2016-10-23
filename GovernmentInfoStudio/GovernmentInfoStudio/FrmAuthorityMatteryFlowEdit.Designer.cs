@@ -136,6 +136,7 @@
             // 
             // txtAuthorityMatteryFlowSortID
             // 
+            this.txtAuthorityMatteryFlowSortID.EditValue = "0";
             this.txtAuthorityMatteryFlowSortID.Location = new System.Drawing.Point(143, 56);
             this.txtAuthorityMatteryFlowSortID.Name = "txtAuthorityMatteryFlowSortID";
             this.txtAuthorityMatteryFlowSortID.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));

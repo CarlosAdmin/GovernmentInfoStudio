@@ -32,5 +32,32 @@ namespace GovernmentInfoStudio
             FrmAuthorityMatteryDetail frmEdit = new FrmAuthorityMatteryDetail();
             frmEdit.ShowDialog();
         }
+
+        private void c_btnSave_Click(object sender, EventArgs e)
+        {
+            if (cbo_depart.SelectedIndex < 0)
+            {
+                XtraMessageBox.Show("请选择部门");
+                cbo_depart.Focus();
+                return;
+            }
+
+            if (cboCategory.SelectedIndex < 0)
+            {
+                XtraMessageBox.Show("请选择分类");
+                cboCategory.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtAuthorityMatteryID.Text))
+            {
+                
+            }
+
+            if (string.IsNullOrEmpty(txtAuthorityMatteryName.Text))
+            {
+
+            }
+        }
     }
 }

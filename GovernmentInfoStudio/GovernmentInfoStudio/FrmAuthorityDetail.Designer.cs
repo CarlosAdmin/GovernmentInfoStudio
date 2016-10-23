@@ -37,6 +37,9 @@
             this.c_btnQuery = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.c_btnImpoerExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnImport = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFlow = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnAppend = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
@@ -53,9 +56,6 @@
             this.c_grcMain_view_AuthorityMatteryContent = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_grcMain_view_AuthorityDetailSortID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_grpList = new DevExpress.XtraEditors.GroupControl();
-            this.btnFlow = new DevExpress.XtraEditors.SimpleButton();
-            this.c_btnImport = new DevExpress.XtraEditors.SimpleButton();
-            this.c_btnImpoerExcel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -141,6 +141,36 @@
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "功能操作";
             // 
+            // c_btnImpoerExcel
+            // 
+            this.c_btnImpoerExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnImpoerExcel.Location = new System.Drawing.Point(726, 30);
+            this.c_btnImpoerExcel.Name = "c_btnImpoerExcel";
+            this.c_btnImpoerExcel.Size = new System.Drawing.Size(100, 35);
+            this.c_btnImpoerExcel.TabIndex = 7;
+            this.c_btnImpoerExcel.Text = "导入职权内容";
+            this.c_btnImpoerExcel.Click += new System.EventHandler(this.c_btnImpoerExcel_Click);
+            // 
+            // c_btnImport
+            // 
+            this.c_btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnImport.Location = new System.Drawing.Point(832, 30);
+            this.c_btnImport.Name = "c_btnImport";
+            this.c_btnImport.Size = new System.Drawing.Size(100, 35);
+            this.c_btnImport.TabIndex = 7;
+            this.c_btnImport.Text = "导入流程图";
+            this.c_btnImport.Click += new System.EventHandler(this.c_btnImport_Click);
+            // 
+            // btnFlow
+            // 
+            this.btnFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFlow.Location = new System.Drawing.Point(938, 30);
+            this.btnFlow.Name = "btnFlow";
+            this.btnFlow.Size = new System.Drawing.Size(100, 35);
+            this.btnFlow.TabIndex = 7;
+            this.btnFlow.Text = "新增流程图";
+            this.btnFlow.Click += new System.EventHandler(this.btnFlow_Click);
+            // 
             // c_btnSelectAll
             // 
             this.c_btnSelectAll.Location = new System.Drawing.Point(13, 30);
@@ -185,6 +215,7 @@
             // 
             // c_txtDepartCode
             // 
+            this.c_txtDepartCode.EditValue = "0";
             this.c_txtDepartCode.Location = new System.Drawing.Point(99, 31);
             this.c_txtDepartCode.Name = "c_txtDepartCode";
             this.c_txtDepartCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
@@ -336,36 +367,6 @@
             this.c_grpList.Size = new System.Drawing.Size(1157, 280);
             this.c_grpList.TabIndex = 8;
             this.c_grpList.Text = "数据列表";
-            // 
-            // btnFlow
-            // 
-            this.btnFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFlow.Location = new System.Drawing.Point(938, 30);
-            this.btnFlow.Name = "btnFlow";
-            this.btnFlow.Size = new System.Drawing.Size(100, 35);
-            this.btnFlow.TabIndex = 7;
-            this.btnFlow.Text = "新增流程图";
-            this.btnFlow.Click += new System.EventHandler(this.btnFlow_Click);
-            // 
-            // c_btnImport
-            // 
-            this.c_btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnImport.Location = new System.Drawing.Point(832, 30);
-            this.c_btnImport.Name = "c_btnImport";
-            this.c_btnImport.Size = new System.Drawing.Size(100, 35);
-            this.c_btnImport.TabIndex = 7;
-            this.c_btnImport.Text = "导入流程图";
-            this.c_btnImport.Click += new System.EventHandler(this.c_btnImport_Click);
-            // 
-            // c_btnImpoerExcel
-            // 
-            this.c_btnImpoerExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnImpoerExcel.Location = new System.Drawing.Point(726, 30);
-            this.c_btnImpoerExcel.Name = "c_btnImpoerExcel";
-            this.c_btnImpoerExcel.Size = new System.Drawing.Size(100, 35);
-            this.c_btnImpoerExcel.TabIndex = 7;
-            this.c_btnImpoerExcel.Text = "导入职权内容";
-            this.c_btnImpoerExcel.Click += new System.EventHandler(this.c_btnImpoerExcel_Click);
             // 
             // FrmAuthorityDetail
             // 

@@ -88,6 +88,7 @@
             // 
             // txtAuthorityDetailSortID
             // 
+            this.txtAuthorityDetailSortID.EditValue = "0";
             this.txtAuthorityDetailSortID.Location = new System.Drawing.Point(107, 328);
             this.txtAuthorityDetailSortID.Name = "txtAuthorityDetailSortID";
             this.txtAuthorityDetailSortID.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));

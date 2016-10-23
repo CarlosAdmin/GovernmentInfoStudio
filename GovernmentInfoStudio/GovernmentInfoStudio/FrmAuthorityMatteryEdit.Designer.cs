@@ -86,7 +86,6 @@
             this.txtAuthorityMatteryID.Name = "txtAuthorityMatteryID";
             this.txtAuthorityMatteryID.Properties.AutoHeight = false;
             this.txtAuthorityMatteryID.Properties.Mask.EditMask = "\\d+";
-            this.txtAuthorityMatteryID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAuthorityMatteryID.Size = new System.Drawing.Size(125, 25);
             this.txtAuthorityMatteryID.TabIndex = 39;
             // 
@@ -96,6 +95,7 @@
             // 
             // txtAuthorityMatteryName
             // 
+            this.txtAuthorityMatteryName.EditValue = "0";
             this.txtAuthorityMatteryName.Location = new System.Drawing.Point(668, 33);
             this.txtAuthorityMatteryName.Name = "txtAuthorityMatteryName";
             this.txtAuthorityMatteryName.Properties.AutoHeight = false;
@@ -269,6 +269,7 @@
             this.c_btnSave.Size = new System.Drawing.Size(100, 35);
             this.c_btnSave.TabIndex = 0;
             this.c_btnSave.Text = "保存";
+            this.c_btnSave.Click += new System.EventHandler(this.c_btnSave_Click);
             // 
             // c_btnExit
             // 

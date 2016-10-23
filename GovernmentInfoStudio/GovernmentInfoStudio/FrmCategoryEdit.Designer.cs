@@ -83,6 +83,7 @@
             // 
             // txtDepartSortCode
             // 
+            this.txtDepartSortCode.EditValue = "0";
             this.txtDepartSortCode.Location = new System.Drawing.Point(107, 56);
             this.txtDepartSortCode.Name = "txtDepartSortCode";
             this.txtDepartSortCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));

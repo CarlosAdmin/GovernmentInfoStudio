@@ -33,19 +33,19 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtDepartName = new DevExpress.XtraEditors.TextEdit();
             this.c_grpGoodsInfo = new DevExpress.XtraEditors.GroupControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepartSortCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepartName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).BeginInit();
             this.c_grpGoodsInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDepartSortCode
@@ -95,6 +95,27 @@
             this.c_grpGoodsInfo.TabIndex = 4;
             this.c_grpGoodsInfo.Text = "数据明细";
             // 
+            // textEdit1
+            // 
+            this.textEdit1.EditValue = "0";
+            this.textEdit1.Location = new System.Drawing.Point(100, 91);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
+            this.textEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.textEdit1.Properties.AutoHeight = false;
+            this.textEdit1.Properties.Mask.EditMask = "\\d+";
+            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit1.Size = new System.Drawing.Size(202, 25);
+            this.textEdit1.TabIndex = 1;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(10, 96);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(84, 14);
+            this.labelControl3.TabIndex = 98;
+            this.labelControl3.Text = "职权排序编码：";
+            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(34, 34);
@@ -132,26 +153,6 @@
             this.panelControl1.Size = new System.Drawing.Size(337, 59);
             this.panelControl1.TabIndex = 5;
             // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(10, 96);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(84, 14);
-            this.labelControl3.TabIndex = 98;
-            this.labelControl3.Text = "职权排序编码：";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(100, 91);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
-            this.textEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Properties.Mask.EditMask = "\\d+";
-            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEdit1.Size = new System.Drawing.Size(202, 25);
-            this.textEdit1.TabIndex = 1;
-            // 
             // FrmAuthorityMatteryDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -168,9 +169,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).EndInit();
             this.c_grpGoodsInfo.ResumeLayout(false);
             this.c_grpGoodsInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
