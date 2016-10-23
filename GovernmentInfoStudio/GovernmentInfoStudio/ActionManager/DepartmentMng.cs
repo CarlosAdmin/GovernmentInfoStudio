@@ -145,6 +145,27 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Insert(TblAuthorityMatteryFlow data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(data, session, ref errMsg))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool Insert(TblAuthorityDetail data)
         {
             try
@@ -202,6 +223,47 @@ namespace GovernmentInfoStudio.ActionManager
                 return false;
             }
         }
+
+        public static bool Update(TblAuthorityMatteryFlow data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int updCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+
+                    updateList.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowNameField());
+                    updateList.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowSortIDField());
+
+                    SqlWhereList where = new SqlWhereList();
+
+                    where.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryFlowID);
+
+                    if (!TblAuthorityMatteryFlowCtrl.Update(updateList, data, where, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(data.AuthorityMatteryFlowImage, data.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                    session.Commit();
+                }
+
+                return updCount > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
 
         public static bool Update(TblDepartment data)
         {

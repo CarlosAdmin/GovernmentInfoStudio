@@ -200,6 +200,12 @@
     <Compile Include="FrmAuthorityDetailEdit.Designer.cs">
       <DependentUpon>FrmAuthorityDetailEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAuthorityMatteryFlowEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityMatteryFlowEdit.Designer.cs">
+      <DependentUpon>FrmAuthorityMatteryFlowEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmAuthorityDetail.resx">
       <DependentUpon>FrmAuthorityDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAuthorityDetailEdit.resx">
       <DependentUpon>FrmAuthorityDetailEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAuthorityMatteryFlowEdit.resx">
+      <DependentUpon>FrmAuthorityMatteryFlowEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

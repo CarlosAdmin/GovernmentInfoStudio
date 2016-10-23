@@ -53,7 +53,7 @@
             // 
             // c_nbcMain
             // 
-            this.c_nbcMain.ActiveGroup = this.nbg_Setting;
+            this.c_nbcMain.ActiveGroup = this.nbg_depart;
             this.c_nbcMain.AllowDrop = false;
             this.c_nbcMain.AllowSelectedLink = true;
             this.c_nbcMain.Appearance.GroupHeader.Font = new System.Drawing.Font("微软雅黑", 9F);
@@ -144,9 +144,7 @@
             this.nbg_Mattery.Expanded = true;
             this.nbg_Mattery.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_职权管理),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_子项职权管理),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_职权明细管理),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_职权流程图)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_职权明细管理)});
             this.nbg_Mattery.Name = "nbg_Mattery";
             // 
             // nbi_职权管理

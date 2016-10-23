@@ -34,18 +34,18 @@
             this.c_grpGoodsInfo = new DevExpress.XtraEditors.GroupControl();
             this.txtAuthorityDetailSortID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtAuthorityMatteryTitle = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtAuthorityMatteryContent = new DevExpress.XtraEditors.MemoEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).BeginInit();
             this.c_grpGoodsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityDetailSortID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryTitle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryContent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryContent.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // c_btnExit
@@ -93,6 +93,8 @@
             this.txtAuthorityDetailSortID.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.txtAuthorityDetailSortID.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtAuthorityDetailSortID.Properties.AutoHeight = false;
+            this.txtAuthorityDetailSortID.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityDetailSortID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAuthorityDetailSortID.Size = new System.Drawing.Size(584, 25);
             this.txtAuthorityDetailSortID.TabIndex = 1;
             // 
@@ -103,6 +105,14 @@
             this.labelControl1.Size = new System.Drawing.Size(84, 14);
             this.labelControl1.TabIndex = 98;
             this.labelControl1.Text = "职权排序编码：";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(41, 61);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(60, 14);
+            this.labelControl3.TabIndex = 98;
+            this.labelControl3.Text = "职权标题：";
             // 
             // txtAuthorityMatteryTitle
             // 
@@ -122,6 +132,15 @@
             this.labelControl2.TabIndex = 98;
             this.labelControl2.Text = "职权标题：";
             // 
+            // txtAuthorityMatteryContent
+            // 
+            this.txtAuthorityMatteryContent.Location = new System.Drawing.Point(107, 56);
+            this.txtAuthorityMatteryContent.Name = "txtAuthorityMatteryContent";
+            this.txtAuthorityMatteryContent.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
+            this.txtAuthorityMatteryContent.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtAuthorityMatteryContent.Size = new System.Drawing.Size(584, 266);
+            this.txtAuthorityMatteryContent.TabIndex = 0;
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.c_btnExit);
@@ -131,23 +150,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(703, 59);
             this.panelControl1.TabIndex = 3;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(41, 61);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(60, 14);
-            this.labelControl3.TabIndex = 98;
-            this.labelControl3.Text = "职权标题：";
-            // 
-            // txtAuthorityMatteryContent
-            // 
-            this.txtAuthorityMatteryContent.Location = new System.Drawing.Point(107, 56);
-            this.txtAuthorityMatteryContent.Name = "txtAuthorityMatteryContent";
-            this.txtAuthorityMatteryContent.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
-            this.txtAuthorityMatteryContent.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtAuthorityMatteryContent.Size = new System.Drawing.Size(584, 266);
-            this.txtAuthorityMatteryContent.TabIndex = 0;
             // 
             // FrmAuthorityDetailEdit
             // 
@@ -160,16 +162,16 @@
             this.Name = "FrmAuthorityDetailEdit";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "分类编辑";
+            this.Text = "职权明细管理编辑";
             this.Load += new System.EventHandler(this.FrmDepartEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).EndInit();
             this.c_grpGoodsInfo.ResumeLayout(false);
             this.c_grpGoodsInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityDetailSortID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryTitle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryContent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryContent.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

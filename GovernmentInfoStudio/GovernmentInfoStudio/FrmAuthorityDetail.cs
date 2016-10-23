@@ -225,6 +225,12 @@ namespace GovernmentInfoStudio
             }
         }
 
+        private void btnFlow_Click(object sender, EventArgs e)
+        {
+            FrmAuthorityMatteryFlowEdit frmEdit = new FrmAuthorityMatteryFlowEdit(dataList[0].AuthorityMatteryDetailCode);
+            frmEdit.ShowDialog();
+        }
+
         class GrdiMainData
         {
             public bool IsSelect { get; set; }
@@ -234,5 +240,7 @@ namespace GovernmentInfoStudio
 
             public TblAuthorityDetail Tag { get; set; }
         }
+
+        
     }
 }

@@ -333,6 +333,10 @@ namespace GovernmentInfoStudio
             }
 
             focusedRow.AuthorityMatteryFlow = dataList[0];
+
+            FrmAuthorityMatteryFlowEdit frmEdit = new FrmAuthorityMatteryFlowEdit(focusedRow.AuthorityMatteryFlow);
+            frmEdit.ShowDialog();
         }
+
     }
 }

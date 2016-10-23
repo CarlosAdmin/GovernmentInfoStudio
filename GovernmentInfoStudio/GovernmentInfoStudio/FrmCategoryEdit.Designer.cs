@@ -88,6 +88,8 @@
             this.txtDepartSortCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
             this.txtDepartSortCode.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtDepartSortCode.Properties.AutoHeight = false;
+            this.txtDepartSortCode.Properties.Mask.EditMask = "\\d+";
+            this.txtDepartSortCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtDepartSortCode.Size = new System.Drawing.Size(202, 25);
             this.txtDepartSortCode.TabIndex = 1;
             // 

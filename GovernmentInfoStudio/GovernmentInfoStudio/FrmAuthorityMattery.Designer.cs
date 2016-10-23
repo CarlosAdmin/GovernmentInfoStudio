@@ -142,7 +142,7 @@
             // c_btnAppend
             // 
             this.c_btnAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnAppend.Location = new System.Drawing.Point(811, 30);
+            this.c_btnAppend.Location = new System.Drawing.Point(812, 30);
             this.c_btnAppend.Name = "c_btnAppend";
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
             this.c_btnAppend.TabIndex = 4;
@@ -182,6 +182,8 @@
             this.txtAuthorityMatteryID.Location = new System.Drawing.Point(471, 33);
             this.txtAuthorityMatteryID.Name = "txtAuthorityMatteryID";
             this.txtAuthorityMatteryID.Properties.AutoHeight = false;
+            this.txtAuthorityMatteryID.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityMatteryID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAuthorityMatteryID.Size = new System.Drawing.Size(125, 25);
             this.txtAuthorityMatteryID.TabIndex = 39;
             // 

@@ -37,6 +37,7 @@
             this.c_btnQuery = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnFlow = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnAppend = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
@@ -121,6 +122,7 @@
             // 
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.Controls.Add(this.btnFlow);
             this.groupControl2.Controls.Add(this.c_btnClear);
             this.groupControl2.Controls.Add(this.c_btnExit);
             this.groupControl2.Controls.Add(this.c_btnUnSelectAll);
@@ -131,9 +133,19 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl2.Location = new System.Drawing.Point(0, 68);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(860, 75);
+            this.groupControl2.Size = new System.Drawing.Size(923, 75);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "功能操作";
+            // 
+            // btnFlow
+            // 
+            this.btnFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFlow.Location = new System.Drawing.Point(704, 30);
+            this.btnFlow.Name = "btnFlow";
+            this.btnFlow.Size = new System.Drawing.Size(100, 35);
+            this.btnFlow.TabIndex = 7;
+            this.btnFlow.Text = "新增流程图";
+            this.btnFlow.Click += new System.EventHandler(this.btnFlow_Click);
             // 
             // c_btnSelectAll
             // 
@@ -147,7 +159,7 @@
             // c_btnAppend
             // 
             this.c_btnAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnAppend.Location = new System.Drawing.Point(747, 30);
+            this.c_btnAppend.Location = new System.Drawing.Point(810, 30);
             this.c_btnAppend.Name = "c_btnAppend";
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
             this.c_btnAppend.TabIndex = 6;
@@ -173,7 +185,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(860, 68);
+            this.groupControl1.Size = new System.Drawing.Size(923, 68);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "查询条件";
             // 
@@ -227,7 +239,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(12, 32);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(836, 236);
+            this.panel4.Size = new System.Drawing.Size(899, 236);
             this.panel4.TabIndex = 2;
             // 
             // c_grcMain
@@ -238,7 +250,7 @@
             this.c_grcMain.Name = "c_grcMain";
             this.c_grcMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.c_btnUpdate});
-            this.c_grcMain.Size = new System.Drawing.Size(836, 236);
+            this.c_grcMain.Size = new System.Drawing.Size(899, 236);
             this.c_grcMain.TabIndex = 0;
             this.c_grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.c_grcMain_View});
@@ -327,7 +339,7 @@
             this.c_grpList.Location = new System.Drawing.Point(0, 143);
             this.c_grpList.Name = "c_grpList";
             this.c_grpList.Padding = new System.Windows.Forms.Padding(10);
-            this.c_grpList.Size = new System.Drawing.Size(860, 280);
+            this.c_grpList.Size = new System.Drawing.Size(923, 280);
             this.c_grpList.TabIndex = 8;
             this.c_grpList.Text = "数据列表";
             // 
@@ -335,7 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 423);
+            this.ClientSize = new System.Drawing.Size(923, 423);
             this.Controls.Add(this.c_grpList);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -343,7 +355,7 @@
             this.Name = "FrmAuthorityDetail";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAuthorityDetail";
+            this.Text = "职权明细管理";
             this.Load += new System.EventHandler(this.FrmAuthorityDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
@@ -388,5 +400,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_AuthorityMatteryContent;
         private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_AuthorityDetailSortID;
         private DevExpress.XtraEditors.GroupControl c_grpList;
+        private DevExpress.XtraEditors.SimpleButton btnFlow;
     }
 }
