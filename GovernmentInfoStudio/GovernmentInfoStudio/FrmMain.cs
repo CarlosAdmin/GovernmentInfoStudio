@@ -313,6 +313,12 @@ namespace GovernmentInfoStudio
                         continue;
                     }
 
+                    if (categoryName == "其他" ||
+                        categoryName == "其他类")
+                    {
+                        categoryName = "其它类";
+                    }
+
                     TblAdministrativeCategory admincategory = new TblAdministrativeCategory();
 
                     admincategory.AdministrativeCategoryName = categoryName;
@@ -765,6 +771,7 @@ namespace GovernmentInfoStudio
 
                 foreach (var departItem in departList)
                 {
+                  //  SetLabText(labelControl16, "正在读取部门" + departItem.DepartmentName);
                     departId++;
 
                     var process = Convert.ToInt32((departId / maxCount) * 100);

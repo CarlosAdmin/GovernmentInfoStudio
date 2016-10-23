@@ -233,7 +233,7 @@ namespace GovernmentInfoStudio
                     continue;
                 }
 
-                faterTree.AuthorityDetailName = detail.Count + "子项";
+                faterTree.AuthorityDetailName = detail.Count > 1 ? detail.Count.ToString() : "无" + "子项";
 
                 foreach (var detailItem in detail)
                 {

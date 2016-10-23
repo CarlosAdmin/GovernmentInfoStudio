@@ -100,6 +100,8 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -670,6 +672,8 @@
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.labelControl19);
+            this.groupControl4.Controls.Add(this.labelControl16);
             this.groupControl4.Controls.Add(this.labelControl2);
             this.groupControl4.Controls.Add(this.buttonEdit2);
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -939,6 +943,26 @@
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
             // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl16.Location = new System.Drawing.Point(330, 5);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.labelControl16.Size = new System.Drawing.Size(112, 29);
+            this.labelControl16.TabIndex = 2;
+            this.labelControl16.Text = "正在读部门信息";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl19.Location = new System.Drawing.Point(250, 5);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.labelControl19.Size = new System.Drawing.Size(70, 29);
+            this.labelControl19.TabIndex = 2;
+            this.labelControl19.Text = "读取状态:";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1078,6 +1102,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl lblValue3;
         private DevExpress.XtraEditors.LabelControl lblValue2;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
     }
 }
 
