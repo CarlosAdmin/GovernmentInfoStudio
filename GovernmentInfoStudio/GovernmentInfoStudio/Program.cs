@@ -33,9 +33,9 @@ namespace GovernmentInfoStudio
                 }
             }
 
-            //FrmLogin frmLogin = new FrmLogin();
+            FrmLogin frmLogin = new FrmLogin();
 
-            //if (frmLogin.ShowDialog() == DialogResult.OK)
+            if (frmLogin.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new FrmNewMain());
             }
