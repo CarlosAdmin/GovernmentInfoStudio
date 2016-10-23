@@ -30,24 +30,23 @@
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthorityMatteryEdit));
-            this.txtAuthorityMatteryID = new DevExpress.XtraEditors.TextEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtAuthorityMatteryName = new DevExpress.XtraEditors.TextEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtAuthorityMatterySortID = new DevExpress.XtraEditors.TextEdit();
             this.cboCategory = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.c_grcMain = new DevExpress.XtraGrid.GridControl();
             this.c_grcMain_View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.c_grcMain_view_IsSelect = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.c_grcMain_view_CategoryID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.c_grcMain_view_CategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.c_grcMain_view_CategorySortID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.c_grcMain_view_AuthorityCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.c_grcMain_view_AuthorityName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.c_grcMain_view_AuthorityMatteryDetailSortID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_grcMain_view_Update = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_btnUpdate = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.c_grpList = new DevExpress.XtraEditors.GroupControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -60,9 +59,9 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryID.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatterySortID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).BeginInit();
@@ -80,27 +79,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtAuthorityMatteryID
+            // txtAuthorityMatteryName
             // 
-            this.txtAuthorityMatteryID.Location = new System.Drawing.Point(471, 33);
-            this.txtAuthorityMatteryID.Name = "txtAuthorityMatteryID";
-            this.txtAuthorityMatteryID.Properties.AutoHeight = false;
-            this.txtAuthorityMatteryID.Properties.Mask.EditMask = "\\d+";
-            this.txtAuthorityMatteryID.Size = new System.Drawing.Size(125, 25);
-            this.txtAuthorityMatteryID.TabIndex = 39;
+            this.txtAuthorityMatteryName.Location = new System.Drawing.Point(471, 33);
+            this.txtAuthorityMatteryName.Name = "txtAuthorityMatteryName";
+            this.txtAuthorityMatteryName.Properties.AutoHeight = false;
+            this.txtAuthorityMatteryName.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityMatteryName.Size = new System.Drawing.Size(125, 25);
+            this.txtAuthorityMatteryName.TabIndex = 39;
             // 
             // gridView1
             // 
             this.gridView1.Name = "gridView1";
             // 
-            // txtAuthorityMatteryName
+            // txtAuthorityMatterySortID
             // 
-            this.txtAuthorityMatteryName.EditValue = "0";
-            this.txtAuthorityMatteryName.Location = new System.Drawing.Point(668, 33);
-            this.txtAuthorityMatteryName.Name = "txtAuthorityMatteryName";
-            this.txtAuthorityMatteryName.Properties.AutoHeight = false;
-            this.txtAuthorityMatteryName.Size = new System.Drawing.Size(125, 25);
-            this.txtAuthorityMatteryName.TabIndex = 39;
+            this.txtAuthorityMatterySortID.EditValue = "0";
+            this.txtAuthorityMatterySortID.Location = new System.Drawing.Point(668, 33);
+            this.txtAuthorityMatterySortID.Name = "txtAuthorityMatterySortID";
+            this.txtAuthorityMatterySortID.Properties.AutoHeight = false;
+            this.txtAuthorityMatterySortID.Size = new System.Drawing.Size(125, 25);
+            this.txtAuthorityMatterySortID.TabIndex = 39;
             // 
             // cboCategory
             // 
@@ -148,9 +147,9 @@
             // 
             this.c_grcMain_View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.c_grcMain_view_IsSelect,
-            this.c_grcMain_view_CategoryID,
-            this.c_grcMain_view_CategoryName,
-            this.c_grcMain_view_CategorySortID,
+            this.c_grcMain_view_AuthorityCode,
+            this.c_grcMain_view_AuthorityName,
+            this.c_grcMain_view_AuthorityMatteryDetailSortID,
             this.c_grcMain_view_Update});
             this.c_grcMain_View.GridControl = this.c_grcMain;
             this.c_grcMain_View.Name = "c_grcMain_View";
@@ -173,50 +172,50 @@
             this.c_grcMain_view_IsSelect.Visible = true;
             this.c_grcMain_view_IsSelect.VisibleIndex = 0;
             // 
-            // c_grcMain_view_CategoryID
+            // c_grcMain_view_AuthorityCode
             // 
-            this.c_grcMain_view_CategoryID.AppearanceHeader.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
-            this.c_grcMain_view_CategoryID.AppearanceHeader.Options.UseFont = true;
-            this.c_grcMain_view_CategoryID.AppearanceHeader.Options.UseTextOptions = true;
-            this.c_grcMain_view_CategoryID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.c_grcMain_view_CategoryID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_grcMain_view_CategoryID.Caption = "子项编码";
-            this.c_grcMain_view_CategoryID.Name = "c_grcMain_view_CategoryID";
-            this.c_grcMain_view_CategoryID.OptionsColumn.AllowEdit = false;
-            this.c_grcMain_view_CategoryID.OptionsColumn.ReadOnly = true;
-            this.c_grcMain_view_CategoryID.Visible = true;
-            this.c_grcMain_view_CategoryID.VisibleIndex = 1;
-            this.c_grcMain_view_CategoryID.Width = 87;
+            this.c_grcMain_view_AuthorityCode.AppearanceHeader.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
+            this.c_grcMain_view_AuthorityCode.AppearanceHeader.Options.UseFont = true;
+            this.c_grcMain_view_AuthorityCode.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_grcMain_view_AuthorityCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_grcMain_view_AuthorityCode.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_grcMain_view_AuthorityCode.Caption = "子项编码";
+            this.c_grcMain_view_AuthorityCode.Name = "c_grcMain_view_AuthorityCode";
+            this.c_grcMain_view_AuthorityCode.OptionsColumn.AllowEdit = false;
+            this.c_grcMain_view_AuthorityCode.OptionsColumn.ReadOnly = true;
+            this.c_grcMain_view_AuthorityCode.Visible = true;
+            this.c_grcMain_view_AuthorityCode.VisibleIndex = 1;
+            this.c_grcMain_view_AuthorityCode.Width = 87;
             // 
-            // c_grcMain_view_CategoryName
+            // c_grcMain_view_AuthorityName
             // 
-            this.c_grcMain_view_CategoryName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.c_grcMain_view_CategoryName.AppearanceHeader.Options.UseFont = true;
-            this.c_grcMain_view_CategoryName.AppearanceHeader.Options.UseTextOptions = true;
-            this.c_grcMain_view_CategoryName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.c_grcMain_view_CategoryName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_grcMain_view_CategoryName.Caption = "子项名称";
-            this.c_grcMain_view_CategoryName.Name = "c_grcMain_view_CategoryName";
-            this.c_grcMain_view_CategoryName.OptionsColumn.AllowEdit = false;
-            this.c_grcMain_view_CategoryName.OptionsColumn.ReadOnly = true;
-            this.c_grcMain_view_CategoryName.Visible = true;
-            this.c_grcMain_view_CategoryName.VisibleIndex = 2;
-            this.c_grcMain_view_CategoryName.Width = 84;
+            this.c_grcMain_view_AuthorityName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.c_grcMain_view_AuthorityName.AppearanceHeader.Options.UseFont = true;
+            this.c_grcMain_view_AuthorityName.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_grcMain_view_AuthorityName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_grcMain_view_AuthorityName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_grcMain_view_AuthorityName.Caption = "子项名称";
+            this.c_grcMain_view_AuthorityName.Name = "c_grcMain_view_AuthorityName";
+            this.c_grcMain_view_AuthorityName.OptionsColumn.AllowEdit = false;
+            this.c_grcMain_view_AuthorityName.OptionsColumn.ReadOnly = true;
+            this.c_grcMain_view_AuthorityName.Visible = true;
+            this.c_grcMain_view_AuthorityName.VisibleIndex = 2;
+            this.c_grcMain_view_AuthorityName.Width = 84;
             // 
-            // c_grcMain_view_CategorySortID
+            // c_grcMain_view_AuthorityMatteryDetailSortID
             // 
-            this.c_grcMain_view_CategorySortID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.c_grcMain_view_CategorySortID.AppearanceHeader.Options.UseFont = true;
-            this.c_grcMain_view_CategorySortID.AppearanceHeader.Options.UseTextOptions = true;
-            this.c_grcMain_view_CategorySortID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.c_grcMain_view_CategorySortID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_grcMain_view_CategorySortID.Caption = "子项排序编码";
-            this.c_grcMain_view_CategorySortID.Name = "c_grcMain_view_CategorySortID";
-            this.c_grcMain_view_CategorySortID.OptionsColumn.AllowEdit = false;
-            this.c_grcMain_view_CategorySortID.OptionsColumn.ReadOnly = true;
-            this.c_grcMain_view_CategorySortID.Visible = true;
-            this.c_grcMain_view_CategorySortID.VisibleIndex = 3;
-            this.c_grcMain_view_CategorySortID.Width = 85;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.AppearanceHeader.Options.UseFont = true;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.Caption = "子项排序编码";
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.Name = "c_grcMain_view_AuthorityMatteryDetailSortID";
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.OptionsColumn.AllowEdit = false;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.OptionsColumn.ReadOnly = true;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.Visible = true;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.VisibleIndex = 3;
+            this.c_grcMain_view_AuthorityMatteryDetailSortID.Width = 85;
             // 
             // c_grcMain_view_Update
             // 
@@ -240,10 +239,11 @@
             this.c_btnUpdate.Name = "c_btnUpdate";
             this.c_btnUpdate.NullValuePromptShowForEmptyValue = true;
             this.c_btnUpdate.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.c_btnUpdate.Click += new System.EventHandler(this.c_btnUpdate_Click);
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.c_btnExit);
             this.panelControl1.Controls.Add(this.c_btnSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 182);
@@ -251,15 +251,16 @@
             this.panelControl1.Size = new System.Drawing.Size(859, 59);
             this.panelControl1.TabIndex = 6;
             // 
-            // simpleButton1
+            // c_btnExit
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton1.Location = new System.Drawing.Point(747, 13);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(100, 35);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "返回";
+            this.c_btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.c_btnExit.Location = new System.Drawing.Point(747, 13);
+            this.c_btnExit.Name = "c_btnExit";
+            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
+            this.c_btnExit.TabIndex = 1;
+            this.c_btnExit.Text = "返回";
+            this.c_btnExit.Click += new System.EventHandler(this.c_btnExit_Click);
             // 
             // c_btnSave
             // 
@@ -270,14 +271,6 @@
             this.c_btnSave.TabIndex = 0;
             this.c_btnSave.Text = "保存";
             this.c_btnSave.Click += new System.EventHandler(this.c_btnSave_Click);
-            // 
-            // c_btnExit
-            // 
-            this.c_btnExit.Location = new System.Drawing.Point(330, 30);
-            this.c_btnExit.Name = "c_btnExit";
-            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
-            this.c_btnExit.TabIndex = 3;
-            this.c_btnExit.Text = "返回";
             // 
             // c_grpList
             // 
@@ -315,6 +308,7 @@
             this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
             this.c_btnDelete.TabIndex = 2;
             this.c_btnDelete.Text = "删除";
+            this.c_btnDelete.Click += new System.EventHandler(this.c_btnDelete_Click);
             // 
             // groupControl2
             // 
@@ -322,7 +316,6 @@
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.c_btnUnSelectAll);
             this.groupControl2.Controls.Add(this.c_btnSelectAll);
-            this.groupControl2.Controls.Add(this.c_btnExit);
             this.groupControl2.Controls.Add(this.c_btnDelete);
             this.groupControl2.Controls.Add(this.c_btnAppend);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -339,6 +332,7 @@
             this.c_btnUnSelectAll.Size = new System.Drawing.Size(100, 35);
             this.c_btnUnSelectAll.TabIndex = 6;
             this.c_btnUnSelectAll.Text = "反选";
+            this.c_btnUnSelectAll.Click += new System.EventHandler(this.c_btnUnSelectAll_Click);
             // 
             // c_btnSelectAll
             // 
@@ -347,6 +341,7 @@
             this.c_btnSelectAll.Size = new System.Drawing.Size(100, 35);
             this.c_btnSelectAll.TabIndex = 5;
             this.c_btnSelectAll.Text = "全选";
+            this.c_btnSelectAll.Click += new System.EventHandler(this.c_btnSelectAll_Click);
             // 
             // c_btnAppend
             // 
@@ -373,8 +368,8 @@
             // 
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.txtAuthorityMatteryID);
             this.groupControl1.Controls.Add(this.txtAuthorityMatteryName);
+            this.groupControl1.Controls.Add(this.txtAuthorityMatterySortID);
             this.groupControl1.Controls.Add(this.cboCategory);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.cbo_depart);
@@ -418,9 +413,9 @@
             this.Name = "FrmAuthorityMatteryEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "职权编辑";
-            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryID.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatterySortID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).EndInit();
@@ -443,13 +438,12 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit txtAuthorityMatteryID;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit txtAuthorityMatteryName;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.TextEdit txtAuthorityMatterySortID;
         private DevExpress.XtraEditors.ComboBoxEdit cboCategory;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.Panel panel4;
-        private DevExpress.XtraEditors.SimpleButton c_btnExit;
         private DevExpress.XtraEditors.GroupControl c_grpList;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -465,13 +459,13 @@
         private DevExpress.XtraGrid.GridControl c_grcMain;
         private DevExpress.XtraGrid.Views.Grid.GridView c_grcMain_View;
         private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_IsSelect;
-        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_CategoryID;
-        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_CategoryName;
-        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_CategorySortID;
+        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_AuthorityCode;
+        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_AuthorityName;
+        private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_AuthorityMatteryDetailSortID;
         private DevExpress.XtraGrid.Columns.GridColumn c_grcMain_view_Update;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit c_btnUpdate;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton c_btnExit;
         private DevExpress.XtraEditors.SimpleButton c_btnSave;
 
     }

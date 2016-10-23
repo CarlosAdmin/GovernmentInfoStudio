@@ -29,36 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthorityMatteryDetail));
-            this.txtDepartSortCode = new DevExpress.XtraEditors.TextEdit();
+            this.txtAuthorityName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDepartName = new DevExpress.XtraEditors.TextEdit();
+            this.txtAuthorityCode = new DevExpress.XtraEditors.TextEdit();
             this.c_grpGoodsInfo = new DevExpress.XtraEditors.GroupControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtAuthorityMatteryDetailSortID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartSortCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).BeginInit();
             this.c_grpGoodsInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryDetailSortID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtDepartSortCode
+            // txtAuthorityName
             // 
-            this.txtDepartSortCode.Location = new System.Drawing.Point(100, 60);
-            this.txtDepartSortCode.Name = "txtDepartSortCode";
-            this.txtDepartSortCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
-            this.txtDepartSortCode.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtDepartSortCode.Properties.AutoHeight = false;
-            this.txtDepartSortCode.Properties.Mask.EditMask = "\\d+";
-            this.txtDepartSortCode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtDepartSortCode.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartSortCode.TabIndex = 1;
+            this.txtAuthorityName.Location = new System.Drawing.Point(100, 60);
+            this.txtAuthorityName.Name = "txtAuthorityName";
+            this.txtAuthorityName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
+            this.txtAuthorityName.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtAuthorityName.Properties.AutoHeight = false;
+            this.txtAuthorityName.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityName.Size = new System.Drawing.Size(202, 25);
+            this.txtAuthorityName.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -68,25 +67,26 @@
             this.labelControl1.TabIndex = 98;
             this.labelControl1.Text = "职权名称：";
             // 
-            // txtDepartName
+            // txtAuthorityCode
             // 
-            this.txtDepartName.Location = new System.Drawing.Point(100, 29);
-            this.txtDepartName.Name = "txtDepartName";
-            this.txtDepartName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
-            this.txtDepartName.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtDepartName.Properties.AutoHeight = false;
-            this.txtDepartName.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartName.TabIndex = 0;
+            this.txtAuthorityCode.Location = new System.Drawing.Point(100, 29);
+            this.txtAuthorityCode.Name = "txtAuthorityCode";
+            this.txtAuthorityCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
+            this.txtAuthorityCode.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtAuthorityCode.Properties.AutoHeight = false;
+            this.txtAuthorityCode.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityCode.Size = new System.Drawing.Size(202, 25);
+            this.txtAuthorityCode.TabIndex = 0;
             // 
             // c_grpGoodsInfo
             // 
             this.c_grpGoodsInfo.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.c_grpGoodsInfo.AppearanceCaption.Options.UseFont = true;
-            this.c_grpGoodsInfo.Controls.Add(this.textEdit1);
-            this.c_grpGoodsInfo.Controls.Add(this.txtDepartName);
+            this.c_grpGoodsInfo.Controls.Add(this.txtAuthorityMatteryDetailSortID);
+            this.c_grpGoodsInfo.Controls.Add(this.txtAuthorityCode);
             this.c_grpGoodsInfo.Controls.Add(this.labelControl1);
             this.c_grpGoodsInfo.Controls.Add(this.labelControl3);
-            this.c_grpGoodsInfo.Controls.Add(this.txtDepartSortCode);
+            this.c_grpGoodsInfo.Controls.Add(this.txtAuthorityName);
             this.c_grpGoodsInfo.Controls.Add(this.labelControl2);
             this.c_grpGoodsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c_grpGoodsInfo.Location = new System.Drawing.Point(0, 0);
@@ -95,18 +95,18 @@
             this.c_grpGoodsInfo.TabIndex = 4;
             this.c_grpGoodsInfo.Text = "数据明细";
             // 
-            // textEdit1
+            // txtAuthorityMatteryDetailSortID
             // 
-            this.textEdit1.EditValue = "0";
-            this.textEdit1.Location = new System.Drawing.Point(100, 91);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
-            this.textEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Properties.Mask.EditMask = "\\d+";
-            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEdit1.Size = new System.Drawing.Size(202, 25);
-            this.textEdit1.TabIndex = 1;
+            this.txtAuthorityMatteryDetailSortID.EditValue = "0";
+            this.txtAuthorityMatteryDetailSortID.Location = new System.Drawing.Point(100, 91);
+            this.txtAuthorityMatteryDetailSortID.Name = "txtAuthorityMatteryDetailSortID";
+            this.txtAuthorityMatteryDetailSortID.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(164)))));
+            this.txtAuthorityMatteryDetailSortID.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtAuthorityMatteryDetailSortID.Properties.AutoHeight = false;
+            this.txtAuthorityMatteryDetailSortID.Properties.Mask.EditMask = "\\d+";
+            this.txtAuthorityMatteryDetailSortID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtAuthorityMatteryDetailSortID.Size = new System.Drawing.Size(202, 25);
+            this.txtAuthorityMatteryDetailSortID.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -142,6 +142,7 @@
             this.c_btnSave.Size = new System.Drawing.Size(100, 35);
             this.c_btnSave.TabIndex = 0;
             this.c_btnSave.Text = "保存";
+            this.c_btnSave.Click += new System.EventHandler(this.c_btnSave_Click);
             // 
             // panelControl1
             // 
@@ -164,12 +165,12 @@
             this.Name = "FrmAuthorityMatteryDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "职权子项编辑";
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartSortCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).EndInit();
             this.c_grpGoodsInfo.ResumeLayout(false);
             this.c_grpGoodsInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryDetailSortID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -178,15 +179,15 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit txtDepartSortCode;
+        private DevExpress.XtraEditors.TextEdit txtAuthorityName;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtDepartName;
+        private DevExpress.XtraEditors.TextEdit txtAuthorityCode;
         private DevExpress.XtraEditors.GroupControl c_grpGoodsInfo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton c_btnExit;
         private DevExpress.XtraEditors.SimpleButton c_btnSave;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtAuthorityMatteryDetailSortID;
         private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }
