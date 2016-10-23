@@ -168,6 +168,7 @@
             this.c_grcMain_view_CategoryID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_CategoryID.Caption = "分类编码";
             this.c_grcMain_view_CategoryID.Name = "c_grcMain_view_CategoryID";
+            this.c_grcMain_view_CategoryID.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_CategoryID.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_CategoryID.Visible = true;
             this.c_grcMain_view_CategoryID.VisibleIndex = 1;
@@ -182,6 +183,7 @@
             this.c_grcMain_view_CategoryName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_CategoryName.Caption = "分类名称";
             this.c_grcMain_view_CategoryName.Name = "c_grcMain_view_CategoryName";
+            this.c_grcMain_view_CategoryName.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_CategoryName.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_CategoryName.Visible = true;
             this.c_grcMain_view_CategoryName.VisibleIndex = 2;
@@ -196,6 +198,7 @@
             this.c_grcMain_view_CategorySortID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.c_grcMain_view_CategorySortID.Caption = "分类排序编码";
             this.c_grcMain_view_CategorySortID.Name = "c_grcMain_view_CategorySortID";
+            this.c_grcMain_view_CategorySortID.OptionsColumn.AllowEdit = false;
             this.c_grcMain_view_CategorySortID.OptionsColumn.ReadOnly = true;
             this.c_grcMain_view_CategorySortID.Visible = true;
             this.c_grcMain_view_CategorySortID.VisibleIndex = 3;
@@ -263,7 +266,7 @@
             this.c_btnClear.Location = new System.Drawing.Point(333, 30);
             this.c_btnClear.Name = "c_btnClear";
             this.c_btnClear.Size = new System.Drawing.Size(100, 35);
-            this.c_btnClear.TabIndex = 1;
+            this.c_btnClear.TabIndex = 3;
             this.c_btnClear.Text = "清除查询";
             this.c_btnClear.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -272,7 +275,7 @@
             this.c_btnExit.Location = new System.Drawing.Point(545, 30);
             this.c_btnExit.Name = "c_btnExit";
             this.c_btnExit.Size = new System.Drawing.Size(100, 35);
-            this.c_btnExit.TabIndex = 3;
+            this.c_btnExit.TabIndex = 5;
             this.c_btnExit.Text = "返回";
             this.c_btnExit.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -281,7 +284,7 @@
             this.c_btnQuery.Location = new System.Drawing.Point(227, 30);
             this.c_btnQuery.Name = "c_btnQuery";
             this.c_btnQuery.Size = new System.Drawing.Size(100, 35);
-            this.c_btnQuery.TabIndex = 0;
+            this.c_btnQuery.TabIndex = 2;
             this.c_btnQuery.Text = "查询";
             this.c_btnQuery.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -290,7 +293,7 @@
             this.c_btnDelete.Location = new System.Drawing.Point(439, 30);
             this.c_btnDelete.Name = "c_btnDelete";
             this.c_btnDelete.Size = new System.Drawing.Size(100, 35);
-            this.c_btnDelete.TabIndex = 2;
+            this.c_btnDelete.TabIndex = 4;
             this.c_btnDelete.Text = "删除";
             this.c_btnDelete.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -310,7 +313,7 @@
             this.c_btnAppend.Location = new System.Drawing.Point(786, 30);
             this.c_btnAppend.Name = "c_btnAppend";
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
-            this.c_btnAppend.TabIndex = 4;
+            this.c_btnAppend.TabIndex = 6;
             this.c_btnAppend.Text = "新增";
             this.c_btnAppend.Click += new System.EventHandler(this.c_btn_Click);
             // 
@@ -337,7 +340,7 @@
             this.c_btnUnSelectAll.Location = new System.Drawing.Point(119, 30);
             this.c_btnUnSelectAll.Name = "c_btnUnSelectAll";
             this.c_btnUnSelectAll.Size = new System.Drawing.Size(100, 35);
-            this.c_btnUnSelectAll.TabIndex = 0;
+            this.c_btnUnSelectAll.TabIndex = 1;
             this.c_btnUnSelectAll.Text = "反选";
             this.c_btnUnSelectAll.Click += new System.EventHandler(this.c_btn_Click);
             // 

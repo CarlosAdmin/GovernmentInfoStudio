@@ -189,7 +189,7 @@ namespace GovernmentInfoStudio
                 focuseRowData.CategoryName = frmEdit.category.AdministrativeCategoryName;
                 focuseRowData.CategorySortCode = frmEdit.category.AdministrativeCategorySortID;
 
-                c_grcMain.Refresh();
+                c_grcMain_View.RefreshData();
             }
         }
 

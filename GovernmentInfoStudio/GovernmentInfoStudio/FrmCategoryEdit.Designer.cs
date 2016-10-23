@@ -89,7 +89,7 @@
             this.txtDepartSortCode.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtDepartSortCode.Properties.AutoHeight = false;
             this.txtDepartSortCode.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartSortCode.TabIndex = 97;
+            this.txtDepartSortCode.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -107,7 +107,7 @@
             this.txtDepartName.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtDepartName.Properties.AutoHeight = false;
             this.txtDepartName.Size = new System.Drawing.Size(202, 25);
-            this.txtDepartName.TabIndex = 97;
+            this.txtDepartName.TabIndex = 0;
             // 
             // labelControl2
             // 

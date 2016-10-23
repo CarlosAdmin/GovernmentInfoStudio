@@ -154,6 +154,8 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
+                    session.BeginTrans();
+
                     SqlUpdateFieldList updateList = new SqlUpdateFieldList();
 
                     updateList.Add(TblDepartment.GetDepartmentNameField());
@@ -167,6 +169,8 @@ namespace GovernmentInfoStudio.ActionManager
                     {
                         return false;
                     }
+
+                    session.Commit();
                 }
 
                 return updCount > 0;
@@ -186,6 +190,8 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
+                    session.BeginTrans();
+
                     SqlUpdateFieldList updateList = new SqlUpdateFieldList();
 
                     updateList.Add(TblAdministrativeCategory.GetAdministrativeCategoryNameField());
@@ -199,6 +205,8 @@ namespace GovernmentInfoStudio.ActionManager
                     {
                         return false;
                     }
+
+                    session.Commit();
                 }
 
                 return updCount > 0;
@@ -244,10 +252,14 @@ namespace GovernmentInfoStudio.ActionManager
 
                 using (DBSession session = DBMng.GetDefault())
                 {
+                    session.BeginTrans();
+
                     if (!TblAdministrativeCategoryCtrl.Delete(where, session,ref delCount, ref errMsg))
                     {
                         return false;
                     }
+
+                    session.Commit();
                 }
                 return true;
             }
