@@ -364,6 +364,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCategoryMng";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "分类管理";
             this.Load += new System.EventHandler(this.FrmDepartMng_Load);

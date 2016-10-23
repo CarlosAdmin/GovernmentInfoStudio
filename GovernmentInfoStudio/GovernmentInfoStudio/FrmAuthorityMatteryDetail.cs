@@ -14,6 +14,8 @@ namespace GovernmentInfoStudio
         public string AuthorityCode = string.Empty;
         public string AuthorityName = string.Empty;
         public string AuthorityMatteryDetailSortID = string.Empty;
+        public string ExcelPath = string.Empty;
+        public string WordPath = string.Empty;
 
         public FrmAuthorityMatteryDetail()
         {
@@ -49,6 +51,9 @@ namespace GovernmentInfoStudio
             AuthorityCode = txtAuthorityCode.Text;
             AuthorityName = txtAuthorityName.Text;
             AuthorityMatteryDetailSortID = txtAuthorityMatteryDetailSortID.Text;
+            ExcelPath = bnExcel.Text;
+            WordPath = btnWord.Text;
+
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
     }

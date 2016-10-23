@@ -411,6 +411,7 @@
             this.Controls.Add(this.groupControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAuthorityMatteryEdit";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "职权编辑";
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).EndInit();
