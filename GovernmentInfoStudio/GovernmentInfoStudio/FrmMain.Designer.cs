@@ -74,6 +74,8 @@
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.lblValue1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -100,8 +102,6 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -684,6 +684,26 @@
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "条件";
             // 
+            // labelControl19
+            // 
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl19.Location = new System.Drawing.Point(250, 5);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.labelControl19.Size = new System.Drawing.Size(70, 29);
+            this.labelControl19.TabIndex = 2;
+            this.labelControl19.Text = "读取状态:";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.labelControl16.Location = new System.Drawing.Point(330, 5);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.labelControl16.Size = new System.Drawing.Size(112, 29);
+            this.labelControl16.TabIndex = 2;
+            this.labelControl16.Text = "正在读部门信息";
+            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(15, 13);
@@ -942,26 +962,6 @@
             this.labelControl1.Size = new System.Drawing.Size(48, 14);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
-            // 
-            // labelControl16
-            // 
-            this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.labelControl16.Location = new System.Drawing.Point(330, 5);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.labelControl16.Size = new System.Drawing.Size(112, 29);
-            this.labelControl16.TabIndex = 2;
-            this.labelControl16.Text = "正在读部门信息";
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.labelControl19.Location = new System.Drawing.Point(250, 5);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.labelControl19.Size = new System.Drawing.Size(70, 29);
-            this.labelControl19.TabIndex = 2;
-            this.labelControl19.Text = "读取状态:";
             // 
             // FrmMain
             // 

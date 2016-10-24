@@ -351,7 +351,7 @@ namespace GovernmentInfoStudio
             if (focusedRow.TreeDataID == focusedRow.TreeDataCode &&
                 focusedRow.AuthorityMatteryDetail == null)
             {
-                var Mattery = ReadAuthorityMattery(focusedRow.Department.DepartmentID, focusedRow.Category.AdministrativeCategorySortID, focusedRow.AuthorityFullName);
+                var Mattery = ReadAuthorityMattery(focusedRow.Department.DepartmentID, focusedRow.Category.AdministrativeCategoryID, focusedRow.AuthorityFullName);
 
                 if (Mattery.AuthorityMatteryDetailList.Count <= 0)
                 {
@@ -883,7 +883,7 @@ namespace GovernmentInfoStudio
                                 if (treeItem.TreeDataID == treeItem.TreeDataCode &&
                                     treeItem.AuthorityMatteryDetail == null)
                                 {
-                                    var Mattery = ReadAuthorityMattery(treeItem.Department.DepartmentID, treeItem.Category.AdministrativeCategorySortID, treeItem.AuthorityFullName);
+                                    var Mattery = ReadAuthorityMattery(treeItem.Department.DepartmentID, treeItem.Category.AdministrativeCategoryID, treeItem.AuthorityFullName);
 
                                     if (Mattery.AuthorityMatteryDetailList.Count <= 0)
                                     {

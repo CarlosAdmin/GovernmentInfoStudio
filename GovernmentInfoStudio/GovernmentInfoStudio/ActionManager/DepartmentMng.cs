@@ -354,6 +354,8 @@ namespace GovernmentInfoStudio.ActionManager
                     {
                         return false;
                     }
+                    data.AdministrativeCategorySortID = data.AdministrativeCategoryID;
+                    data.AdministrativeCategorysort = data.AdministrativeCategoryID;
                 }
                 return true;
             }
