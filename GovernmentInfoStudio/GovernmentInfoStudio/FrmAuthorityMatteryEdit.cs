@@ -19,7 +19,9 @@ namespace GovernmentInfoStudio
     {
         List<TblDepartment> departList;
         List<TblAdministrativeCategory> categoryList;
+        TblAuthorityMattery authory;
 
+        bool isUpdate = false;
         public FrmAuthorityMatteryEdit(List<TblDepartment> _departList, List<TblAdministrativeCategory> _categoryList)
         {
             InitializeComponent();
@@ -38,6 +40,23 @@ namespace GovernmentInfoStudio
             }
 
             InitControl();
+        }
+
+        public FrmAuthorityMatteryEdit(List<TblDepartment> _departList, List<TblAdministrativeCategory> _categoryList, TblAuthorityMattery _authory)
+            : this(_departList, _categoryList)
+        {
+            groupControl2.Visible = false;
+            c_grcMain.Visible = false;
+            c_grpList.Visible = false;
+            isUpdate = true;
+            this.Height = this.Height - groupControl2.Height - c_grpList.Height;
+            authory = _authory;
+
+            cbo_depart.Text = _departList.Find(c => c.DepartmentID == authory.DepartmentID).DepartmentName;
+            cboCategory.Text = _categoryList.Find(c => c.AdministrativeCategoryID == authory.AdministrativeCategoryID).AdministrativeCategoryName;
+
+            txtAuthorityMatteryName.Text = authory.AuthorityMatteryName;
+            txtAuthorityMatterySortID.Text = authory.AuthorityMatterySortID.ToString();
         }
 
         List<GrdiMainData> gridMainDataList = new List<GrdiMainData>();
@@ -96,42 +115,59 @@ namespace GovernmentInfoStudio
 
                 #endregion
 
-                TblAuthorityMattery authory = new TblAuthorityMattery();
-
-                authory.AdministrativeCategoryID = categoryList.Find(c => c.AdministrativeCategoryName == cboCategory.Text).AdministrativeCategoryID;
-                authory.AuthorityMatteryName = txtAuthorityMatteryName.Text.Trim();
-                authory.AuthorityMatterySortID = int.Parse(txtAuthorityMatterySortID.Text);
-                authory.DepartmentID = departList.Find(c => c.DepartmentName == cbo_depart.Text).DepartmentID;
-
-                authory.AuthorityMatteryDetailList = new List<TblAuthorityMatteryDetail>();
-
-                foreach (var item in gridMainDataList)
+                if (!isUpdate)
                 {
-                    var data = new TblAuthorityMatteryDetail();
+                    authory = new TblAuthorityMattery();
 
-                    data.AuthorityName = item.AuthorityName;
-                    data.AuthorityCode = item.AuthorityCode;
-                    data.AuthorityMatteryDetailSortID = item.AuthorityMatteryDetailSortID;
+                    authory.AdministrativeCategoryID = categoryList.Find(c => c.AdministrativeCategoryName == cboCategory.Text).AdministrativeCategoryID;
+                    authory.AuthorityMatteryName = txtAuthorityMatteryName.Text.Trim();
+                    authory.AuthorityMatterySortID = int.Parse(txtAuthorityMatterySortID.Text);
+                    authory.DepartmentID = departList.Find(c => c.DepartmentName == cbo_depart.Text).DepartmentID;
 
-                    if (!string.IsNullOrEmpty(item.ExcelPath))
+                    authory.AuthorityMatteryDetailList = new List<TblAuthorityMatteryDetail>();
+
+                    foreach (var item in gridMainDataList)
                     {
-                        data.AuthorityDetailList = ReadExcel(item.ExcelPath);
+                        var data = new TblAuthorityMatteryDetail();
+
+                        data.AuthorityName = item.AuthorityName;
+                        data.AuthorityCode = item.AuthorityCode;
+                        data.AuthorityMatteryDetailSortID = item.AuthorityMatteryDetailSortID;
+
+                        if (!string.IsNullOrEmpty(item.ExcelPath))
+                        {
+                            data.AuthorityDetailList = ReadExcel(item.ExcelPath);
+                        }
+
+                        if (!string.IsNullOrEmpty(item.WordPath))
+                        {
+                            data.AuthorityMatteryFlow = ReadWord(item.WordPath);
+                        }
+
+                        authory.AuthorityMatteryDetailList.Add(data);
                     }
 
-                    if (!string.IsNullOrEmpty(item.WordPath))
+                    if (!DepartmentMng.Insert(authory))
                     {
-                        data.AuthorityMatteryFlow = ReadWord(item.WordPath);
+                        return;
                     }
 
-                    authory.AuthorityMatteryDetailList.Add(data);
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 }
-
-                if (!DepartmentMng.Insert(authory))
+                else
                 {
-                    return;
-                }
+                    authory.AdministrativeCategoryID = categoryList.Find(c => c.AdministrativeCategoryName == cboCategory.Text).AdministrativeCategoryID;
+                    authory.AuthorityMatteryName = txtAuthorityMatteryName.Text.Trim();
+                    authory.AuthorityMatterySortID = int.Parse(txtAuthorityMatterySortID.Text);
+                    authory.DepartmentID = departList.Find(c => c.DepartmentName == cbo_depart.Text).DepartmentID;
 
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    if (!DepartmentMng.Update(authory))
+                    {
+                        return;
+                    }
+
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                }
             }
             catch (Exception exception)
             {

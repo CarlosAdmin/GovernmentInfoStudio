@@ -44,9 +44,6 @@
             this.c_grcMain_view_AuthorityMatteryDetailSortID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_grcMain_view_Update = new DevExpress.XtraGrid.Columns.GridColumn();
             this.c_btnUpdate = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.c_grpList = new DevExpress.XtraEditors.GroupControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -59,6 +56,9 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatterySortID.Properties)).BeginInit();
@@ -67,8 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).BeginInit();
             this.c_grpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -77,15 +75,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAuthorityMatteryName
             // 
-            this.txtAuthorityMatteryName.Location = new System.Drawing.Point(471, 33);
+            this.txtAuthorityMatteryName.Location = new System.Drawing.Point(79, 71);
             this.txtAuthorityMatteryName.Name = "txtAuthorityMatteryName";
             this.txtAuthorityMatteryName.Properties.AutoHeight = false;
             this.txtAuthorityMatteryName.Properties.Mask.EditMask = "\\d+";
-            this.txtAuthorityMatteryName.Size = new System.Drawing.Size(125, 25);
+            this.txtAuthorityMatteryName.Size = new System.Drawing.Size(322, 25);
             this.txtAuthorityMatteryName.TabIndex = 39;
             // 
             // gridView1
@@ -95,7 +95,7 @@
             // txtAuthorityMatterySortID
             // 
             this.txtAuthorityMatterySortID.EditValue = "0";
-            this.txtAuthorityMatterySortID.Location = new System.Drawing.Point(668, 33);
+            this.txtAuthorityMatterySortID.Location = new System.Drawing.Point(79, 102);
             this.txtAuthorityMatterySortID.Name = "txtAuthorityMatterySortID";
             this.txtAuthorityMatterySortID.Properties.AutoHeight = false;
             this.txtAuthorityMatterySortID.Size = new System.Drawing.Size(125, 25);
@@ -114,7 +114,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(602, 38);
+            this.labelControl4.Location = new System.Drawing.Point(13, 107);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(60, 14);
             this.labelControl4.TabIndex = 37;
@@ -123,11 +123,10 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.c_grcMain);
-            this.panel4.Controls.Add(this.panelControl1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(12, 32);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(859, 241);
+            this.panel4.Size = new System.Drawing.Size(441, 182);
             this.panel4.TabIndex = 2;
             // 
             // c_grcMain
@@ -138,7 +137,7 @@
             this.c_grcMain.Name = "c_grcMain";
             this.c_grcMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.c_btnUpdate});
-            this.c_grcMain.Size = new System.Drawing.Size(859, 182);
+            this.c_grcMain.Size = new System.Drawing.Size(441, 182);
             this.c_grcMain.TabIndex = 1;
             this.c_grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.c_grcMain_View});
@@ -241,47 +240,16 @@
             this.c_btnUpdate.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.c_btnUpdate.Click += new System.EventHandler(this.c_btnUpdate_Click);
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.c_btnExit);
-            this.panelControl1.Controls.Add(this.c_btnSave);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 182);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(859, 59);
-            this.panelControl1.TabIndex = 6;
-            // 
-            // c_btnExit
-            // 
-            this.c_btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.c_btnExit.Location = new System.Drawing.Point(747, 13);
-            this.c_btnExit.Name = "c_btnExit";
-            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
-            this.c_btnExit.TabIndex = 1;
-            this.c_btnExit.Text = "返回";
-            this.c_btnExit.Click += new System.EventHandler(this.c_btnExit_Click);
-            // 
-            // c_btnSave
-            // 
-            this.c_btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnSave.Location = new System.Drawing.Point(640, 13);
-            this.c_btnSave.Name = "c_btnSave";
-            this.c_btnSave.Size = new System.Drawing.Size(100, 35);
-            this.c_btnSave.TabIndex = 0;
-            this.c_btnSave.Text = "保存";
-            this.c_btnSave.Click += new System.EventHandler(this.c_btnSave_Click);
-            // 
             // c_grpList
             // 
             this.c_grpList.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.c_grpList.AppearanceCaption.Options.UseFont = true;
             this.c_grpList.Controls.Add(this.panel4);
             this.c_grpList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c_grpList.Location = new System.Drawing.Point(0, 143);
+            this.c_grpList.Location = new System.Drawing.Point(0, 213);
             this.c_grpList.Name = "c_grpList";
             this.c_grpList.Padding = new System.Windows.Forms.Padding(10);
-            this.c_grpList.Size = new System.Drawing.Size(883, 285);
+            this.c_grpList.Size = new System.Drawing.Size(465, 226);
             this.c_grpList.TabIndex = 11;
             this.c_grpList.Text = "数据列表";
             // 
@@ -319,9 +287,9 @@
             this.groupControl2.Controls.Add(this.c_btnDelete);
             this.groupControl2.Controls.Add(this.c_btnAppend);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl2.Location = new System.Drawing.Point(0, 68);
+            this.groupControl2.Location = new System.Drawing.Point(0, 138);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(883, 75);
+            this.groupControl2.Size = new System.Drawing.Size(465, 75);
             this.groupControl2.TabIndex = 10;
             this.groupControl2.Text = "功能操作";
             // 
@@ -346,7 +314,7 @@
             // c_btnAppend
             // 
             this.c_btnAppend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.c_btnAppend.Location = new System.Drawing.Point(771, 30);
+            this.c_btnAppend.Location = new System.Drawing.Point(353, 30);
             this.c_btnAppend.Name = "c_btnAppend";
             this.c_btnAppend.Size = new System.Drawing.Size(100, 35);
             this.c_btnAppend.TabIndex = 4;
@@ -379,13 +347,13 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(883, 68);
+            this.groupControl1.Size = new System.Drawing.Size(465, 138);
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "查询条件";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(407, 38);
+            this.labelControl3.Location = new System.Drawing.Point(13, 76);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(60, 14);
             this.labelControl3.TabIndex = 37;
@@ -401,14 +369,46 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "bbbbb")});
             this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.c_btnExit);
+            this.panelControl1.Controls.Add(this.c_btnSave);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(0, 439);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(465, 59);
+            this.panelControl1.TabIndex = 12;
+            // 
+            // c_btnExit
+            // 
+            this.c_btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.c_btnExit.Location = new System.Drawing.Point(353, 13);
+            this.c_btnExit.Name = "c_btnExit";
+            this.c_btnExit.Size = new System.Drawing.Size(100, 35);
+            this.c_btnExit.TabIndex = 1;
+            this.c_btnExit.Text = "返回";
+            this.c_btnExit.Click += new System.EventHandler(this.c_btnExit_Click);
+            // 
+            // c_btnSave
+            // 
+            this.c_btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_btnSave.Location = new System.Drawing.Point(246, 13);
+            this.c_btnSave.Name = "c_btnSave";
+            this.c_btnSave.Size = new System.Drawing.Size(100, 35);
+            this.c_btnSave.TabIndex = 0;
+            this.c_btnSave.Text = "保存";
+            this.c_btnSave.Click += new System.EventHandler(this.c_btnSave_Click);
+            // 
             // FrmAuthorityMatteryEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 428);
+            this.ClientSize = new System.Drawing.Size(465, 498);
             this.Controls.Add(this.c_grpList);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAuthorityMatteryEdit";
             this.ShowInTaskbar = false;
@@ -422,8 +422,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grcMain_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_btnUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).EndInit();
             this.c_grpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
@@ -433,6 +431,8 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -597,6 +597,44 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Update(TblAuthorityMattery data)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int updCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+
+                    updateList.Add(TblAuthorityMattery.GetDepartmentIDField());
+                    updateList.Add(TblAuthorityMattery.GetAdministrativeCategoryIDField());
+                    updateList.Add(TblAuthorityMattery.GetAuthorityMatteryNameField());
+                    updateList.Add(TblAuthorityMattery.GetAuthorityMatterySortIDField());
+
+                    SqlWhereList where = new SqlWhereList();
+
+                    where.Add(TblAuthorityMattery.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+
+                    if (!TblAuthorityMatteryCtrl.Update(updateList, data, where, session, ref updCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    session.Commit();
+                }
+
+                return updCount > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool InsertBath(List<TblDepartment_AdministrativeCategory> dataList)
         {
             try

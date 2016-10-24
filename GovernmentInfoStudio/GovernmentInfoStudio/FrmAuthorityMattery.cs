@@ -372,5 +372,24 @@ namespace GovernmentInfoStudio
             DepartmentMng.Deleta(focusedRow.AuthorityMattery);
         }
 
+        private void c_trlMain_btnEdit_Click(object sender, EventArgs e)
+        {
+
+            TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
+            //查看,明细
+            if (focusedRow == null)
+            {
+                return;
+            }
+
+            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit(departList, categoryList, focusedRow.AuthorityMattery);
+            frmEdit.ShowDialog();
+        }
+
+        private void c_btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

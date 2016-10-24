@@ -52,6 +52,7 @@
             this.c_trlMain = new DevExpress.XtraTreeList.TreeList();
             this.c_trlMain_DepartmentName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_CategoryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.c_trlMain_AuthorityMatteryDetailCode = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityMatteryCode = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityMatteryName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_AuthorityDetailName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -59,8 +60,9 @@
             this.c_trlMain_btnAuthorityDetail = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.c_trlMain_AuthorityFlow = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.c_trlMain_btnAuthorityFlow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.c_trlMain_Edit = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.c_trlMain_btnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.c_grpList = new DevExpress.XtraEditors.GroupControl();
-            this.c_trlMain_AuthorityMatteryDetailCode = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -75,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnAuthorityDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnAuthorityFlow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).BeginInit();
             this.c_grpList.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +101,7 @@
             this.c_btnExit.Size = new System.Drawing.Size(100, 35);
             this.c_btnExit.TabIndex = 3;
             this.c_btnExit.Text = "返回";
+            this.c_btnExit.Click += new System.EventHandler(this.c_btnExit_Click);
             // 
             // labelControl2
             // 
@@ -263,7 +267,8 @@
             this.c_trlMain_AuthorityMatteryName,
             this.c_trlMain_AuthorityDetailName,
             this.c_trlMain_AuthorityDetail,
-            this.c_trlMain_AuthorityFlow});
+            this.c_trlMain_AuthorityFlow,
+            this.c_trlMain_Edit});
             this.c_trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c_trlMain.Location = new System.Drawing.Point(0, 0);
             this.c_trlMain.Name = "c_trlMain";
@@ -276,7 +281,8 @@
             this.c_trlMain.OptionsView.ShowIndicator = false;
             this.c_trlMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.c_trlMain_btnAuthorityDetail,
-            this.c_trlMain_btnAuthorityFlow});
+            this.c_trlMain_btnAuthorityFlow,
+            this.c_trlMain_btnEdit});
             this.c_trlMain.Size = new System.Drawing.Size(900, 214);
             this.c_trlMain.TabIndex = 3;
             // 
@@ -312,6 +318,19 @@
             this.c_trlMain_CategoryName.Visible = true;
             this.c_trlMain_CategoryName.VisibleIndex = 1;
             this.c_trlMain_CategoryName.Width = 96;
+            // 
+            // c_trlMain_AuthorityMatteryDetailCode
+            // 
+            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Options.UseFont = true;
+            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_trlMain_AuthorityMatteryDetailCode.Caption = "职权明细编码";
+            this.c_trlMain_AuthorityMatteryDetailCode.FieldName = "职权明细编码";
+            this.c_trlMain_AuthorityMatteryDetailCode.Name = "c_trlMain_AuthorityMatteryDetailCode";
+            this.c_trlMain_AuthorityMatteryDetailCode.Visible = true;
+            this.c_trlMain_AuthorityMatteryDetailCode.VisibleIndex = 2;
             // 
             // c_trlMain_AuthorityMatteryCode
             // 
@@ -411,6 +430,29 @@
             this.c_trlMain_btnAuthorityFlow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.c_trlMain_btnAuthorityFlow.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.c_trlMain_btnAuthorityFlow_ButtonClick);
             // 
+            // c_trlMain_Edit
+            // 
+            this.c_trlMain_Edit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.c_trlMain_Edit.AppearanceHeader.Options.UseFont = true;
+            this.c_trlMain_Edit.AppearanceHeader.Options.UseTextOptions = true;
+            this.c_trlMain_Edit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.c_trlMain_Edit.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.c_trlMain_Edit.Caption = "编辑职权";
+            this.c_trlMain_Edit.ColumnEdit = this.c_trlMain_btnEdit;
+            this.c_trlMain_Edit.FieldName = "编辑职权";
+            this.c_trlMain_Edit.Name = "c_trlMain_Edit";
+            this.c_trlMain_Edit.Visible = true;
+            this.c_trlMain_Edit.VisibleIndex = 8;
+            // 
+            // c_trlMain_btnEdit
+            // 
+            this.c_trlMain_btnEdit.AutoHeight = false;
+            this.c_trlMain_btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
+            this.c_trlMain_btnEdit.Name = "c_trlMain_btnEdit";
+            this.c_trlMain_btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.c_trlMain_btnEdit.Click += new System.EventHandler(this.c_trlMain_btnEdit_Click);
+            // 
             // c_grpList
             // 
             this.c_grpList.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -423,19 +465,6 @@
             this.c_grpList.Size = new System.Drawing.Size(924, 258);
             this.c_grpList.TabIndex = 8;
             this.c_grpList.Text = "数据列表";
-            // 
-            // c_trlMain_AuthorityMatteryDetailCode
-            // 
-            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Options.UseFont = true;
-            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.Options.UseTextOptions = true;
-            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.c_trlMain_AuthorityMatteryDetailCode.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.c_trlMain_AuthorityMatteryDetailCode.Caption = "职权明细编码";
-            this.c_trlMain_AuthorityMatteryDetailCode.FieldName = "职权明细编码";
-            this.c_trlMain_AuthorityMatteryDetailCode.Name = "c_trlMain_AuthorityMatteryDetailCode";
-            this.c_trlMain_AuthorityMatteryDetailCode.Visible = true;
-            this.c_trlMain_AuthorityMatteryDetailCode.VisibleIndex = 2;
             // 
             // FrmAuthorityMattery
             // 
@@ -467,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnAuthorityDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnAuthorityFlow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_trlMain_btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpList)).EndInit();
             this.c_grpList.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -505,5 +535,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit c_trlMain_btnAuthorityDetail;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit c_trlMain_btnAuthorityFlow;
         private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_AuthorityMatteryDetailCode;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_Edit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit c_trlMain_btnEdit;
     }
 }
