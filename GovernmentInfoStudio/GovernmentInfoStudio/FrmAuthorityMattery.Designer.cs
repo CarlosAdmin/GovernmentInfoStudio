@@ -30,6 +30,7 @@
         {
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthorityMattery));
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.c_btnClear = new DevExpress.XtraEditors.SimpleButton();
@@ -448,7 +449,7 @@
             // 
             this.c_trlMain_btnEdit.AutoHeight = false;
             this.c_trlMain_btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "编辑职权", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.c_trlMain_btnEdit.Name = "c_trlMain_btnEdit";
             this.c_trlMain_btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.c_trlMain_btnEdit.Click += new System.EventHandler(this.c_trlMain_btnEdit_Click);

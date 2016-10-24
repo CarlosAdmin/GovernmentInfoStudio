@@ -41,7 +41,7 @@ namespace GovernmentInfoStudio
                 txtAuthorityMatteryFlowSortID.Text = category.AuthorityMatteryFlowSortID.ToString();
                 picFlow.Image = BytesToImage(category.AuthorityMatteryFlowImage);
 
-                btnSelectFlow.Enabled = false;
+                //btnSelectFlow.Enabled = false;
                 txtAuthorityMatteryDetailCode.Properties.ReadOnly = true;
             }
         }
