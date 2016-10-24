@@ -33,25 +33,25 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtAuthorityCode = new DevExpress.XtraEditors.TextEdit();
             this.c_grpGoodsInfo = new DevExpress.XtraEditors.GroupControl();
+            this.btnWord = new DevExpress.XtraEditors.ButtonEdit();
+            this.btnExcel = new DevExpress.XtraEditors.ButtonEdit();
             this.txtAuthorityMatteryDetailSortID = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.c_btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.c_btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bnExcel = new DevExpress.XtraEditors.ButtonEdit();
-            this.btnWord = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).BeginInit();
             this.c_grpGoodsInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnWord.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryDetailSortID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bnExcel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnWord.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAuthorityName
@@ -89,7 +89,7 @@
             this.c_grpGoodsInfo.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.c_grpGoodsInfo.AppearanceCaption.Options.UseFont = true;
             this.c_grpGoodsInfo.Controls.Add(this.btnWord);
-            this.c_grpGoodsInfo.Controls.Add(this.bnExcel);
+            this.c_grpGoodsInfo.Controls.Add(this.btnExcel);
             this.c_grpGoodsInfo.Controls.Add(this.txtAuthorityMatteryDetailSortID);
             this.c_grpGoodsInfo.Controls.Add(this.txtAuthorityCode);
             this.c_grpGoodsInfo.Controls.Add(this.labelControl1);
@@ -105,6 +105,32 @@
             this.c_grpGoodsInfo.TabIndex = 4;
             this.c_grpGoodsInfo.Text = "数据明细";
             // 
+            // btnWord
+            // 
+            this.btnWord.EditValue = "请选择Word流程图";
+            this.btnWord.Location = new System.Drawing.Point(100, 153);
+            this.btnWord.Name = "btnWord";
+            this.btnWord.Properties.AutoHeight = false;
+            this.btnWord.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnWord.Properties.NullText = "请选择图片";
+            this.btnWord.Size = new System.Drawing.Size(202, 25);
+            this.btnWord.TabIndex = 101;
+            this.btnWord.Click += new System.EventHandler(this.bnExcel_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.EditValue = "请选择职权Excel";
+            this.btnExcel.Location = new System.Drawing.Point(100, 122);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Properties.AutoHeight = false;
+            this.btnExcel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btnExcel.Properties.NullText = "请选择图片";
+            this.btnExcel.Size = new System.Drawing.Size(202, 25);
+            this.btnExcel.TabIndex = 101;
+            this.btnExcel.Click += new System.EventHandler(this.bnExcel_Click);
+            // 
             // txtAuthorityMatteryDetailSortID
             // 
             this.txtAuthorityMatteryDetailSortID.EditValue = "0";
@@ -117,6 +143,22 @@
             this.txtAuthorityMatteryDetailSortID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtAuthorityMatteryDetailSortID.Size = new System.Drawing.Size(202, 25);
             this.txtAuthorityMatteryDetailSortID.TabIndex = 1;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(10, 158);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(78, 14);
+            this.labelControl5.TabIndex = 98;
+            this.labelControl5.Text = "流程图Word：";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(30, 127);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(64, 14);
+            this.labelControl4.TabIndex = 98;
+            this.labelControl4.Text = "职权Excel：";
             // 
             // labelControl3
             // 
@@ -164,46 +206,6 @@
             this.panelControl1.Size = new System.Drawing.Size(327, 59);
             this.panelControl1.TabIndex = 5;
             // 
-            // bnExcel
-            // 
-            this.bnExcel.EditValue = "请选择职权Excel";
-            this.bnExcel.Location = new System.Drawing.Point(100, 122);
-            this.bnExcel.Name = "bnExcel";
-            this.bnExcel.Properties.AutoHeight = false;
-            this.bnExcel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.bnExcel.Properties.NullText = "请选择图片";
-            this.bnExcel.Size = new System.Drawing.Size(202, 25);
-            this.bnExcel.TabIndex = 101;
-            // 
-            // btnWord
-            // 
-            this.btnWord.EditValue = "请选择Word流程图";
-            this.btnWord.Location = new System.Drawing.Point(100, 153);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.Properties.AutoHeight = false;
-            this.btnWord.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btnWord.Properties.NullText = "请选择图片";
-            this.btnWord.Size = new System.Drawing.Size(202, 25);
-            this.btnWord.TabIndex = 101;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(30, 127);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(64, 14);
-            this.labelControl4.TabIndex = 98;
-            this.labelControl4.Text = "职权Excel：";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(10, 158);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(78, 14);
-            this.labelControl5.TabIndex = 98;
-            this.labelControl5.Text = "流程图Word：";
-            // 
             // FrmAuthorityMatteryDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -221,11 +223,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_grpGoodsInfo)).EndInit();
             this.c_grpGoodsInfo.ResumeLayout(false);
             this.c_grpGoodsInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnWord.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAuthorityMatteryDetailSortID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bnExcel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnWord.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,7 +245,7 @@
         private DevExpress.XtraEditors.TextEdit txtAuthorityMatteryDetailSortID;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.ButtonEdit btnWord;
-        private DevExpress.XtraEditors.ButtonEdit bnExcel;
+        private DevExpress.XtraEditors.ButtonEdit btnExcel;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
     }

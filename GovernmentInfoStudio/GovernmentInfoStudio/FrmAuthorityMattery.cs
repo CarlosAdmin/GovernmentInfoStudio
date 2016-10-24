@@ -34,6 +34,7 @@ namespace GovernmentInfoStudio
             c_trlMain_AuthorityMatteryName.FieldName = "AuthorityMatteryName";
             c_trlMain_AuthorityDetailName.FieldName = "AuthorityDetailName";
             c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
+            c_trlMain_AuthorityMatteryDetailCode.FieldName = "AuthorityMatteryDetailCode";
 
             c_trlMain.DataSource = treeDataList;
 
@@ -104,6 +105,8 @@ namespace GovernmentInfoStudio
             /// </summary>
             public TblAuthorityMatteryDetail AuthorityMatteryDetail { get; set; }
 
+            public int AuthorityMatteryDetailCode { get; set; }
+
             /// <summary>
             /// 职权明细
             /// </summary>
@@ -146,7 +149,7 @@ namespace GovernmentInfoStudio
             #endregion
 
             #region 职权
-          
+
             var dataList = new List<TblAuthorityMattery>();
 
             string errMsg = string.Empty;
@@ -180,12 +183,12 @@ namespace GovernmentInfoStudio
                 var depart = departList.Find(c => c.DepartmentID == item.DepartmentID);
 
                 treeData.Department = depart;
-                treeData.DepartmentName = depart.DepartmentName;
+                treeData.DepartmentName = depart == null ? "" : depart.DepartmentName;
 
                 var category = categoryList.Find(c => c.AdministrativeCategoryID == item.AdministrativeCategoryID);
 
                 treeData.Category = category;
-                treeData.CategoryName = category.AdministrativeCategoryName;
+                treeData.CategoryName = category == null ? "" : category.AdministrativeCategoryName;
 
                 treeData.AuthorityMatteryCode = "";
                 treeData.AuthorityMatteryName = item.AuthorityMatteryName;
@@ -218,7 +221,7 @@ namespace GovernmentInfoStudio
             {
                 var detail = detailList.FindAll(c => c.AuthorityMatteryID == item.AuthorityMatteryID);
 
-                if (detail==null)
+                if (detail == null)
                 {
                     continue;
                 }
@@ -227,6 +230,7 @@ namespace GovernmentInfoStudio
 
                 if (detail.Count == 1)
                 {
+                    faterTree.AuthorityMatteryDetailCode = detail[0].AuthorityMatteryDetailCode;
                     faterTree.AuthorityMatteryCode = detail[0].AuthorityCode;
                     faterTree.AuthorityDetailName = "无子项";
                     faterTree.AuthorityMatteryDetail = detail[0];
@@ -253,6 +257,7 @@ namespace GovernmentInfoStudio
 
                     treeData.AuthorityMatteryDetail = detailItem;
                     treeData.AuthorityMattery = faterTree.AuthorityMattery;
+                    faterTree.AuthorityMatteryDetailCode = detailItem.AuthorityMatteryDetailCode;
 
                     treeDataList.Add(treeData);
                 }
@@ -347,7 +352,7 @@ namespace GovernmentInfoStudio
 
         private void c_btnAppend_Click(object sender, EventArgs e)
         {
-            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit(departList,categoryList);
+            FrmAuthorityMatteryEdit frmEdit = new FrmAuthorityMatteryEdit(departList, categoryList);
 
             if (frmEdit.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

@@ -325,7 +325,7 @@ namespace GovernmentInfoStudio
 
             openFileDialog.Multiselect = false;
             openFileDialog.RestoreDirectory = false;
-            openFileDialog.Filter = "Word|*.doc";
+            openFileDialog.Filter = "Excel|*.xls";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;
 

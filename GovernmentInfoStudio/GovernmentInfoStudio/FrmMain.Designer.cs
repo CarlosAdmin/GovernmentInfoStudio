@@ -722,6 +722,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.buttonEdit2.Size = new System.Drawing.Size(175, 25);
             this.buttonEdit2.TabIndex = 0;
+            this.buttonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
             // 
             // simpleButton4
             // 

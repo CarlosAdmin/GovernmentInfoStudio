@@ -51,10 +51,42 @@ namespace GovernmentInfoStudio
             AuthorityCode = txtAuthorityCode.Text;
             AuthorityName = txtAuthorityName.Text;
             AuthorityMatteryDetailSortID = txtAuthorityMatteryDetailSortID.Text;
-            ExcelPath = bnExcel.Text;
+            ExcelPath = btnExcel.Text;
             WordPath = btnWord.Text;
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void bnExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Multiselect = false;
+            openFileDialog.RestoreDirectory = false;
+
+            if (sender==btnWord)
+            {
+                openFileDialog.Filter = "Word|*.doc";
+            }
+            else if (sender == btnExcel)
+            {
+                openFileDialog.Filter = "Excel|*.xls";
+            }
+
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (sender == btnWord)
+                {
+                    this.WordPath = openFileDialog.FileName;
+                }
+                else if (sender == btnExcel)
+                {
+                    this.ExcelPath = openFileDialog.FileName;
+                }
+            }
         }
     }
 }
