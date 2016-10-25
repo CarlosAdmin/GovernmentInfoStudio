@@ -526,16 +526,37 @@ namespace GovernmentInfoStudio.ActionManager
 
                     if (QueryCount(session, data) >= 1)
                     {
-                        return true;
+                        SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
+                        sqlMng.Condition.Where.Add(TblAuthorityMattery.GetAuthorityMatteryNameField(), SqlWhereCondition.Equals, data.AuthorityMatteryName);
+
+                        var queryData = new TblAuthorityMattery();
+
+                        if (!TblAuthorityMatteryCtrl.QueryOne(sqlMng, session, false, ref queryData, ref errMsg))
+                        {
+                            return false;
+                        }
+
+                        SqlQueryCondition sqlCondit = new SqlQueryCondition();
+                        sqlCondit.Where.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+
+                        int rowCount = 0;
+                        if (!TblAuthorityMatteryDetailCtrl.QueryCount(sqlCondit, session, ref rowCount, ref errMsg))
+                        {
+                            return false;
+                        }
+
+                        data.AuthorityMatteryID = queryData.AuthorityMatteryID;
                     }
-
-                    sortId++;
-
-                    data.AuthorityMatterySortID = sortId;
-
-                    if (!TblAuthorityMatteryCtrl.InsertNoPK(data, session, ref errMsg))
+                    else
                     {
-                        return false;
+                        sortId++;
+
+                        data.AuthorityMatterySortID = sortId;
+
+                        if (!TblAuthorityMatteryCtrl.InsertNoPK(data, session, ref errMsg))
+                        {
+                            return false;
+                        }
                     }
 
                     int detailSortId=0;
@@ -567,21 +588,48 @@ namespace GovernmentInfoStudio.ActionManager
                                 return false;
                             }
                         }
-                        
+
                         if (item.AuthorityMatteryFlow != null)
                         {
+                            int updCount = 0;
+
                             item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
-                            
-                            if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
+
+                            SqlQueryCondition sqlFlow = new SqlQueryCondition();
+
+                            sqlFlow.Where.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowNameField(), SqlWhereCondition.Equals, item.AuthorityMatteryFlow.AuthorityMatteryFlowName);
+                            int rowCount = 0;
+
+                            if (!TblAuthorityMatteryFlowCtrl.QueryCount(sqlFlow, session, ref rowCount, ref errMsg))
                             {
                                 return false;
                             }
 
-                            int updCount = 0;
+                            if (rowCount == 0)
+                            {
+                                if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
+                                {
+                                    return false;
+                                }
 
-                            if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                                if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                                {
+                                }
+                            }
+                            else
                             {
 
+                                SqlUpdateFieldList updateList = new SqlUpdateFieldList();
+                                updateList.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryDetailCodeField());
+
+                                SqlWhereList sqlUpdateWhere = new SqlWhereList();
+
+                                sqlUpdateWhere.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowNameField(), SqlWhereCondition.Equals, item.AuthorityMatteryFlow.AuthorityMatteryFlowName);
+
+                                if (!TblAuthorityMatteryFlowCtrl.Update(updateList, item.AuthorityMatteryFlow, sqlUpdateWhere, session, ref updCount, ref errMsg)) 
+                                {
+                                    return false;
+                                }
                             }
                         }
                     }
