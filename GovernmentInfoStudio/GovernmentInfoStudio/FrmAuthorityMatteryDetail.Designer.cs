@@ -121,7 +121,6 @@
             this.btnWord.Properties.NullText = "请选择图片";
             this.btnWord.Size = new System.Drawing.Size(231, 25);
             this.btnWord.TabIndex = 101;
-            this.btnWord.EditValueChanged += new System.EventHandler(this.btnWord_EditValueChanged);
             this.btnWord.Click += new System.EventHandler(this.bnExcel_Click);
             // 
             // btnExcel
