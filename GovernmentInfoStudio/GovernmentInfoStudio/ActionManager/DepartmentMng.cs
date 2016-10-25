@@ -413,7 +413,7 @@ namespace GovernmentInfoStudio.ActionManager
 
                     SqlWhereList where2 = new SqlWhereList();
 
-                    where1.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+                    where2.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
 
                     if (!TblAuthorityMatteryDetailCtrl.Delete(where2, session, ref delCount, ref errMsg))
                     {

@@ -369,7 +369,10 @@ namespace GovernmentInfoStudio
                 return;
             }
 
-            DepartmentMng.Deleta(focusedRow.AuthorityMattery);
+            if (XtraMessageBox.Show("确认删除吗?", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                DepartmentMng.Deleta(focusedRow.AuthorityMattery);
+            }
         }
 
         private void c_trlMain_btnEdit_Click(object sender, EventArgs e)
