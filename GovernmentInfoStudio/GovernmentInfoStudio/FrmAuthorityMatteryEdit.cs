@@ -12,6 +12,7 @@ using LinqToExcel;
 using System.IO;
 using System.Linq;
 using Aspose.Words;
+using System.Drawing.Imaging;
 
 namespace GovernmentInfoStudio
 {
@@ -240,6 +241,16 @@ namespace GovernmentInfoStudio
 
             var authorityMatteryFlow = new TblAuthorityMatteryFlow();
 
+            if (!wordPath.EndsWith("doc"))
+            {
+                FileInfo fileImage = new FileInfo(wordPath);
+                authorityMatteryFlow.AuthorityMatteryFlowName = fileImage.Name;
+                authorityMatteryFlow.FlowImagePath = imagePath;
+                authorityMatteryFlow.AuthorityFlowImage = Image.FromFile(wordPath);
+                authorityMatteryFlow.AuthorityMatteryFlowImage = ImageToBytes(authorityMatteryFlow.AuthorityFlowImage);
+                return authorityMatteryFlow;
+            }
+
             try
             {
                 string docPath = wordPath;
@@ -339,6 +350,49 @@ namespace GovernmentInfoStudio
 
             return authorityDetailList;
         }
+
+        public static byte[] ImageToBytes(Image image)
+        {
+            try
+            {
+                ImageFormat format = image.RawFormat;
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    if (format.Equals(ImageFormat.Jpeg))
+                    {
+                        image.Save(ms, ImageFormat.Jpeg);
+                    }
+                    else if (format.Equals(ImageFormat.Png))
+                    {
+                        image.Save(ms, ImageFormat.Png);
+                    }
+                    else if (format.Equals(ImageFormat.Bmp))
+                    {
+                        image.Save(ms, ImageFormat.Bmp);
+                    }
+                    else if (format.Equals(ImageFormat.Gif))
+                    {
+                        image.Save(ms, ImageFormat.Gif);
+                    }
+                    else if (format.Equals(ImageFormat.Icon))
+                    {
+                        image.Save(ms, ImageFormat.Icon);
+                    }
+                    byte[] buffer = new byte[ms.Length];
+                    //Image.Save()会改变MemoryStream的Position，需要重新Seek到Begin
+                    ms.Seek(0, SeekOrigin.Begin);
+                    ms.Read(buffer, 0, buffer.Length);
+                    return buffer;
+                }
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
 
         class GrdiMainData
         {

@@ -35,6 +35,7 @@ namespace GovernmentInfoStudio
             c_trlMain_AuthorityDetailName.FieldName = "AuthorityDetailName";
             c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
             c_trlMain_AuthorityMatteryDetailCode.FieldName = "AuthorityMatteryDetailCode";
+            c_trlMain_AuthorityMatterySortID.FieldName = "AuthorityMatterySortID";
 
             c_trlMain.DataSource = treeDataList;
 
@@ -100,6 +101,7 @@ namespace GovernmentInfoStudio
             /// </summary>
             public string AuthorityDetailName { get; set; }
 
+            public int AuthorityMatterySortID { get; set; }
             /// <summary>
             /// 职权信息
             /// </summary>
@@ -194,6 +196,7 @@ namespace GovernmentInfoStudio
                 treeData.AuthorityMatteryName = item.AuthorityMatteryName;
 
                 treeData.AuthorityDetailName = "无子项";
+                treeData.AuthorityMatterySortID = item.AuthorityMatterySortID;
 
                 treeData.AuthorityMattery = item;
 
@@ -258,6 +261,7 @@ namespace GovernmentInfoStudio
                     treeData.AuthorityMatteryDetail = detailItem;
                     treeData.AuthorityMattery = faterTree.AuthorityMattery;
                     faterTree.AuthorityMatteryDetailCode = detailItem.AuthorityMatteryDetailCode;
+                    treeData.AuthorityMatterySortID = faterTree.AuthorityMatterySortID;
 
                     treeDataList.Add(treeData);
                 }

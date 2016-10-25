@@ -66,7 +66,7 @@ namespace GovernmentInfoStudio
 
             if (sender==btnWord)
             {
-                openFileDialog.Filter = "Word|*.doc";
+                openFileDialog.Filter = "Word|*.doc|JPG图片|*.jpg|PNG图片|*.png|JPEG图片|*.jpeg";
             }
             else if (sender == btnExcel)
             {
