@@ -167,6 +167,17 @@ namespace GovernmentInfoStudio
 
                 return;
             }
+
+            if (sender == c_btnImportExcel)
+            {
+                if (gridMainDataList.Count <= 0)
+                {
+                    XtraMessageBox.Show("没有数据,无法导出!");
+                    return;
+                }
+
+
+            }
         }
 
         private void FrmDepartMng_Load(object sender, EventArgs e)

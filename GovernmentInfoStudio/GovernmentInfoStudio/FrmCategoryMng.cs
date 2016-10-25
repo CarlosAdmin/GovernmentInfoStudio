@@ -166,6 +166,36 @@ namespace GovernmentInfoStudio
 
                 return;
             }
+
+            if (sender == btnImport)
+            {
+                 try
+                {
+                    Cursor = Cursors.WaitCursor;
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+                    saveFileDialog.Title = "导出Excel";
+                    saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+
+                    saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMddHHmm") + "分类";
+
+                    DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        c_grcMain.ExportToXls(saveFileDialog.FileName);
+                        XtraMessageBox.Show("数据保存成功！");
+                    }
+                }
+                catch (Exception exception)
+                {
+                }
+                finally
+                {
+                    Cursor = Cursors.Default;
+                }
+            }
         }
 
         private void FrmDepartMng_Load(object sender, EventArgs e)

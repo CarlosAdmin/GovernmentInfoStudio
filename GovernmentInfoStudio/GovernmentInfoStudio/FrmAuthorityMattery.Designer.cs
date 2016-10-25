@@ -65,6 +65,7 @@
             this.c_trlMain_btnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.c_grpList = new DevExpress.XtraEditors.GroupControl();
             this.c_trlMain_AuthorityMatterySortID = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -99,7 +100,7 @@
             // 
             // c_btnExit
             // 
-            this.c_btnExit.Location = new System.Drawing.Point(377, 39);
+            this.c_btnExit.Location = new System.Drawing.Point(498, 39);
             this.c_btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.c_btnExit.Name = "c_btnExit";
             this.c_btnExit.Size = new System.Drawing.Size(114, 45);
@@ -128,7 +129,7 @@
             // 
             // c_btnDelete
             // 
-            this.c_btnDelete.Location = new System.Drawing.Point(256, 39);
+            this.c_btnDelete.Location = new System.Drawing.Point(377, 39);
             this.c_btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.c_btnDelete.Name = "c_btnDelete";
             this.c_btnDelete.Size = new System.Drawing.Size(114, 45);
@@ -143,6 +144,7 @@
             this.groupControl2.Controls.Add(this.c_btnClear);
             this.groupControl2.Controls.Add(this.c_btnExit);
             this.groupControl2.Controls.Add(this.c_btnQuery);
+            this.groupControl2.Controls.Add(this.simpleButton1);
             this.groupControl2.Controls.Add(this.c_btnDelete);
             this.groupControl2.Controls.Add(this.c_btnAppend);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -500,6 +502,16 @@
             this.c_trlMain_AuthorityMatterySortID.Visible = true;
             this.c_trlMain_AuthorityMatterySortID.VisibleIndex = 6;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(257, 39);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(114, 45);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "导出Excel";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // FrmAuthorityMattery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -573,5 +585,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_Edit;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit c_trlMain_btnEdit;
         private DevExpress.XtraTreeList.Columns.TreeListColumn c_trlMain_AuthorityMatterySortID;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

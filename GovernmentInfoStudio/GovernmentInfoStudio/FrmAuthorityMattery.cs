@@ -398,5 +398,35 @@ namespace GovernmentInfoStudio
             this.Close();
         }
 
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+                saveFileDialog.Title = "导出Excel";
+                saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+
+                saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMddHHmm") + "职权";
+
+                DialogResult dialogResult = saveFileDialog.ShowDialog(this);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    c_trlMain.ExportToXls(saveFileDialog.FileName);
+                    XtraMessageBox.Show("数据保存成功！");
+                }
+            }
+            catch (Exception exception)
+            {
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
     }
 }
