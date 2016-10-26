@@ -313,8 +313,8 @@ namespace GovernmentInfoStudio
                         continue;
                     }
 
-                    if (categoryName == "其他" ||
-                        categoryName == "其他类")
+                    if (categoryName.Trim() == "其他" ||
+                        categoryName.Trim() == "其他类")
                     {
                         categoryName = "其它类";
                     }
