@@ -434,6 +434,50 @@ namespace GovernmentInfoStudio.ActionManager
             }
         }
 
+        public static bool Deleta(object[] inValue)
+        {
+            try
+            {
+                string errMsg = string.Empty;
+                int delCount = 0;
+
+                using (DBSession session = DBMng.GetDefault())
+                {
+                    session.BeginTrans();
+
+                    SqlWhereList where1 = new SqlWhereList();
+
+                    where1.AddIn(TblAuthorityMattery.GetAuthorityMatteryIDField(), inValue);
+
+                    if (!TblAuthorityMatteryCtrl.Delete(where1, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+
+                    SqlWhereList where2 = new SqlWhereList();
+
+                    where2.AddIn(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), inValue);
+
+                    if (!TblAuthorityMatteryDetailCtrl.Delete(where2, session, ref delCount, ref errMsg))
+                    {
+                        return false;
+                    }
+                    //AuthorityMattery
+                    //AuthorityMatteryDetail
+                    //AuthorityDetail
+                    //AuthorityMatteryFlow
+                    session.Commit();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
         public static bool DeletaDepart(SqlWhereList where)
         {
             try
@@ -526,6 +570,8 @@ namespace GovernmentInfoStudio.ActionManager
 
                     if (QueryCount(session, data) >= 1)
                     {
+                        #region 是否 存在职权
+
                         SqlQuerySqlMng sqlMng = new SqlQuerySqlMng();
                         sqlMng.Condition.Where.Add(TblAuthorityMattery.GetAuthorityMatteryNameField(), SqlWhereCondition.Equals, data.AuthorityMatteryName);
 
@@ -535,6 +581,10 @@ namespace GovernmentInfoStudio.ActionManager
                         {
                             return false;
                         }
+
+                        #endregion
+
+                        #region 是否存在明细
 
                         SqlQueryCondition sqlCondit = new SqlQueryCondition();
                         sqlCondit.Where.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
@@ -546,9 +596,13 @@ namespace GovernmentInfoStudio.ActionManager
                         }
 
                         data.AuthorityMatteryID = queryData.AuthorityMatteryID;
+
+                        #endregion
                     }
                     else
                     {
+                        #region 添加职权
+
                         sortId++;
 
                         data.AuthorityMatterySortID = sortId;
@@ -557,12 +611,18 @@ namespace GovernmentInfoStudio.ActionManager
                         {
                             return false;
                         }
+
+                        #endregion
                     }
 
-                    int detailSortId=0;
+                    #region 添加明细
+
+                    int detailSortId = 0;
                     foreach (var item in data.AuthorityMatteryDetailList)
                     {
                         detailSortId++;
+
+                        #region 职权子项
 
                         item.AuthorityMatteryID = data.AuthorityMatteryID;
                         item.AuthorityMatteryDetailSortID = detailSortId;
@@ -571,6 +631,10 @@ namespace GovernmentInfoStudio.ActionManager
                         {
                             return false;
                         }
+
+                        #endregion
+
+                        #region 职权内容
 
                         if (item.AuthorityDetailList != null)
                         {
@@ -589,50 +653,29 @@ namespace GovernmentInfoStudio.ActionManager
                             }
                         }
 
+                        #endregion
+
+                        #region 职权流程图
+
                         if (item.AuthorityMatteryFlow != null)
                         {
                             int updCount = 0;
 
-                            item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
-
-                            SqlQueryCondition sqlFlow = new SqlQueryCondition();
-
-                            sqlFlow.Where.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowNameField(), SqlWhereCondition.Equals, item.AuthorityMatteryFlow.AuthorityMatteryFlowName);
-                            int rowCount = 0;
-
-                            if (!TblAuthorityMatteryFlowCtrl.QueryCount(sqlFlow, session, ref rowCount, ref errMsg))
+                            if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
                             {
                                 return false;
                             }
 
-                            if (rowCount == 0)
+                            if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
                             {
-                                if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
-                                {
-                                    return false;
-                                }
-
-                                if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
-                                {
-                                }
-                            }
-                            else
-                            {
-
-                                SqlUpdateFieldList updateList = new SqlUpdateFieldList();
-                                updateList.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryDetailCodeField());
-
-                                SqlWhereList sqlUpdateWhere = new SqlWhereList();
-
-                                sqlUpdateWhere.Add(TblAuthorityMatteryFlow.GetAuthorityMatteryFlowNameField(), SqlWhereCondition.Equals, item.AuthorityMatteryFlow.AuthorityMatteryFlowName);
-
-                                if (!TblAuthorityMatteryFlowCtrl.Update(updateList, item.AuthorityMatteryFlow, sqlUpdateWhere, session, ref updCount, ref errMsg)) 
-                                {
-                                    return false;
-                                }
+                                return false;
                             }
                         }
+
+                        #endregion
                     }
+
+                    #endregion
 
                     session.Commit();
                 }

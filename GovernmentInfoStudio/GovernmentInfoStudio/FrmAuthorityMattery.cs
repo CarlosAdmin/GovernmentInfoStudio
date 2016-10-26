@@ -36,6 +36,7 @@ namespace GovernmentInfoStudio
             c_trlMain_AuthorityMatteryCode.FieldName = "AuthorityMatteryCode";
             c_trlMain_AuthorityMatteryDetailCode.FieldName = "AuthorityMatteryDetailCode";
             c_trlMain_AuthorityMatterySortID.FieldName = "AuthorityMatterySortID";
+            c_trlMain_IsSelect.FieldName = "IsSelect";
 
             c_trlMain.DataSource = treeDataList;
 
@@ -62,6 +63,8 @@ namespace GovernmentInfoStudio
 
         private class TreeMainData
         {
+            public bool IsSelect { get; set; }
+
             public string TreeDataID { get; set; }
 
             public string TreeDataCode { get; set; }
@@ -366,16 +369,29 @@ namespace GovernmentInfoStudio
 
         private void c_btnDelete_Click(object sender, EventArgs e)
         {
-            TreeMainData focusedRow = (TreeMainData)c_trlMain.GetDataRecordByNode(c_trlMain.FocusedNode);
-            //查看,明细
-            if (focusedRow == null)
+
+            var deleteTree = treeDataList.FindAll(c => c.IsSelect == true);
+
+            if (deleteTree==null)
             {
+                XtraMessageBox.Show("请选择要操作的数据?", "系统提示");
                 return;
             }
 
             if (XtraMessageBox.Show("确认删除吗?", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                DepartmentMng.Deleta(focusedRow.AuthorityMattery);
+
+                List<object> objList = new List<object>();
+
+                foreach (var item in deleteTree)
+                {
+                    objList.Add(item.AuthorityMattery.AuthorityMatteryID);
+                }
+
+                DepartmentMng.Deleta(objList.ToArray());
+
+                treeDataList.RemoveAll(c => c.IsSelect == true);
+                c_trlMain.Refresh();
             }
         }
 
@@ -426,6 +442,18 @@ namespace GovernmentInfoStudio
             {
                 Cursor = Cursors.Default;
             }
+        }
+
+        private void btnSelectAll_Click(object sender, EventArgs e)
+        {
+            treeDataList.ForEach(c => c.IsSelect = true);
+            c_trlMain.Refresh();
+        }
+
+        private void btnUnSelectAll_Click(object sender, EventArgs e)
+        {
+            treeDataList.ForEach(c => c.IsSelect = !c.IsSelect);
+            c_trlMain.Refresh();
         }
 
     }
