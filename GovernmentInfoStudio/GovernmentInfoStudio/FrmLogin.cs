@@ -12,7 +12,6 @@ namespace GovernmentInfoStudio
     {
         BackgroundWorker m_BackgroundWorker;
         string errMsg = string.Empty, hostCode = string.Empty;
-        int personID = 0;
         string loginName = "admin";
         string loginPassword = "songzibianban";
 
@@ -136,11 +135,11 @@ namespace GovernmentInfoStudio
             }
         }
 
-        private void c_txtDyncCode_KeyDown(object sender, KeyEventArgs e)
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode== Keys.Enter)
             {
-                c_btnEnter_Click(null, null);
+                c_btnEnter.PerformClick();
             }
         }
     }

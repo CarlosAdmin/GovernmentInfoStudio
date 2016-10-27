@@ -523,9 +523,10 @@ namespace GovernmentInfoStudio
 
                     #endregion
 
-                    if (detail.AuthorityDetailList.FindIndex(c => c.AuthorityMatteryTitle == "职权编码") > 0)
+                    //职权编码
+                    if (detail.AuthorityDetailList.FindIndex(c => c.AuthorityMatteryTitle.Trim() == "职权编码") > 0)
                     {
-                        detail.AuthorityCode = detail.AuthorityDetailList.Find(c => c.AuthorityMatteryTitle == "职权编码").AuthorityMatteryContent.Trim();
+                        detail.AuthorityCode = detail.AuthorityDetailList.Find(c => c.AuthorityMatteryTitle.Trim() == "职权编码").AuthorityMatteryContent.Trim();
                     }
                     
                     detail.AuthorityName = fileInfo.Name.Replace(".xls", "");

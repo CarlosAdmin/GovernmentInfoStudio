@@ -117,12 +117,13 @@
             this.Controls.Add(this.c_txtAccount);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户登录";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.c_txtDyncCode_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.c_txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_txtAccount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_mpbcShow.Properties)).EndInit();
