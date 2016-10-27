@@ -661,7 +661,7 @@ namespace GovernmentInfoStudio.ActionManager
                         {
                             int updCount = 0;
 
-                            item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = data.AuthorityMatteryID;
+                            item.AuthorityMatteryFlow.AuthorityMatteryDetailCode = item.AuthorityMatteryDetailCode;
 
                             if (!TblAuthorityMatteryFlowCtrl.InsertNoPK(item.AuthorityMatteryFlow, session, ref errMsg))
                             {
