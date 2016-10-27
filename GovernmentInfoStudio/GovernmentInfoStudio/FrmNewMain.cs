@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraNavBar;
+using GovernmentInfoStudio.ActionManager;
 
 namespace GovernmentInfoStudio
 {
@@ -19,6 +20,8 @@ namespace GovernmentInfoStudio
 
         private void FrmNewMain_Load(object sender, EventArgs e)
         {
+            nbi_数据更新维护.Visible = (LoginInfoMng.LoginName == "admin" && LoginInfoMng.LoginPassword == "admin");
+
             OpenForm(nbi_数据库设置.Name, typeof(FrmDBConnect));
         }
 

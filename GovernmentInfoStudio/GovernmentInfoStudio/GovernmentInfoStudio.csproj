@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="ActionManager\AuthorityMatteryMng.cs" />
     <Compile Include="ActionManager\DepartmentMng.cs" />
+    <Compile Include="ActionManager\LoginInfoMng.cs" />
     <Compile Include="AppInfo.cs" />
     <Compile Include="AppTypeEnum.cs" />
     <Compile Include="ComFn.cs" />
