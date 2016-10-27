@@ -314,9 +314,10 @@ namespace GovernmentInfoStudio
                     }
 
                     if (categoryName.Trim() == "其他" ||
-                        categoryName.Trim() == "其他类")
+                        categoryName.Trim() == "其它" ||
+                        categoryName.Trim() == "其它类")
                     {
-                        categoryName = "其它类";
+                        categoryName = "其他类";
                     }
 
                     TblAdministrativeCategory admincategory = new TblAdministrativeCategory();
@@ -818,6 +819,7 @@ namespace GovernmentInfoStudio
                             if (depart == null)
                             {
                                 DepartmentMng.Insert(cateItem);
+                                depart = cateItem;
                                 categoryList.Add(cateItem);
                             }
 
