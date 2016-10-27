@@ -82,6 +82,8 @@ namespace GovernmentInfoStudio
                     AuthorityCode = frmEdit.AuthorityCode,
                     AuthorityName = frmEdit.AuthorityName,
                     AuthorityMatteryDetailSortID = int.Parse(frmEdit.AuthorityMatteryDetailSortID),
+                    ExcelPath = frmEdit.ExcelPath,
+                    WordPath = frmEdit.WordPath,
                 });
                 c_grcMain_View.RefreshData();
             }
@@ -138,10 +140,7 @@ namespace GovernmentInfoStudio
                         if (!string.IsNullOrEmpty(item.ExcelPath))
                         {
                             data.AuthorityDetailList = ReadExcel(item.ExcelPath);
-                        }
 
-                        if (!string.IsNullOrEmpty(item.WordPath))
-                        {
                             data.AuthorityMatteryFlow = ReadWord(item.WordPath);
                         }
 
@@ -240,6 +239,15 @@ namespace GovernmentInfoStudio
             string imagePath = string.Empty;
 
             var authorityMatteryFlow = new TblAuthorityMatteryFlow();
+
+            if (string.IsNullOrEmpty(wordPath))
+            {
+                authorityMatteryFlow.AuthorityMatteryFlowName = "未选择图片信息";
+                authorityMatteryFlow.FlowImagePath = "";
+                authorityMatteryFlow.AuthorityFlowImage = null;
+                authorityMatteryFlow.AuthorityMatteryFlowImage = null;
+                return authorityMatteryFlow;
+            }
 
             if (!wordPath.EndsWith("doc"))
             {

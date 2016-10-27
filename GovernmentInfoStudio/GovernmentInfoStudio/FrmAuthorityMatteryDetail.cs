@@ -48,6 +48,12 @@ namespace GovernmentInfoStudio
                 return;
             }
 
+            if (string.IsNullOrEmpty(btnExcel.Text) && !string.IsNullOrEmpty(btnWord.Text))
+            {
+                 XtraMessageBox.Show("请选择Excel路径!");
+                return;
+            }
+
             AuthorityCode = txtAuthorityCode.Text;
             AuthorityName = txtAuthorityName.Text;
             AuthorityMatteryDetailSortID = txtAuthorityMatteryDetailSortID.Text;

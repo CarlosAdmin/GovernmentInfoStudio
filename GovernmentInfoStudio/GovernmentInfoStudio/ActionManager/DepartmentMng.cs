@@ -668,9 +668,12 @@ namespace GovernmentInfoStudio.ActionManager
                                 return false;
                             }
 
-                            if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                            if (item.AuthorityMatteryFlow.AuthorityMatteryFlowImage != null)
                             {
-                                return false;
+                                if (!TblAuthorityMatteryFlowCtrl.UpdateBinaryAuthorityMatteryFlowImage(item.AuthorityMatteryFlow.AuthorityMatteryFlowImage, item.AuthorityMatteryFlow.AuthorityMatteryFlowID, session, ref updCount, ref errMsg))
+                                {
+                                    return false;
+                                }
                             }
                         }
 
