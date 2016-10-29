@@ -151,22 +151,24 @@
             // 
             this.groupControl2.Controls.Add(this.splitContainerControl1);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(5, 107);
+            this.groupControl2.Location = new System.Drawing.Point(6, 137);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1217, 233);
+            this.groupControl2.Size = new System.Drawing.Size(1358, 227);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "数据列表";
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(2, 23);
+            this.splitContainerControl1.Location = new System.Drawing.Point(2, 27);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.c_grcMain);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1213, 208);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1354, 198);
             this.splitContainerControl1.SplitterPosition = 297;
             this.splitContainerControl1.TabIndex = 2;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -174,13 +176,15 @@
             // c_grcMain
             // 
             this.c_grcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c_grcMain.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.c_grcMain.Location = new System.Drawing.Point(0, 0);
             this.c_grcMain.MainView = this.c_grcMain_View;
+            this.c_grcMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.c_grcMain.Name = "c_grcMain";
             this.c_grcMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2});
-            this.c_grcMain.Size = new System.Drawing.Size(297, 208);
+            this.c_grcMain.Size = new System.Drawing.Size(297, 198);
             this.c_grcMain.TabIndex = 1;
             this.c_grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.c_grcMain_View});
@@ -323,12 +327,13 @@
             // 
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.c_trlMain);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(911, 208);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1052, 198);
             this.splitContainerControl2.SplitterPosition = 351;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -344,6 +349,7 @@
             this.c_trlMain_AuthorityDetailName});
             this.c_trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.c_trlMain.Location = new System.Drawing.Point(0, 0);
+            this.c_trlMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.c_trlMain.Name = "c_trlMain";
             this.c_trlMain.OptionsBehavior.EnterMovesNextColumn = true;
             this.c_trlMain.OptionsMenu.EnableColumnMenu = false;
@@ -352,7 +358,7 @@
             this.c_trlMain.OptionsView.EnableAppearanceEvenRow = true;
             this.c_trlMain.OptionsView.EnableAppearanceOddRow = true;
             this.c_trlMain.OptionsView.ShowIndicator = false;
-            this.c_trlMain.Size = new System.Drawing.Size(351, 208);
+            this.c_trlMain.Size = new System.Drawing.Size(351, 198);
             this.c_trlMain.TabIndex = 2;
             this.c_trlMain.DoubleClick += new System.EventHandler(this.c_trlMain_DoubleClick);
             // 
@@ -454,12 +460,13 @@
             // 
             this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainerControl3.Name = "splitContainerControl3";
             this.splitContainerControl3.Panel1.Controls.Add(this.memoEdit1);
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.pictureBox1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(555, 208);
+            this.splitContainerControl3.Size = new System.Drawing.Size(696, 198);
             this.splitContainerControl3.SplitterPosition = 289;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -468,17 +475,19 @@
             // 
             this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.memoEdit1.Location = new System.Drawing.Point(0, 0);
+            this.memoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Properties.ReadOnly = true;
-            this.memoEdit1.Size = new System.Drawing.Size(289, 208);
+            this.memoEdit1.Size = new System.Drawing.Size(289, 198);
             this.memoEdit1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 208);
+            this.pictureBox1.Size = new System.Drawing.Size(402, 198);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -489,10 +498,11 @@
             this.groupControl3.Controls.Add(this.groupControl6);
             this.groupControl3.Controls.Add(this.groupControl5);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl3.Location = new System.Drawing.Point(5, 340);
+            this.groupControl3.Location = new System.Drawing.Point(6, 364);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.ShowCaption = false;
-            this.groupControl3.Size = new System.Drawing.Size(1217, 292);
+            this.groupControl3.Size = new System.Drawing.Size(1358, 375);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "groupControl1";
             // 
@@ -501,9 +511,10 @@
             this.部门进度.Controls.Add(this.panelControl2);
             this.部门进度.Controls.Add(this.panelControl1);
             this.部门进度.Dock = System.Windows.Forms.DockStyle.Top;
-            this.部门进度.Location = new System.Drawing.Point(2, 190);
+            this.部门进度.Location = new System.Drawing.Point(2, 244);
+            this.部门进度.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.部门进度.Name = "部门进度";
-            this.部门进度.Size = new System.Drawing.Size(1213, 95);
+            this.部门进度.Size = new System.Drawing.Size(1354, 122);
             this.部门进度.TabIndex = 1;
             this.部门进度.Text = "职权子项读取进度";
             // 
@@ -511,28 +522,31 @@
             // 
             this.panelControl2.Controls.Add(this.process3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(2, 57);
+            this.panelControl2.Location = new System.Drawing.Point(2, 71);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1209, 36);
+            this.panelControl2.Size = new System.Drawing.Size(1350, 49);
             this.panelControl2.TabIndex = 0;
             // 
             // process3
             // 
             this.process3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.process3.Location = new System.Drawing.Point(2, 2);
+            this.process3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.process3.Name = "process3";
             this.process3.Properties.DisplayFormat.FormatString = "{0}/{1}";
             this.process3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.process3.Size = new System.Drawing.Size(1205, 32);
+            this.process3.Size = new System.Drawing.Size(1346, 45);
             this.process3.TabIndex = 0;
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.lable3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(2, 23);
+            this.panelControl1.Location = new System.Drawing.Point(2, 27);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl1.Size = new System.Drawing.Size(1350, 44);
             this.panelControl1.TabIndex = 0;
             // 
             // lable3
@@ -540,9 +554,10 @@
             this.lable3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lable3.Dock = System.Windows.Forms.DockStyle.Left;
             this.lable3.Location = new System.Drawing.Point(2, 2);
+            this.lable3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lable3.Name = "lable3";
-            this.lable3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lable3.Size = new System.Drawing.Size(128, 29);
+            this.lable3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.lable3.Size = new System.Drawing.Size(160, 36);
             this.lable3.TabIndex = 0;
             this.lable3.Text = "正在职权子项信息";
             // 
@@ -551,9 +566,10 @@
             this.groupControl6.Controls.Add(this.panelControl5);
             this.groupControl6.Controls.Add(this.panelControl6);
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl6.Location = new System.Drawing.Point(2, 96);
+            this.groupControl6.Location = new System.Drawing.Point(2, 123);
+            this.groupControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(1213, 94);
+            this.groupControl6.Size = new System.Drawing.Size(1354, 121);
             this.groupControl6.TabIndex = 2;
             this.groupControl6.Text = "职权读取进度";
             // 
@@ -561,28 +577,31 @@
             // 
             this.panelControl5.Controls.Add(this.process2);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(2, 57);
+            this.panelControl5.Location = new System.Drawing.Point(2, 71);
+            this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1209, 35);
+            this.panelControl5.Size = new System.Drawing.Size(1350, 48);
             this.panelControl5.TabIndex = 0;
             // 
             // process2
             // 
             this.process2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.process2.Location = new System.Drawing.Point(2, 2);
+            this.process2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.process2.Name = "process2";
             this.process2.Properties.DisplayFormat.FormatString = "{0}/{1}";
             this.process2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.process2.Size = new System.Drawing.Size(1205, 31);
+            this.process2.Size = new System.Drawing.Size(1346, 44);
             this.process2.TabIndex = 0;
             // 
             // panelControl6
             // 
             this.panelControl6.Controls.Add(this.lable2);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl6.Location = new System.Drawing.Point(2, 23);
+            this.panelControl6.Location = new System.Drawing.Point(2, 27);
+            this.panelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl6.Size = new System.Drawing.Size(1350, 44);
             this.panelControl6.TabIndex = 0;
             // 
             // lable2
@@ -590,9 +609,10 @@
             this.lable2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lable2.Dock = System.Windows.Forms.DockStyle.Left;
             this.lable2.Location = new System.Drawing.Point(2, 2);
+            this.lable2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lable2.Name = "lable2";
-            this.lable2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lable2.Size = new System.Drawing.Size(96, 29);
+            this.lable2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.lable2.Size = new System.Drawing.Size(120, 36);
             this.lable2.TabIndex = 0;
             this.lable2.Text = "正在职权信息";
             // 
@@ -602,8 +622,9 @@
             this.groupControl5.Controls.Add(this.panelControl4);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl5.Location = new System.Drawing.Point(2, 2);
+            this.groupControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(1213, 94);
+            this.groupControl5.Size = new System.Drawing.Size(1354, 121);
             this.groupControl5.TabIndex = 1;
             this.groupControl5.Text = "部门读取进度";
             // 
@@ -611,28 +632,31 @@
             // 
             this.panelControl3.Controls.Add(this.process1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 57);
+            this.panelControl3.Location = new System.Drawing.Point(2, 71);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1209, 35);
+            this.panelControl3.Size = new System.Drawing.Size(1350, 48);
             this.panelControl3.TabIndex = 0;
             // 
             // process1
             // 
             this.process1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.process1.Location = new System.Drawing.Point(2, 2);
+            this.process1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.process1.Name = "process1";
             this.process1.Properties.DisplayFormat.FormatString = "{0}/{1}";
             this.process1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.process1.Size = new System.Drawing.Size(1205, 31);
+            this.process1.Size = new System.Drawing.Size(1346, 44);
             this.process1.TabIndex = 0;
             // 
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.lable1);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl4.Location = new System.Drawing.Point(2, 23);
+            this.panelControl4.Location = new System.Drawing.Point(2, 27);
+            this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1209, 34);
+            this.panelControl4.Size = new System.Drawing.Size(1350, 44);
             this.panelControl4.TabIndex = 0;
             // 
             // lable1
@@ -640,33 +664,37 @@
             this.lable1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lable1.Dock = System.Windows.Forms.DockStyle.Left;
             this.lable1.Location = new System.Drawing.Point(2, 2);
+            this.lable1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lable1.Name = "lable1";
-            this.lable1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lable1.Size = new System.Drawing.Size(112, 29);
+            this.lable1.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.lable1.Size = new System.Drawing.Size(140, 36);
             this.lable1.TabIndex = 0;
             this.lable1.Text = "正在读部门信息";
             // 
             // lblMaxValue1
             // 
-            this.lblMaxValue1.Location = new System.Drawing.Point(1075, 2);
+            this.lblMaxValue1.Location = new System.Drawing.Point(1229, 3);
+            this.lblMaxValue1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblMaxValue1.Name = "lblMaxValue1";
-            this.lblMaxValue1.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue1.Size = new System.Drawing.Size(24, 18);
             this.lblMaxValue1.TabIndex = 1;
             this.lblMaxValue1.Text = "100";
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(1049, 2);
+            this.labelControl17.Location = new System.Drawing.Point(1199, 3);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(5, 14);
+            this.labelControl17.Size = new System.Drawing.Size(6, 18);
             this.labelControl17.TabIndex = 1;
             this.labelControl17.Text = "/";
             // 
             // lblValue1
             // 
-            this.lblValue1.Location = new System.Drawing.Point(1019, 2);
+            this.lblValue1.Location = new System.Drawing.Point(1165, 3);
+            this.lblValue1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblValue1.Name = "lblValue1";
-            this.lblValue1.Size = new System.Drawing.Size(7, 14);
+            this.lblValue1.Size = new System.Drawing.Size(8, 18);
             this.lblValue1.TabIndex = 1;
             this.lblValue1.Text = "0";
             // 
@@ -677,58 +705,64 @@
             this.groupControl4.Controls.Add(this.labelControl2);
             this.groupControl4.Controls.Add(this.buttonEdit2);
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl4.Location = new System.Drawing.Point(5, 5);
+            this.groupControl4.Location = new System.Drawing.Point(6, 6);
+            this.groupControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.ShowCaption = false;
-            this.groupControl4.Size = new System.Drawing.Size(1217, 45);
+            this.groupControl4.Size = new System.Drawing.Size(1358, 58);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "条件";
             // 
             // labelControl19
             // 
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.labelControl19.Location = new System.Drawing.Point(250, 5);
+            this.labelControl19.Location = new System.Drawing.Point(286, 6);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.labelControl19.Size = new System.Drawing.Size(70, 29);
+            this.labelControl19.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.labelControl19.Size = new System.Drawing.Size(87, 36);
             this.labelControl19.TabIndex = 2;
             this.labelControl19.Text = "读取状态:";
             // 
             // labelControl16
             // 
             this.labelControl16.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.labelControl16.Location = new System.Drawing.Point(330, 5);
+            this.labelControl16.Location = new System.Drawing.Point(377, 6);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.labelControl16.Size = new System.Drawing.Size(112, 29);
+            this.labelControl16.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.labelControl16.Size = new System.Drawing.Size(140, 36);
             this.labelControl16.TabIndex = 2;
             this.labelControl16.Text = "正在读部门信息";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(15, 13);
+            this.labelControl2.Location = new System.Drawing.Point(17, 17);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(48, 14);
+            this.labelControl2.Size = new System.Drawing.Size(60, 18);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "选择目录";
             // 
             // buttonEdit2
             // 
             this.buttonEdit2.EditValue = "D:\\松滋市";
-            this.buttonEdit2.Location = new System.Drawing.Point(69, 8);
+            this.buttonEdit2.Location = new System.Drawing.Point(79, 10);
+            this.buttonEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEdit2.Name = "buttonEdit2";
             this.buttonEdit2.Properties.AutoHeight = false;
             this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit2.Size = new System.Drawing.Size(175, 25);
+            this.buttonEdit2.Size = new System.Drawing.Size(200, 25);
             this.buttonEdit2.TabIndex = 0;
             this.buttonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(234, 14);
+            this.simpleButton4.Location = new System.Drawing.Point(267, 18);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton4.Size = new System.Drawing.Size(114, 45);
             this.simpleButton4.TabIndex = 2;
             this.simpleButton4.Text = "更新配置";
             this.simpleButton4.ToolTip = "配置数据库连接信息";
@@ -736,9 +770,10 @@
             // 
             // simpleButton5
             // 
-            this.simpleButton5.Location = new System.Drawing.Point(128, 14);
+            this.simpleButton5.Location = new System.Drawing.Point(146, 18);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton5.Size = new System.Drawing.Size(114, 45);
             this.simpleButton5.TabIndex = 2;
             this.simpleButton5.Text = "更新数据";
             this.simpleButton5.ToolTip = "对比数据 更新数据";
@@ -746,9 +781,10 @@
             // 
             // simpleButton6
             // 
-            this.simpleButton6.Location = new System.Drawing.Point(15, 14);
+            this.simpleButton6.Location = new System.Drawing.Point(17, 18);
+            this.simpleButton6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(100, 35);
+            this.simpleButton6.Size = new System.Drawing.Size(114, 45);
             this.simpleButton6.TabIndex = 2;
             this.simpleButton6.Text = "查询数据";
             this.simpleButton6.ToolTip = "查询基础数据 如部门 类别等";
@@ -783,77 +819,86 @@
             this.groupControl1.Controls.Add(this.simpleButton6);
             this.groupControl1.Controls.Add(this.simpleButton5);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(5, 50);
+            this.groupControl1.Location = new System.Drawing.Point(6, 64);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(1217, 57);
+            this.groupControl1.Size = new System.Drawing.Size(1358, 73);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "条件";
             // 
             // lblMaxValue3
             // 
-            this.lblMaxValue3.Location = new System.Drawing.Point(1075, 39);
+            this.lblMaxValue3.Location = new System.Drawing.Point(1229, 50);
+            this.lblMaxValue3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblMaxValue3.Name = "lblMaxValue3";
-            this.lblMaxValue3.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue3.Size = new System.Drawing.Size(24, 18);
             this.lblMaxValue3.TabIndex = 1;
             this.lblMaxValue3.Text = "100";
             // 
             // lblMaxValue2
             // 
-            this.lblMaxValue2.Location = new System.Drawing.Point(1075, 22);
+            this.lblMaxValue2.Location = new System.Drawing.Point(1229, 28);
+            this.lblMaxValue2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblMaxValue2.Name = "lblMaxValue2";
-            this.lblMaxValue2.Size = new System.Drawing.Size(21, 14);
+            this.lblMaxValue2.Size = new System.Drawing.Size(24, 18);
             this.lblMaxValue2.TabIndex = 1;
             this.lblMaxValue2.Text = "100";
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(1049, 39);
+            this.labelControl21.Location = new System.Drawing.Point(1199, 50);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(5, 14);
+            this.labelControl21.Size = new System.Drawing.Size(6, 18);
             this.labelControl21.TabIndex = 1;
             this.labelControl21.Text = "/";
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(1049, 22);
+            this.labelControl18.Location = new System.Drawing.Point(1199, 28);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(5, 14);
+            this.labelControl18.Size = new System.Drawing.Size(6, 18);
             this.labelControl18.TabIndex = 1;
             this.labelControl18.Text = "/";
             // 
             // lblValue3
             // 
-            this.lblValue3.Location = new System.Drawing.Point(1019, 39);
+            this.lblValue3.Location = new System.Drawing.Point(1165, 50);
+            this.lblValue3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblValue3.Name = "lblValue3";
-            this.lblValue3.Size = new System.Drawing.Size(7, 14);
+            this.lblValue3.Size = new System.Drawing.Size(8, 18);
             this.lblValue3.TabIndex = 1;
             this.lblValue3.Text = "0";
             // 
             // labelControl14
             // 
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl14.Location = new System.Drawing.Point(827, 29);
+            this.labelControl14.Location = new System.Drawing.Point(945, 37);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(11, 14);
+            this.labelControl14.Size = new System.Drawing.Size(13, 18);
             this.labelControl14.TabIndex = 1;
             this.labelControl14.Text = "5.";
             this.labelControl14.Click += new System.EventHandler(this.labelControl3_Click);
             // 
             // lblValue2
             // 
-            this.lblValue2.Location = new System.Drawing.Point(1019, 22);
+            this.lblValue2.Location = new System.Drawing.Point(1165, 28);
+            this.lblValue2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblValue2.Name = "lblValue2";
-            this.lblValue2.Size = new System.Drawing.Size(7, 14);
+            this.lblValue2.Size = new System.Drawing.Size(8, 18);
             this.lblValue2.TabIndex = 1;
             this.lblValue2.Text = "0";
             // 
             // labelControl12
             // 
             this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl12.Location = new System.Drawing.Point(632, 26);
+            this.labelControl12.Location = new System.Drawing.Point(722, 33);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(11, 14);
+            this.labelControl12.Size = new System.Drawing.Size(13, 18);
             this.labelControl12.TabIndex = 1;
             this.labelControl12.Text = "4.";
             this.labelControl12.Click += new System.EventHandler(this.labelControl3_Click);
@@ -861,9 +906,10 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl7.Location = new System.Drawing.Point(539, 26);
+            this.labelControl7.Location = new System.Drawing.Point(616, 33);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(11, 14);
+            this.labelControl7.Size = new System.Drawing.Size(13, 18);
             this.labelControl7.TabIndex = 1;
             this.labelControl7.Text = "3.";
             this.labelControl7.Click += new System.EventHandler(this.labelControl3_Click);
@@ -871,9 +917,10 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl5.Location = new System.Drawing.Point(447, 26);
+            this.labelControl5.Location = new System.Drawing.Point(511, 33);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(11, 14);
+            this.labelControl5.Size = new System.Drawing.Size(13, 18);
             this.labelControl5.TabIndex = 1;
             this.labelControl5.Text = "2.";
             this.labelControl5.Click += new System.EventHandler(this.labelControl3_Click);
@@ -881,101 +928,112 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl3.Location = new System.Drawing.Point(358, 26);
+            this.labelControl3.Location = new System.Drawing.Point(409, 33);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(11, 14);
+            this.labelControl3.Size = new System.Drawing.Size(13, 18);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "1.";
             this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(849, 26);
+            this.labelControl13.Location = new System.Drawing.Point(970, 33);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(148, 14);
+            this.labelControl13.Size = new System.Drawing.Size(185, 18);
             this.labelControl13.TabIndex = 1;
             this.labelControl13.Text = "点击职权信息 预览职权信息";
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(649, 26);
+            this.labelControl11.Location = new System.Drawing.Point(742, 33);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(144, 14);
+            this.labelControl11.Size = new System.Drawing.Size(180, 18);
             this.labelControl11.TabIndex = 1;
             this.labelControl11.Text = "双击职权信息读取职权信息";
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(556, 26);
+            this.labelControl6.Location = new System.Drawing.Point(635, 33);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(48, 14);
+            this.labelControl6.Size = new System.Drawing.Size(60, 18);
             this.labelControl6.TabIndex = 1;
             this.labelControl6.Text = "读取部门";
             // 
             // labelControl15
             // 
             this.labelControl15.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl15.Location = new System.Drawing.Point(802, 26);
+            this.labelControl15.Location = new System.Drawing.Point(917, 33);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(13, 14);
+            this.labelControl15.Size = new System.Drawing.Size(16, 18);
             this.labelControl15.TabIndex = 1;
             this.labelControl15.Text = "->";
             // 
             // labelControl10
             // 
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl10.Location = new System.Drawing.Point(610, 26);
+            this.labelControl10.Location = new System.Drawing.Point(697, 33);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(13, 14);
+            this.labelControl10.Size = new System.Drawing.Size(16, 18);
             this.labelControl10.TabIndex = 1;
             this.labelControl10.Text = "->";
             // 
             // labelControl9
             // 
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl9.Location = new System.Drawing.Point(519, 26);
+            this.labelControl9.Location = new System.Drawing.Point(593, 33);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(13, 14);
+            this.labelControl9.Size = new System.Drawing.Size(16, 18);
             this.labelControl9.TabIndex = 1;
             this.labelControl9.Text = "->";
             // 
             // labelControl8
             // 
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl8.Location = new System.Drawing.Point(429, 26);
+            this.labelControl8.Location = new System.Drawing.Point(490, 33);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(13, 14);
+            this.labelControl8.Size = new System.Drawing.Size(16, 18);
             this.labelControl8.TabIndex = 1;
             this.labelControl8.Text = "->";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(464, 26);
+            this.labelControl4.Location = new System.Drawing.Point(530, 33);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(48, 14);
+            this.labelControl4.Size = new System.Drawing.Size(60, 18);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "查询数据";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(375, 26);
+            this.labelControl1.Location = new System.Drawing.Point(429, 33);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 14);
+            this.labelControl1.Size = new System.Drawing.Size(60, 18);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "选择目录";
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 637);
+            this.ClientSize = new System.Drawing.Size(1370, 745);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "行政责任清单和权利清单管理系统";

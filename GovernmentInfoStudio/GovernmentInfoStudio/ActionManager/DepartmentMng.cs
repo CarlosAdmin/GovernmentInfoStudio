@@ -558,7 +558,7 @@ namespace GovernmentInfoStudio.ActionManager
 
        static int sortId = 0;
 
-        public static bool Insert(TblAuthorityMattery data)
+        public static bool Insert(TblAuthorityMattery data,bool isDeletae=false)
         {
             try
             {
@@ -584,10 +584,12 @@ namespace GovernmentInfoStudio.ActionManager
 
                         #endregion
 
+                        data.AuthorityMatteryID = queryData.AuthorityMatteryID;
+
                         #region 是否存在明细
 
                         SqlQueryCondition sqlCondit = new SqlQueryCondition();
-                        sqlCondit.Where.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, data.AuthorityMatteryID);
+                        sqlCondit.Where.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, queryData.AuthorityMatteryID);
 
                         int rowCount = 0;
                         if (!TblAuthorityMatteryDetailCtrl.QueryCount(sqlCondit, session, ref rowCount, ref errMsg))
@@ -595,7 +597,23 @@ namespace GovernmentInfoStudio.ActionManager
                             return false;
                         }
 
-                        data.AuthorityMatteryID = queryData.AuthorityMatteryID;
+                        if (rowCount >= 1)
+                        {
+                            if (!isDeletae)
+                            {
+                                return false;
+                            }
+
+                            SqlWhereList delate = new SqlWhereList();
+                            delate.Add(TblAuthorityMatteryDetail.GetAuthorityMatteryIDField(), SqlWhereCondition.Equals, queryData.AuthorityMatteryID);
+
+                            if (!TblAuthorityMatteryDetailCtrl.Delete(delate, session, ref rowCount, ref errMsg))
+                            {
+                                return false;
+                            }
+                        }
+
+                        
 
                         #endregion
                     }

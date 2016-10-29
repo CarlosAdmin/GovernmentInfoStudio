@@ -359,7 +359,7 @@ namespace GovernmentInfoStudio
                     return;
                 }
 
-                DepartmentMng.Insert(Mattery);
+                DepartmentMng.Insert(Mattery,true);
 
                 focusedRow.AuthorityMatteryDetail = Mattery.AuthorityMatteryDetailList[0];
                 focusedRow.AuthorityMatteryCode = Mattery.AuthorityMatteryDetailList[0].AuthorityCode;
