@@ -458,7 +458,34 @@ namespace GovernmentInfoStudio
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string errMsg = string.Empty;
 
+                if (departList.Count < 0)
+                {
+                    DepartmentMng.GetList(ref departList, ref errMsg);
+                }
+
+                if (categoryList.Count <= 0)
+                {
+                    DepartmentMng.GetList(ref categoryList, ref errMsg);
+                }
+
+                var dataList = new List<TblAuthorityMattery>();
+
+                if (!AuthorityMatteryMng.GetList(new SqlQuerySqlMng(), ref dataList, ref errMsg))
+                {
+                    XtraMessageBox.Show(errMsg);
+                    return;
+                }
+
+
+            }
+            catch (Exception exception)
+            {
+
+            }
         }
 
     }
