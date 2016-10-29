@@ -1033,7 +1033,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
-            this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Padding = new System.Windows.Forms.Padding(6);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "行政责任清单和权利清单管理系统";

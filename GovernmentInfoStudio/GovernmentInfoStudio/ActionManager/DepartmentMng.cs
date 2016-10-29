@@ -613,8 +613,6 @@ namespace GovernmentInfoStudio.ActionManager
                             }
                         }
 
-                        
-
                         #endregion
                     }
                     else

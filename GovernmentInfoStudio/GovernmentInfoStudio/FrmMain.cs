@@ -67,6 +67,10 @@ namespace GovernmentInfoStudio
             c_grcMain.DataSource = departList;
 
             DepartmentMng.GetList(ref categoryList, ref errMsg);
+
+            groupControl5.Visible = false;
+            groupControl6.Visible = false;
+            groupControl3.Height = 部门进度.Height;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -139,6 +143,10 @@ namespace GovernmentInfoStudio
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            groupControl5.Visible = false;
+            groupControl6.Visible = false;
+            groupControl3.Height = 部门进度.Height;
+
             if (string.IsNullOrEmpty(buttonEdit2.Text))
             {
                 return;
@@ -722,6 +730,10 @@ namespace GovernmentInfoStudio
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
+            groupControl5.Visible = true;
+            groupControl6.Visible = true;
+            groupControl3.Height = 部门进度.Height + groupControl5.Height + groupControl6.Height;
+
             if (backUpdateData.IsBusy)
             {
                 return;
